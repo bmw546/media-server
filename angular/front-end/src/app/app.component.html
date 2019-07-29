@@ -1,35 +1,52 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-sidenav-container>
 
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" style="background-color:powderblue;" Fixed >
-    <div >
-        SIDE NAVIGATION
+  <mat-sidenav #sidenav mode="over" Fixed>
+    <div>
+      LOGO/TITLE
     </div>
-    
+    <div>
+      <mat-nav-list>
+
+        <!-- <a mat-button [routerLink]="'/accounts'"> Accounts </a>-->
+        <mat-list-item >
+          <button 
+            mat-button 
+            [routerLink]="'/main/menu'"
+            class="navbutton" >
+            Menu 
+          </button>
+        </mat-list-item>
+
+        <mat-list-item>
+          <button 
+            class="navbutton" 
+            mat-button [matMenuTriggerFor]="userSubMenu">
+            Username ?
+          </button>
+          
+          <mat-menu #userSubMenu="matMenu">
+            <button mat-menu-item class="navbutton">Settings</button>
+            <button mat-menu-item class="navbutton">Help</button>
+          </mat-menu>
+        </mat-list-item>
+        
+        <mat-list-item>
+            <a mat-button> </a>
+          </mat-list-item>
+  
+          <mat-list-item>
+  
+          </mat-list-item>
+
+      </mat-nav-list>
+    </div>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
-    <div style="text-align:center">
-      <h1>
-        Welcome to {{ title }}!
-      </h1>
-    </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-      <li>
-        <h2><a href="/main/menu"> GO TO THE MENU !</a></h2>
-      </li>
-    </ul>
+  <mat-sidenav-content style="height: 100vh;">
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
