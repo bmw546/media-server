@@ -2,7 +2,10 @@
 <mat-sidenav-container>
 
   <mat-sidenav #sidenav mode="over" Fixed>
-    <div>
+    <div class='SideNavMenuItem'>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.close()">menu</mat-icon>
+      </button>
       LOGO/TITLE
     </div>
     <div>
@@ -45,7 +48,7 @@
 
   <mat-sidenav-content style="height: 100vh;">
     <button mat-icon-button>
-      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      <mat-icon (click)="sidenav.open()">menu</mat-icon>
     </button>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
