@@ -19,14 +19,19 @@ export class ImagesGalleryComponent implements OnInit {
 
   onclick(element){
     this.LightBoxElement = element;
+    document.getElementById('lightboximg').setAttribute("src",this.Images[element]);
+    document.getElementById('lightboximg').style.display = "block";
+    document.getElementById('lightboxbackground').style.display = "block";
   }
 
   existLightBox(){
 
     if(this.LightBoxElement !== undefined){
-      let modal = document.getElementById(this.LightBoxElement)
+      document.getElementById('lightboximg').setAttribute("src",undefined);
     }
     this.LightBoxElement = undefined;
+    document.getElementById('lightboximg').style.display = "none";
+    document.getElementById('lightboxbackground').style.display = "none";
   }
 
 
