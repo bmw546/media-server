@@ -19,23 +19,20 @@ export class ImagesGalleryComponent implements OnInit {
 
   onclick(element){
     this.LightBoxElement = element;
-    document.getElementById('lightboximg').setAttribute("src",this.Images[element]);
-    document.getElementById('lightboximg').style.display = "block";
-    document.getElementById('lightboxbackground').style.display = "block";
+    document.getElementById('LightBoxImage').setAttribute('src',this.Images[element]);
+    document.getElementById('LightBoxContainer').style.display = 'block';
+    document.getElementById('LightBoxBackGround').style.display = 'block';
   }
 
   existLightBox(){
 
     if(this.LightBoxElement !== undefined){
-      document.getElementById('lightboximg').setAttribute("src",undefined);
+      document.getElementById('LightBoxImage').setAttribute('src',undefined);
     }
     this.LightBoxElement = undefined;
-    document.getElementById('lightboximg').style.display = "none";
-    document.getElementById('lightboxbackground').style.display = "none";
+    document.getElementById('LightBoxContainer').style.display = 'none';
+    document.getElementById('LightBoxBackGround').style.display = 'none';
   }
-
-
-  
 }
 /*
 // -------------------------- LIGHT BOX ------------------------------------------
