@@ -4,3 +4,14 @@
 <div id='LightBoxContainer' class='lightBox'>
     <img id='LightBoxImage'/>
 </div>
+<div class="row">
+    <ul>
+        <li  *ngFor="let img of (allImages | Images) ; let i = index">
+            <div class="imageBox" ng-click="onclick(i)">
+                <!-- Her is our card that will be repeated each time-->
+                <img>
+            </div>
+            {i+1}
+        </li>
+    </ul>
+</div>
