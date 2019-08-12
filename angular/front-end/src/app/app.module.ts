@@ -4,6 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// HTTP
+import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientXsrfModule } from '@angular/common/http';
+// ---------------------
+
+
 // Angular material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './app.angular.material.module';
@@ -15,6 +21,8 @@ import {AngularMaterialModule} from './app.angular.material.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule, // import HttpClientModule after BrowserModule.
+
     AppRoutingModule,
     AngularMaterialModule
   ],
