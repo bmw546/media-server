@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { catchError, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpEventType } from '@angular/common/http';
 import { ServerConfig } from './serverConfigs';
 
 import { ToolBox } from './toolBox';
@@ -20,22 +20,13 @@ export class HttpFactoryService {
 
     const body = ToolBox.JsonObject(object);
 
-    var config = {};
+    const config = this.BuildHeaderJson(params);
 
-    if(params !== null && params.length > 0) {
-      let httpParams = new HttpParams();
-      params.forEach(param =>{
-        httpParams.append(param.key, param.value);
-      });
-      config = { headers: new HttpHeaders().set('Content-Type', 'application/json'), params:httpParams; };
-    }else{
-      config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    }
-    
-
+    // HTTP REQUEST
     return this.http.post<string>(
       'http://' + this.configServer.ServerHost + url, body, config
     ).pipe(
+      // Transform the object back to his entities form
       map(stringifyObject => {
         return ToolBox.DeJsonObject(stringifyObject);
       }),
@@ -49,36 +40,55 @@ export class HttpFactoryService {
 
   // see https://stackoverflow.com/questions/47936183/angular-file-upload/47938117#47938117
   // https://stackoverflow.com/questions/45530752/getting-image-from-api-in-angular-4-5
-  public getImage(imageUrl: string): Observable<Blob> {
+  public getImage(imageUrl: string, params: object[] = null): Observable<Blob> {
+    const config = this.BuildHeaderJson(params);
+
     return this.http.get(
       imageUrl, { responseType: 'blob' });
-    }
+  }
+
+  public PostFile(url: string, fileUpload: File, params: object[] = null) {
+    // see https://www.techiediaries.com/angular-file-upload-progress-bar/
+    const config = this.BuildHeaderJson(params);
 
 
-  public PostFile(url:string, fileUpload: File){
+    return this.http.post<any>('http://' + this.configServer.ServerHost + url, fileUpload, {
+      reportProgress: true,
+      observe: 'events'
+    }).pipe(map((event) => {
+
+      switch (event.type) {
+        case HttpEventType.UploadProgress:
+          return { status: 'progress', message: Math.round(100 * event.loaded / event.total) };
+
+        case HttpEventType.Response:
+          return event.body;
+
+        default:
+          return `Error the file upload Failed : ${event.type}`;
+      }
+    }));
+  }
+
+  public Stream(url: string, params: object[] = null){
 
   }
-}
-  /*
-    public getOne(url: string, object: object, header) {
-      return this.http.get<object>(
-        "http://" + this.configServer.ServerHost + url,
-        ToolBox.JsonObject(object),
-        header
-      )
-      .pipe{
-        map(
-          stringifyObject => {
-            return ToolBox.DeJsonObject(stringifyObject)
-          }
-        )},
-      .catch((err: HttpErrorResponse) => {
-        // simple logging, but you can do a lot more, see below
-        console.error('An error occurred:', err.error);
+
+  // Will create a header for Json Application with patameters
+  private BuildHeaderJson(params: object[]) {
+    let config = {};
+
+    if (params !== null && params.length > 0) {
+      const httpParams = new HttpParams();
+      params.forEach(param => {
+        httpParams.append(param.key, param.value);
       });
-  
-      }
-  
+      config = { headers: new HttpHeaders().set('Content-Type', 'application/json'), params: httpParams };
+    } else {
+      config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     }
-    */
+
+    return config;
+  }
 }
+
