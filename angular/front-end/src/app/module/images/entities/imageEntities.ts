@@ -4,7 +4,7 @@ import { ImageDto } from '../dtos/image-dto';
 
 
 @Injectable()
-export class ImageObject extends Parameter {
+export class ImageEntities extends Parameter {
 
     // This object will contains and convert to a usable data from the images.
     public creationDate: number;
@@ -19,9 +19,11 @@ export class ImageObject extends Parameter {
 
     public owner: string;
 
-    public imageUrl: string;
+    public image: HTMLImageElement;   // The image
 
     FromDto(imageDto: ImageDto ) {
+
+        this.image = new Image();
 
         this.imageBlob = imageDto.imageBlob;
         this.sizeKb = imageDto.sizeKb;
@@ -29,7 +31,7 @@ export class ImageObject extends Parameter {
         this.date = imageDto.date;
         this.creationDate = Date.parse(imageDto.date);
 
-        this.imageUrl = URL.createObjectURL(imageDto.imageBlob);
+        this.image.src = URL.createObjectURL(imageDto.imageBlob);
     }
 
 }
