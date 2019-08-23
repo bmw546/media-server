@@ -20,7 +20,7 @@ export class HttpFactoryService {
 
   constructor(private http: HttpClient, private configServer: ServerConfig) { }
 
-  // TODO make a params object
+
   public post(url: string, object: object, params: Parameter[] = null) {
 
     const body = ToolBox.JsonObject(object);
@@ -43,6 +43,7 @@ export class HttpFactoryService {
       }));
   }
 
+
   public getImage(imageUrl: string, params: Parameter[] = null): Observable<Blob> {
   // see https://stackoverflow.com/questions/47936183/angular-file-upload/47938117#47938117
   // https://stackoverflow.com/questions/45530752/getting-image-from-api-in-angular-4-5
@@ -51,6 +52,7 @@ export class HttpFactoryService {
     return this.http.get(
       imageUrl, { responseType: 'blob' });
   }
+
 
   public PostFile(url: string, fileUpload: File, params: Parameter[] = null) {
     // see https://www.techiediaries.com/angular-file-upload-progress-bar/
@@ -72,6 +74,7 @@ export class HttpFactoryService {
     return this.http.get<Stream>('http://' + this.configServer.ServerHost + url, config);
   }
 
+
   private BuildHeaderJsonUpload(params: Parameter[]) {
     // Will create a header for Json Application with parameters
     let config = {};
@@ -88,6 +91,7 @@ export class HttpFactoryService {
 
     return config;
   }
+
 
   private BuildHeaderJson(params: Parameter[]) {
     // Will create a header for Json Application with parameters
@@ -106,9 +110,9 @@ export class HttpFactoryService {
     return config;
   }
 
-  // Will create a header for Video Application with parameters
-  private BuildHeaderMedia(params: Parameter[], extension: string) {
 
+  private BuildHeaderMedia(params: Parameter[], extension: string) {
+    // Will create a header for Video Application with parameters
     let config = {};
     let mediaType: string;
 
@@ -117,8 +121,10 @@ export class HttpFactoryService {
 
     if (['mp3', 'avi', 'ogg', 'flac', 'wav'].indexOf(extension) > -1 ) {
       mediaType = 'audio/';
-    } else {
+    } else if (['mp4', 'avi', 'mov', 'mkv', 'wmv', 'flv'].indexOf(extension) > -1 ) {
       mediaType = 'video/';
+    } else {
+
     }
 
     if (params !== null && params.length > 0) {
