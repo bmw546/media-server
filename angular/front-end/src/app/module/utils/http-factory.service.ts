@@ -117,7 +117,7 @@ export class HttpFactoryService {
     let mediaType: string;
 
     // It easier to get them at lowercase
-    extension = extension.toLowerCase()
+    extension = extension.toLowerCase();
 
     if (['mp3', 'avi', 'ogg', 'flac', 'wav'].indexOf(extension) > -1 ) {
       mediaType = 'audio/';
