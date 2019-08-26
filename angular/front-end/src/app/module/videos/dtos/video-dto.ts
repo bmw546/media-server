@@ -1,8 +1,10 @@
+import { ImageDto } from '../../images/dtos/image-dto';
 
-export class VideoDto{
+export class VideoDto {
     public VideoId: number;
-    public imageName: string;
+    public videoName: string;
     public sizeKb: number;
     public date: string;
     public owner: string;
+    public image: ImageDto;
 }

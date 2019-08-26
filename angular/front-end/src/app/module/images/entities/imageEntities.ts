@@ -34,4 +34,13 @@ export class ImageEntities extends Parameter {
         this.image.src = URL.createObjectURL(imageDto.imageBlob);
     }
 
+    ToDto() {
+        var imageDto = new ImageDto();
+        imageDto.sizeKb = this.sizeKb;
+        imageDto.owner = this.owner;
+        imageDto.imageBlob = this.imageBlob;
+        imageDto.date = this.date;
+
+        return imageDto;
+    }
 }
