@@ -32,5 +32,6 @@ export class VideoEntities extends Parameter {
         this.date = videoDto.date;
         this.creationDate = Date.parse(videoDto.date);
     }
+    // Cannot have to DTO since it will be an upload (file TOO big)
 
 }
