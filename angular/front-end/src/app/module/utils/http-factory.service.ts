@@ -21,6 +21,7 @@ export class HttpFactoryService {
   constructor(private http: HttpClient, private configServer: ServerConfig) { }
 
 
+  // Post some object stuff to the server
   public post(url: string, object: object, params: Parameter[] = null) {
 
     const body = ToolBox.JsonObject(object);
@@ -43,7 +44,7 @@ export class HttpFactoryService {
       }));
   }
 
-
+  //Get image in blob type. The server should be 'lazy load' so we can see the image loading and not in "One time"
   public getImage(imageUrl: string, params: Parameter[] = null): Observable<Blob> {
   // see https://stackoverflow.com/questions/47936183/angular-file-upload/47938117#47938117
   // https://stackoverflow.com/questions/45530752/getting-image-from-api-in-angular-4-5
@@ -54,6 +55,7 @@ export class HttpFactoryService {
   }
 
 
+  // Send file to the server (should be ok if its a big file need testing TODO test)
   public PostFile(url: string, fileUpload: File, params: Parameter[] = null) {
     // see https://www.techiediaries.com/angular-file-upload-progress-bar/
     // https://stackoverflow.com/questions/40214772/file-upload-in-angular (to a .subscribe())
@@ -67,6 +69,7 @@ export class HttpFactoryService {
   }
 
 
+  // Return a video stream from the server
   public getStreamVideo(url: string, params: Parameter[] = null, extension: string) {
     // Get a video stream from the server. Can send parameter
     const config = this.BuildHeaderMedia(params, extension);
@@ -74,7 +77,7 @@ export class HttpFactoryService {
     return this.http.get<Stream>('http://' + this.configServer.ServerHost + url, config);
   }
 
-
+  
   private BuildHeaderJsonUpload(params: Parameter[]) {
     // Will create a header for Json Application with parameters
     let config = {};
@@ -92,7 +95,7 @@ export class HttpFactoryService {
     return config;
   }
 
-
+  
   private BuildHeaderJson(params: Parameter[]) {
     // Will create a header for Json Application with parameters
     let config = {};
