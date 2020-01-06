@@ -6,5 +6,6 @@ export class VideoDto {
     public sizeKb: number;
     public date: string;
     public owner: string;
+    public description: string;
     public image: ImageDto;
 }

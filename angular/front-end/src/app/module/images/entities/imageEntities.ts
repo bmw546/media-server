@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Parameter } from '../../utils/parameterEntities';
 import { ImageDto } from '../dtos/image-dto';
-import { coreEntities } from '../../core/entities/coreEntities'
 
 @Injectable()
-export class ImageEntities extends coreEntities{
+export class ImageEntities extends Parameter {
 
     // This object will contains and convert to a usable data from the images.
     public creationDate: number;
@@ -35,7 +34,7 @@ export class ImageEntities extends coreEntities{
     }
 
     ToDto() {
-        var imageDto = new ImageDto();
+        const imageDto = new ImageDto();
         imageDto.sizeKb = this.sizeKb;
         imageDto.owner = this.owner;
         imageDto.imageBlob = this.imageBlob;

@@ -21,6 +21,8 @@ export class VideoEntities extends Parameter {
 
     public owner: string;
 
+    public description: string;
+
     public image: ImageEntities;   // The image
 
     FromDto(videoDto: VideoDto ) {
@@ -30,6 +32,7 @@ export class VideoEntities extends Parameter {
         this.sizeKb = videoDto.sizeKb;
         this.owner = videoDto.owner;
         this.date = videoDto.date;
+        this.description = videoDto.description;
         this.creationDate = Date.parse(videoDto.date);
     }
     // Cannot have to DTO since it will be an upload (file TOO big)

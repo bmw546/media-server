@@ -24,14 +24,24 @@ export class ImagesGalleryComponent implements OnInit {
     document.getElementById('LightBoxBackGround').style.display = 'block';
   }
 
-  existLightBox(){
-
-    if(this.LightBoxElement !== undefined){
-      document.getElementById('LightBoxImage').setAttribute('src',undefined);
-    }
+  removeLightBox(){
     this.LightBoxElement = undefined;
     document.getElementById('LightBoxContainer').style.display = 'none';
     document.getElementById('LightBoxBackGround').style.display = 'none';
+  }
+
+  exitLightBox(){
+    if(this.LightBoxElement !== undefined){
+      document.getElementById('LightBoxImage').setAttribute('src',undefined);
+    }
+    this.removeLightBox();
+  }
+
+  onclickMultimedia(element){
+
+  }
+  exitMultimediaLightBox(){
+    this.removeLightBox();
   }
 }
 /*
