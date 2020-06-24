@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bmw546/media-server/issues"
   },
-  "homepage": "https://github.com/bmw546/media-server#readme"
+  "homepage": "https://github.com/bmw546/media-server#readme",
+  "dependencies": {
+    "servercore": "file:core"
+  }
 }
