@@ -1,18 +1,10 @@
-// 'Normal' Base DTO
+// 'Normal' Base entity
 
 /**
- * @description Base dto 
+ * @description Base entity 
  */
-class BaseDto{
-    
-    /** @param {BaseDto} params*/
-    constructor(params){
-        
-        /** @type {number} */
-        this.id = JsUtil.undefinedIfNothing(params.id);
-    
-    }
-    
+class BaseEntity {
+
 }
 
-module.exports = BaseDto;
+module.exports = BaseEntity;

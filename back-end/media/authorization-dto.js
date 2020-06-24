@@ -10,6 +10,7 @@ class AuthorizationDto extends BaseDto{
      */
     constructor(params){
         super();
+        
 
         /** @type {UserDto} */
         this.creator = JsUtil.undefinedIfNothing(params.creator);
