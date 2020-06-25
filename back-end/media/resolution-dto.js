@@ -1,9 +1,9 @@
-const BaseDto = require('../core/base-dto');
+const BaseIdDto = require('servercore/entities/base-id-dto');
 
 /**
  * @description
  */
-class ResolutionDto extends BaseDto{
+class ResolutionDto extends BaseIdDto{
     /**
      * 
      * @param {ResolutionDto} params

@@ -1,16 +1,14 @@
-const JsUtil = require('../core/util/js-util');
-
-const BaseDto = require('../core/base-dto');
+const BaseIdDto = require('servercore/entities/base-id-dto');
 
 const ResolutionDto = require('./resolution-dto');
-const AuthorizationDto = require('../authorization-dto');
-const TagsDto = require('../core/tags-dto');
+const AuthorizationDto = require('./authorization-dto');
+const TagsDto = require('servercore/entities/tags-dto');
 
 
 /**
  * @description This is the 'main' dto for all media (image/video/music)
  */
-class MediaDto  extends BaseDto{
+class MediaDto  extends BaseIdDto{
 
     /** @param {MediaDto} params */
     constructor(params){

@@ -2,9 +2,8 @@
 
 /**
  * @description Base with id
- * @entity 
  */
-class BaseIdEntity{
+class BaseIdDto{
 
     /** @param {TagsDto} params*/
     constructor(params){
@@ -15,4 +14,4 @@ class BaseIdEntity{
     }    
 }
 
-module.exports = BaseIdEntity;
+module.exports = BaseIdDto;

@@ -1,16 +1,16 @@
-const BaseDto = require('../core/base-dto');
+const BaseIdDto = require('servercore/entities/base-id-dto');
 
 /**
  * @description
  */
-class AuthorizationDto extends BaseDto{
+class AuthorizationDto extends BaseIdDto{
     /**
      * 
      * @param {AuthorizationDto} params
      */
     constructor(params){
         super();
-        
+
 
         /** @type {UserDto} */
         this.creator = JsUtil.undefinedIfNothing(params.creator);
