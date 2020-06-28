@@ -3,6 +3,8 @@ const http = require('http');
 
 const express = require('express');
 
+// Load the DB handler. (It will create it)
+const {postGres} = require("servercore/postgres/postgresPipe");
 
 const app = express();
 /*
