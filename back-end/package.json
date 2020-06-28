@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bmw546/media-server#readme",
   "dependencies": {
+    "lodash": "^4.17.15",
     "pg": "^8.2.1",
     "servercore": "file:core"
   }
