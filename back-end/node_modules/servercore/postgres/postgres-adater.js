@@ -11,6 +11,8 @@ class postgress{
         await client.connect();
         res = await client.query(query);
         await client.end();
-        return res;
+        return res; 
     }
+    //@see : https://node-postgres.com/
+    // use transaction ?
 }
