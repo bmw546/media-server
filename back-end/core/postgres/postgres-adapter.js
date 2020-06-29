@@ -11,17 +11,10 @@ const dbConfigs = require('./post-gres-config');
 const client = new Client(dbConfigs);
 const pool = new Pool(dbConfigs);
 
-/** Check if the db exist if not create it. */
-try{
-    client.query('`SELECT EXISTS(SELECT datname FROM pg_catalog.pg_database WHERE datname = $1);`', [dbConfigs.database]);
-    client.none('CREATE DATABASE $1:name', [dbConfigs.database]);
-} catch (e){
-    throw e;
-}
 class PostGres{
 
     /** @private
-     * @description Used for straight forward (without transaction);
+     * @description Used for straight forward (without transaction) e.g: Create table ;
      */
     async executeQuery(query){
         await client.connect();
