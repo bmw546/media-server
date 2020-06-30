@@ -13,19 +13,29 @@ const pool = new Pool(dbConfigs);
 
 class PostGres{
 
-    /** @private
-     * @description Used for straight forward (without transaction) e.g: Create table ;
-     */
-    async executeQuery(query){
-        await client.connect();
-        let res = await client.query(query);
-        await client.end();
-        return res; 
-    }
+    
     //@see : https://node-postgres.com/
     // use transaction ?
 
+    // -------------------- 'NORMAL QUERY' ----------------------- //
+    /**
+     * @description Used for straight forward (without transaction) e.g: Create table ;
+     */
+    async executeQuery(query, value){
+        let res;
+        await client.connect();
 
+        try{
+            res = await client.query(query, value);
+        }catch(e){
+            // TODO add some error handling
+            throw e;
+        } finally{
+            await client.end();
+        }
+        
+        return res; 
+    }
     // -------------------- Transaction -------------------------- //
     /**
      * @private
@@ -38,10 +48,12 @@ class PostGres{
         // If the connection fail it will throw and we won't need to dispose the transactionClient.
         const transactionClient = await pool.connect();
 
+        let res;
+        
         try{
             await transactionClient.query('BEGIN');
 
-            await transactionClient.query(query);
+            res = await transactionClient.query(query, values);
 
             await transactionClient.query('COMMIT');
 
@@ -53,6 +65,7 @@ class PostGres{
         } finally {
             transactionClient.release();
         }
+        return res
     }
 }
 
