@@ -1,7 +1,10 @@
 var lodash = require('lodash');
 //lodash wiki : https://lodash.com/docs/4.17.15#isNil
 
-class JsUtil{
+/**
+ * @description A class that contains multiple function to simplify the use of javascript.
+ */
+class JsUtil extends lodash{
 
     /**
      * @description Check if the value is nil (null/undefined) will return the default value or undefined per default.
@@ -20,6 +23,8 @@ class JsUtil{
 
         return value;
     }
+
+
 
     
 

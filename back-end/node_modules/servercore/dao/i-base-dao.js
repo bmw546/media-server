@@ -1,3 +1,5 @@
+const NotImplementedError = require('servercore/errors/not-implemented-error');
+
 /**
  * @abstract
  * 
@@ -11,43 +13,55 @@ class IBaseDao{
      * 
      * @description Function that will build the table for the specified dao.
      */
-    buildTable(){}
+    buildTable(){
+        throw new NotImplementedError('buildTable');
+    }
 
     /**
      * @abstract
      * 
      * @description Function that will build the relation for the specified dao.
      */
-    buildRelation(){}
+    buildRelation(){
+        throw new NotImplementedError('buildRelation');
+    }
 
     //------------------- Base Function that everyone should have ----------------------------- //
     /**
      * @abstract
      * 
-     * @description Retrieve from the database
+     * @description Retrieve from the database with a specific id
      */
-    get(){}
+    select(){
+        throw new NotImplementedError('select');
+    }
 
     /**
      * @abstract
      * 
      * @description Set a value to the database
      */
-    set(){}
+    commit(){
+        throw new NotImplementedError('commit');
+    }
 
     /**
      * @abstract
      * 
      * @description Modify a value to the database
      */
-    mod(){}
+    modify(){
+        throw new NotImplementedError('modify');
+    }
 
     /**
      * @abstract
      * 
      * @description Delete a value from the database
      */
-    del(){}
+    delete(){
+        throw new NotImplementedError('delete');
+    }
 }
 
 module.exports = IBaseDao;

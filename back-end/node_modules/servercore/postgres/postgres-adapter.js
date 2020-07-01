@@ -17,6 +17,13 @@ class PostGres{
     //@see : https://node-postgres.com/
     // use transaction ?
 
+    constructor(){
+        /**@description A list of function to execute to create table */
+        this.tableToCreate = [];
+
+        /**@description A list of function to execute to create the foreign key*/
+        this.tableToModify = [];
+    }
     // -------------------- 'NORMAL QUERY' ----------------------- //
     /**
      * @description Used for straight forward (without transaction) e.g: Create table ;
@@ -66,6 +73,28 @@ class PostGres{
             transactionClient.release();
         }
         return res
+    }
+
+    // ----------------- Table Create and Modify -------------------
+    /**@description add a create table query to the list to execute later. */
+    addCreateTable(createTable){
+        this.tableToCreate.push(createTable);
+    }
+
+    /**@description add a modify table query to the list to execute later. */
+    addModifyTable(modifyTable){
+        this.tableToModify.push(modifyTable);
+    }
+
+    /**@description Will execute every create and modify query. */
+    async executeTableQueries(){
+        for(let createTable of this.tableToCreate){
+            await createTable();
+        }
+
+        for(let modifyTable of this.tableToModify){
+            await modifyTable();
+        }
     }
 }
 

@@ -5,4 +5,4 @@ const configs = {
     user: 'postgres',
     password: 'admin'
 };
-module.exports = configs
+module.exports = configs;
