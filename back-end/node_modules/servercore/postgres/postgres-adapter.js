@@ -8,7 +8,6 @@ const { Client, Pool } = require('pg');
 
 const dbConfigs = require('./post-gres-config');
 
-const client = new Client(dbConfigs);
 const pool = new Pool(dbConfigs);
 
 class PostGres{
@@ -30,15 +29,12 @@ class PostGres{
      */
     async executeQuery(query, value){
         let res;
-        await client.connect();
 
         try{
-            res = await client.query(query, value);
+            res = await pool.query(query, value);
         }catch(e){
             // TODO add some error handling
             throw e;
-        } finally{
-            await client.end();
         }
         
         return res; 
@@ -75,6 +71,10 @@ class PostGres{
         return res
     }
 
+
+    async shutdownPool(){
+        await pool.end();
+    }
     // ----------------- Table Create and Modify -------------------
     /**@description add a create table query to the list to execute later. */
     addCreateTable(createTable){
@@ -86,8 +86,11 @@ class PostGres{
         this.tableToModify.push(modifyTable);
     }
 
-    /**@description Will execute every create and modify query. */
+    /**@description Will execute every create table  and modify table query. */
     async executeTableQueries(){
+        
+        // We might not be able to use Promise.all() instead since:
+        // https://stackoverflow.com/questions/40034119/promises-inside-for-loops-promise-all-using-psql-pg-promise-in-node
         for(let createTable of this.tableToCreate){
             await createTable();
         }
