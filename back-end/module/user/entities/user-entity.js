@@ -8,9 +8,9 @@ const BaseEntity = require('servercore/entities/base-entity');
 /**
  * @description Dto that will hold the user.
  */
-class UserDto extends BaseEntity{
+class UserEntity extends BaseEntity{
     
-    /** @param {UserDto} params*/
+    /** @param {UserEntity} params*/
     constructor(params){
         super();
 
@@ -47,4 +47,4 @@ class UserDto extends BaseEntity{
     
 }
 
-module.exports = UserDto;
+module.exports = UserEntity;

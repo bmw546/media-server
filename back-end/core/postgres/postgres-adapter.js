@@ -8,6 +8,8 @@ const { Client, Pool } = require('pg');
 
 const dbConfigs = require('./post-gres-config');
 
+const PostgresQueryEntity = require('../entities/postgres-query-entity');
+
 const pool = new Pool(dbConfigs);
 
 class PostGres{
@@ -26,12 +28,14 @@ class PostGres{
     // -------------------- 'NORMAL QUERY' ----------------------- //
     /**
      * @description Used for straight forward (without transaction) e.g: Create table ;
+     * 
+     * @param {PostgresQueryEntity} query - The query and its parameter to execute
      */
-    async executeQuery(query, value){
+    async executeQuery(query){
         let res;
 
         try{
-            res = await pool.query(query, value);
+            res = await pool.query(query.command, query.parameters);
         }catch(e){
             // TODO add some error handling
             throw e;
@@ -44,10 +48,9 @@ class PostGres{
      * @private
      * @description Execute a transaction query. Roll back if it collide with another client. 
      * @see https://node-postgres.com/features/transactions
-     * @param {*} query The query to execute.
-     * @param {*} values The query to execute. 
+     * @param {PostgresQueryEntity} query - The query and its parameter to execute
      */
-    async executeTransactionQuery(query, values){
+    async executeTransactionQuery(query){
         // If the connection fail it will throw and we won't need to dispose the transactionClient.
         const transactionClient = await pool.connect();
 
@@ -56,7 +59,7 @@ class PostGres{
         try{
             await transactionClient.query('BEGIN');
 
-            res = await transactionClient.query(query, values);
+            res = await transactionClient.query(query.command, query.parameters);
 
             await transactionClient.query('COMMIT');
 
@@ -76,27 +79,35 @@ class PostGres{
         await pool.end();
     }
     // ----------------- Table Create and Modify -------------------
-    /**@description add a create table query to the list to execute later. */
-    addCreateTable(createTable){
-        this.tableToCreate.push(createTable);
+    /**
+     * @description add a create table query to the list to execute later. 
+     * @param {PostgresQueryEntity} query - The query and its parameter to execute.
+     * */
+    addCreateTable(query){
+        this.tableToCreate.push(query);
     }
 
-    /**@description add a modify table query to the list to execute later. */
-    addModifyTable(modifyTable){
-        this.tableToModify.push(modifyTable);
+    /**
+     * @description add a modify table query to the list to execute later. 
+     * @param {PostgresQueryEntity} query - The query and its parameter to execute.
+     */
+    addModifyTable(query){
+        this.tableToModify.push(query);
     }
 
     /**@description Will execute every create table  and modify table query. */
     async executeTableQueries(){
+
+        // Might be not super useful to work on a better way to build the db since it will be only one time.
         
         // We might not be able to use Promise.all() instead since:
         // https://stackoverflow.com/questions/40034119/promises-inside-for-loops-promise-all-using-psql-pg-promise-in-node
         for(let createTable of this.tableToCreate){
-            await createTable();
+            await this.executeQuery(createTable);
         }
 
         for(let modifyTable of this.tableToModify){
-            await modifyTable();
+            await this.executeTransactionQuery(modifyTable);
         }
     }
 }

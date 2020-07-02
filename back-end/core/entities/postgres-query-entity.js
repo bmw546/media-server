@@ -12,7 +12,7 @@ class PostgresQueryEntity extends BaseEntity{
         super();
         
         /** @type {string} */
-        this.query = JsUtil.undefinedIfNothing(params.query);
+        this.command = JsUtil.undefinedIfNothing(params.command);
 
         /** @type {*[]} */
         this.parameters = JsUtil.undefinedIfNothing(params.parameters);
