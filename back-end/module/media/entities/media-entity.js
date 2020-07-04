@@ -49,6 +49,10 @@ class MediaEntities  extends BaseIdEntity{
         /** @type {number} */
         this.numberView = JsUtil.undefinedIfNothing(params.numberView);
 
+        // The type of the media only here to help query get faster.
+        /** @type {string} */
+        this.mediaTypeEntity = JsUtil.undefinedIfNothing(params.mediaTypeEntity);
+        
         //TODO remove this since music cannot have resolution
         /** @type {ResolutionDto} */
         this.resolution = JsUtil.undefinedIfNothing(params.resolution);

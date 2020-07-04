@@ -5,12 +5,18 @@ const MediaEntities = require('../entities/media-entity');
 const {postGres} = require('servercore/postgres/postgresPipe');
 
 
+
+// We use the media type to filter the type when pulling some mediaInfo.
+
+// Add the media type tables and populates it with some base info.
+require('./media-type-dao');
+
+
 // --------------- Let add the basic table --------------------
-// Mayby ask for a better generated ID
+// Maybe ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS user (
-        id INT GENERATED ALWAYS AS IDENTITY
-        (START WITH 24 INCREMENT BY 2),
+    `CREATE TABLE IF NOT EXISTS media (
+        id INT GENERATED ALWAYS AS IDENTITY,
         title STRING,
         description STRING,
         creator STRING,
@@ -21,8 +27,10 @@ postGres.addCreateTable(
         rating INT,
         numberRating INT,
         numberView INT,
+        FOREIGN KEY (mediaTypeId) REFERENCES mediaType (id)
     )`
 );
+
 
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
@@ -55,6 +63,11 @@ class MediaDao extends IBaseDao{
      * @param {MediaEntities} media 
      */
     modify(media){
+
+    }
+
+
+    delete(media){
 
     }
 
