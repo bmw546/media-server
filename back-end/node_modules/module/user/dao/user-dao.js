@@ -6,11 +6,11 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 
 
 // --------------- Let add the basic table --------------------
-
+// Mayby ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS user (
         id INT GENERATED ALWAYS AS IDENTITY
-        (START WITH 4 INCREMENT BY 3),
+        (START WITH 24 INCREMENT BY 2),
         username STRING,
         selectedPageSetting STRING,
         avatarImage STRING,
