@@ -27,9 +27,17 @@ postGres.addCreateTable(
 
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
+    `CREATE TABLE IF NOT EXISTS userPageSetting (
+        id INT GENERATED ALWAYS AS IDENTITY,
+        FOREIGN KEY user REFERENCES user (id) ,
+        FOREIGN KEY pageSetting REFERENCES pageSetting (id)
+    )`
+);
+
+postGres.addModifyTable(
     `ALTER TABLE user
         ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id)
-        ` //TODO
+    ` //TODO
 );
 class UserDao extends IBaseDao{
     
