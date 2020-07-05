@@ -8,24 +8,20 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS image (
+    `CREATE TABLE IF NOT EXISTS module (
         id INT GENERATED ALWAYS AS IDENTITY,
-        info STRING,
-        format STRING,
-        resolution STRING
+        title STRING,
+        description STRING,
+        logo STRING
     )`
 );
 
 // And then let modify it so we can add the fk key
 postGres.addModifyTable(
-    `ALTER TABLE image 
-        ADD CONSTRAINT fk_info FOREIGN KEY (info) REFERENCES media (id),
-        ADD CONSTRAINT fk_format FOREIGN KEY (format) REFERENCES imageFormat (id),
-        ADD CONSTRAINT fl_resolution FOREIGN KEY (resolution) REFERENCES resolution (id)
-    `
+    `ALTER TABLE module ADD CONSTRAINT fk_logo FOREIGN KEY (logo) REFERENCES image (id)`
 );
 
-class ImageDao extends IBaseDao{
+class ModuleDao extends IBaseDao{
     
     /**
      * Search and return the image with the corresponding id.
@@ -63,4 +59,4 @@ class ImageDao extends IBaseDao{
 
 }
 
-module.exports = ImageDao; 
+module.exports = ModuleDao; 
