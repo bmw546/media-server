@@ -16,5 +16,5 @@ postGres.addCreateTable(
 
 // Populate the table with base info
 postGres.addCreateTable(
-    `INSERT INTO mediaType (name) VALUES ('video', 'image', 'audio', 'movies')`
+    `INSERT INTO mediaType (name) VALUES ('video'), ('image'), ('audio'), ('movies')`
 );

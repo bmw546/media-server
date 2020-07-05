@@ -23,7 +23,6 @@ postGres.addCreateTable(
         authorization STRING,
         size INT,
         fileName STRING,
-        tags STRING,
         rating INT,
         numberRating INT,
         numberView INT,
@@ -32,10 +31,25 @@ postGres.addCreateTable(
 );
 
 
+
 // ------------- And then let modify them ------------------------
+
+// Add a tags
 postGres.addModifyTable(
-    `` //TODO
+    `CREATE TABLE IF NOT EXISTS tagsMedia (
+        FOREIGN KEY (fk_id) REFERENCES media (id)
+        FOREIGN KEY (fk_tags) REFERENCES tag (id)
+    )`
 );
+
+// Add authorization
+postGres.addModifyTable(
+    `CREATE TABLE IF NOT EXISTS authorizationMedia (
+        FOREIGN KEY (fk_id) REFERENCES media (id)
+        FOREIGN KEY (fk_authorization) REFERENCES authorization (id)
+    )`
+);
+
 class MediaDao extends IBaseDao{
     
     /**

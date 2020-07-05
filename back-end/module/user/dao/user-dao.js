@@ -1,6 +1,7 @@
 const IBaseDao = require('servercore/dao/i-base-dao');
 
 const UserEntity = require('../entities/user-entity');
+const RoleEntity = require('../entities/role-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 
@@ -19,13 +20,16 @@ postGres.addCreateTable(
         auth0Id INT,
         email STRING,
         lastMedia INT,
-        time DATE
+        time DATE,
+        role INT
     )`
 );
 
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
-    `` //TODO
+    `ALTER TABLE user
+        ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id)
+        ` //TODO
 );
 class UserDao extends IBaseDao{
     

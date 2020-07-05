@@ -1,6 +1,6 @@
 const JsUtil = require('servercore/util/js-util');
 
-const BaseEntity = require('./base-entity');
+const BaseEntity = require('servercore/entities/base-entity');
 
 /**
  * @description entity for tags
