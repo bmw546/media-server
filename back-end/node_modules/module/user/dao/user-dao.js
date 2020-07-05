@@ -13,7 +13,7 @@ postGres.addCreateTable(
         id INT GENERATED ALWAYS AS IDENTITY
         (START WITH 24 INCREMENT BY 2),
         username STRING,
-        selectedPageSetting STRING,
+        selectedPageSetting INT,
         avatarImage STRING,
         session STRING,
         saltedUserNamePassword STRING,
@@ -37,7 +37,8 @@ postGres.addModifyTable(
 postGres.addModifyTable(
     `ALTER TABLE user
         ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id)
-    ` //TODO
+        ADD CONSTRAINT fk_pageSetting FOREIGN KEY (selectedPageSetting) REFERENCES pageSetting (id)
+    `
 );
 class UserDao extends IBaseDao{
     
