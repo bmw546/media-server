@@ -3,7 +3,7 @@ const JsUtil = require('servercore/util/js-util');
 // 'Normal' Base Entity
 const BaseIdEntity = require('servercore/entities/base-id-entity');
 
-const MediaEntity = require('../../media/entities/media-entity');
+const MediaEntity = require('module/media/entities/media-entity');
 const ResolutionEntity = require('./image-entity');
 
 /**

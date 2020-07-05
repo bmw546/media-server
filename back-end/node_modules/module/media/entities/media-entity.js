@@ -3,7 +3,7 @@ const JsUtil = require('servercore/util/js-util');
 const BaseIdEntity = require('servercore/entities/base-id-entity');
 
 const ResolutionEntity = require('./resolution-entity');
-const AuthorizationEntity = require('../../authorization/entities/authorization-entity');
+const AuthorizationEntity = require('module/authorization/entities/authorization-entity');
 const TagsEntity = require('servercore/entities/tags-entity');
 
 

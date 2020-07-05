@@ -1,7 +1,7 @@
 const IBaseDao = require('servercore/dao/i-base-dao');
 
 const AuthorizationEntity = require('../entities/authorization-entity');
-const RoleEntity = require('../../user/entities/role-entity');
+const RoleEntity = require('module/user/entities/role-entity');
 
 
 const {postGres} = require('servercore/postgres/postgresPipe');
