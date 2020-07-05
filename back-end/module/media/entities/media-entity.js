@@ -10,9 +10,9 @@ const TagsEntity = require('servercore/entities/tags-entity');
 /**
  * @description This is the 'main' dto for all media (image/video/music)
  */
-class MediaEntities  extends BaseIdEntity{
+class MediaEntity  extends BaseIdEntity{
 
-    /** @param {MediaEntities} params */
+    /** @param {MediaEntity} params */
     constructor(params){
 
         super();
@@ -60,4 +60,4 @@ class MediaEntities  extends BaseIdEntity{
     }
 
 }
-module.exports = MediaEntities;
+module.exports = MediaEntity;
