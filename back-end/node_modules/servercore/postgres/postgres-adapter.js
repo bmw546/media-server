@@ -45,10 +45,12 @@ class PostGres{
     }
 
     // -------------------- Transaction -------------------------- //
-    /** only use with multiple query
+    /** 
+     * @notes only use with multiple query
      * @private
      * @description Execute a transaction query. Roll back if it collide with another client. 
      * @see https://node-postgres.com/features/transactions
+     * @see  https://www.postgresql.org/docs/8.3/tutorial-transactions.html
      * @param {PostgresQueryEntity} query - The query and its parameter to execute
      */
     async executeTransactionQuery(query){

@@ -27,12 +27,17 @@ postGres.addCreateTable(
         numberRating INT,
         numberView INT,
         FOREIGN KEY (mediaTypeId) REFERENCES mediaType (id) ON UPDATE CASCADE ON DELETE SET NULL
+        
     )`
 );
 
 
 
 // ------------- And then let modify them ------------------------
+// cannot use partition since foreign key D:
+postGres.addModifyTable( // Look if the index is bad
+    `CREATE INDEX mediaType ON mediaTypId`
+);
 
 // Add a tags
 postGres.addModifyTable(

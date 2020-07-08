@@ -22,8 +22,7 @@ postGres.addCreateTable(
         role INT
     )`
 );
-//TODO check by cascade
-// SEE https://www.postgresql.org/docs/8.3/tutorial-transactions.html
+
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS userPageSetting (
