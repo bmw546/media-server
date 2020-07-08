@@ -43,8 +43,9 @@ class PostGres{
         
         return res; 
     }
+
     // -------------------- Transaction -------------------------- //
-    /**
+    /** only use with multiple query
      * @private
      * @description Execute a transaction query. Roll back if it collide with another client. 
      * @see https://node-postgres.com/features/transactions

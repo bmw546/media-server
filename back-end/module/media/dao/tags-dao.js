@@ -16,7 +16,7 @@ postGres.addCreateTable(
 
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
-    `ALTER TABLE tag ADD CONSTRAIN fk_creator FOREIGN KEY (creator) REFERENCES user (id)`
+    `ALTER TABLE tag ADD CONSTRAIN fk_creator FOREIGN KEY (creator) REFERENCES user (id) ON UPDATE CASCADE ON DELETE SET NULL`
 );
 class TagsDao extends IBaseDao{
     

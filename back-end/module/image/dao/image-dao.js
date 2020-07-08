@@ -19,9 +19,9 @@ postGres.addCreateTable(
 // And then let modify it so we can add the fk key
 postGres.addModifyTable(
     `ALTER TABLE image 
-        ADD CONSTRAINT fk_info FOREIGN KEY (info) REFERENCES media (id),
-        ADD CONSTRAINT fk_format FOREIGN KEY (format) REFERENCES imageFormat (id),
-        ADD CONSTRAINT fl_resolution FOREIGN KEY (resolution) REFERENCES resolution (id)
+        ADD CONSTRAINT fk_info FOREIGN KEY (info) REFERENCES media (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        ADD CONSTRAINT fk_format FOREIGN KEY (format) REFERENCES imageFormat (id)  ON UPDATE CASCADE ON DELETE SET NULL,
+        ADD CONSTRAINT fl_resolution FOREIGN KEY (resolution) REFERENCES resolution (id)  ON UPDATE CASCADE ON DELETE SET NULL,
     `
 );
 

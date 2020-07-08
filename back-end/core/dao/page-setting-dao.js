@@ -26,9 +26,9 @@ postGres.addCreateTable(
 // And then let modify it so we can add the fk key
 postGres.addModifyTable(
     `ALTER TABLE pageSetting 
-        ADD CONSTRAINT fk_creator FOREIGN KEY (creator) REFERENCES user (id),
-        ADD CONSTRAINT fk_backgroundImage FOREIGN KEY (backgroundImage) REFERENCES image (id),
-        ADD CONSTRAINT fk_module FOREIGN KEY (module) REFERENCES module (id)
+        ADD CONSTRAINT fk_creator FOREIGN KEY (creator) REFERENCES user (id)  ON UPDATE CASCADE ON DELETE SET NULL,
+        ADD CONSTRAINT fk_backgroundImage FOREIGN KEY (backgroundImage) REFERENCES image (id) ON UPDATE CASCADE ON DELETE SET NULL,
+        ADD CONSTRAINT fk_module FOREIGN KEY (module) REFERENCES module (id) ON UPDATE CASCADE ON DELETE CASCADE,
     `
 );
 

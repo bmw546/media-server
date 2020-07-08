@@ -26,7 +26,7 @@ postGres.addCreateTable(
         rating INT,
         numberRating INT,
         numberView INT,
-        FOREIGN KEY (mediaTypeId) REFERENCES mediaType (id)
+        FOREIGN KEY (mediaTypeId) REFERENCES mediaType (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 
@@ -37,16 +37,16 @@ postGres.addCreateTable(
 // Add a tags
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS tagsMedia (
-        FOREIGN KEY (fk_id) REFERENCES media (id)
-        FOREIGN KEY (fk_tags) REFERENCES tag (id)
+        FOREIGN KEY (fk_id) REFERENCES media (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (fk_tags) REFERENCES tag (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 
 // Add authorization
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS authorizationMedia (
-        FOREIGN KEY (fk_id) REFERENCES media (id)
-        FOREIGN KEY (fk_authorization) REFERENCES authorization (id)
+        FOREIGN KEY (fk_id) REFERENCES media (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (fk_authorization) REFERENCES authorization (id) ON UPDATE CASCADE ON DELETE CASCADE
     )`
 );
 

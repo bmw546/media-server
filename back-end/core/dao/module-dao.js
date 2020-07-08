@@ -18,7 +18,7 @@ postGres.addCreateTable(
 
 // And then let modify it so we can add the fk key
 postGres.addModifyTable(
-    `ALTER TABLE module ADD CONSTRAINT fk_logo FOREIGN KEY (logo) REFERENCES image (id)`
+    `ALTER TABLE module ADD CONSTRAINT fk_logo FOREIGN KEY (logo) REFERENCES image (id) ON UPDATE CASCADE ON DELETE SET NULL`
 );
 
 class ModuleDao extends IBaseDao{

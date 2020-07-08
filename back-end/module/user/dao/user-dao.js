@@ -7,13 +7,11 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 
 
 // --------------- Let add the basic table --------------------
-// Mayby ask for a better generated ID
+// Maybe ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS user (
-        id INT GENERATED ALWAYS AS IDENTITY
-        (START WITH 24 INCREMENT BY 2),
+        id INT GENERATED ALWAYS AS IDENTITY,
         username STRING,
-        selectedPageSetting INT,
         avatarImage STRING,
         session STRING,
         saltedUserNamePassword STRING,
@@ -24,20 +22,20 @@ postGres.addCreateTable(
         role INT
     )`
 );
-
+//TODO check by cascade
+// SEE https://www.postgresql.org/docs/8.3/tutorial-transactions.html
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS userPageSetting (
         id INT GENERATED ALWAYS AS IDENTITY,
-        FOREIGN KEY user REFERENCES user (id) ,
-        FOREIGN KEY pageSetting REFERENCES pageSetting (id)
+        FOREIGN KEY user REFERENCES user (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY pageSetting REFERENCES pageSetting (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 
 postGres.addModifyTable(
     `ALTER TABLE user
-        ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id)
-        ADD CONSTRAINT fk_pageSetting FOREIGN KEY (selectedPageSetting) REFERENCES pageSetting (id)
+        ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id) ON UPDATE CASCADE ON DELETE SET NULL
     `
 );
 class UserDao extends IBaseDao{
