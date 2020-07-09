@@ -30,12 +30,10 @@ postGres.addCreateTable(
         
     )`
 );
-
-
-
+//might delete the media type not really usefull to be honest
 // ------------- And then let modify them ------------------------
-// cannot use partition since foreign key D:
-postGres.addModifyTable( // Look if the index is bad
+
+postGres.addModifyTable(
     `CREATE INDEX mediaType ON mediaTypId`
 );
 
