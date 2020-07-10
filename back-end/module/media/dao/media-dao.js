@@ -59,7 +59,7 @@ class MediaDao extends IBaseDao{
      * Search and return the media with the corresponding id.
      * @param {number} id - The id of the user. 
      */
-    select(id){
+    async select(id){
 
     }
 
@@ -86,6 +86,26 @@ class MediaDao extends IBaseDao{
 
     delete(media){
 
+    }
+
+
+    selectQuery(){
+        return `SELECT * FROM ${this.name} WHERE`;
+    }
+
+    deleteQuery(){
+        return `DELETE FROM ${this.name} WHERE`;
+    }
+
+    /**
+     * @description 
+     */
+    updateQuery(update){
+        return `UPDATE ${this.name} SET ${update} WHERE`;
+    }
+
+    insertQuery(){
+        return `INSERT INTO ${this.name} VALUES`;
     }
 
 }
