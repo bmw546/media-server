@@ -43,6 +43,25 @@ class IBaseDao{
     delete(){
         throw new NotImplementedError('delete');
     }
+
+    selectQuery(){
+        return `SELECT * FROM ${name} WHERE`;
+    }
+
+    deleteQuery(){
+        return `DELETE FROM ${name} WHERE`;
+    }
+
+    /**
+     * @description 
+     */
+    updateQuery(update){
+        return `UPDATE ${name} SET ${update} WHERE`;
+    }
+
+    insertQuery(){
+        return `INSERT INTO ${name} VALUES`;
+    }
 }
 
 module.exports = IBaseDao;

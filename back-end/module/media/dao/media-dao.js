@@ -3,8 +3,11 @@ const IBaseDao = require('servercore/dao/i-base-dao');
 const MediaEntities = require('../entities/media-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
+const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
 
 
+/** @description The name of this dao table */
+const name = "media";
 
 // We use the media type to filter the type when pulling some mediaInfo.
 
@@ -15,7 +18,7 @@ require('./media-type-dao');
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS media (
+    `CREATE TABLE IF NOT EXISTS ${name} (
         id INT GENERATED ALWAYS AS IDENTITY,
         title STRING,
         description STRING,
@@ -40,7 +43,7 @@ postGres.addModifyTable(
 // Add a tags
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS tagsMedia (
-        FOREIGN KEY (fk_id) REFERENCES media (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (fk_id) REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
         FOREIGN KEY (fk_tags) REFERENCES tag (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
@@ -48,7 +51,7 @@ postGres.addModifyTable(
 // Add authorization
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS authorizationMedia (
-        FOREIGN KEY (fk_id) REFERENCES media (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (fk_id) REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
         FOREIGN KEY (fk_authorization) REFERENCES authorization (id) ON UPDATE CASCADE ON DELETE CASCADE
     )`
 );
@@ -60,6 +63,11 @@ class MediaDao extends IBaseDao{
      * @param {number} id - The id of the user. 
      */
     async select(id){
+
+        let selectResult = await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.selectQuery()} id = $id::number`,
+            parameters: [id]
+        }));
 
     }
 
@@ -86,26 +94,6 @@ class MediaDao extends IBaseDao{
 
     delete(media){
 
-    }
-
-
-    selectQuery(){
-        return `SELECT * FROM ${this.name} WHERE`;
-    }
-
-    deleteQuery(){
-        return `DELETE FROM ${this.name} WHERE`;
-    }
-
-    /**
-     * @description 
-     */
-    updateQuery(update){
-        return `UPDATE ${this.name} SET ${update} WHERE`;
-    }
-
-    insertQuery(){
-        return `INSERT INTO ${this.name} VALUES`;
     }
 
 }
