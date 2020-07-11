@@ -81,7 +81,11 @@ class MediaDao extends IBaseDao{
      * Add a media to the database and return it with it new id.
      * @param {MediaEntities} media - The media to add.
      */
-    commit(media){
+    async commit(media){
+        await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.insertQuery(Object.keys(MediaEntities).map((key) => key))}`,
+            parameters: Object.keys(media).map((key) => media[key])
+        }));
 
     }
 
