@@ -62,12 +62,14 @@ class MediaDao extends IBaseDao{
      * Search and return the media with the corresponding id.
      * @param {number} id - The id of the user. 
      */
-    async select(id){
+    async selectId(id){
 
         let selectResult = await postGres.executeQuery(new PostgresQueryEntity({
             command: `${this.selectQuery()} id = $id::number`,
             parameters: [id]
         }));
+
+        return new MediaEntities(selectResult.rows[0]);
 
     }
 
