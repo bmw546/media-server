@@ -56,6 +56,8 @@ postGres.addModifyTable(
     )`
 );
 
+// REDO THE PARAMETER QUERY
+
 class MediaDao extends IBaseDao{
     
     /**
@@ -76,14 +78,14 @@ class MediaDao extends IBaseDao{
 
     // Should we change the behaviour of commit if media.id is defined ? 
     // aka if media.id !== undefined then modify instead of insert.
-    
+    // TODO check the return here.
     /**
      * Add a media to the database and return it with it new id.
      * @param {MediaEntities} media - The media to add.
      */
     async commit(media){
-        await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.insertQuery(Object.keys(MediaEntities).map((key) => key))}`,
+        return await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.insertQuery} ` + Object.keys(MediaEntities).map((key) => `$${$key}`),
             parameters: Object.keys(media).map((key) => media[key])
         }));
 
@@ -93,8 +95,11 @@ class MediaDao extends IBaseDao{
      * 
      * @param {MediaEntities} media 
      */
-    modify(media){
-
+    async modify(media){
+        return await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.updateQuery(Object.keys(media).map((key) => `${key} = ${key}`))}`,
+            parameters: somethig
+        }));
     }
 
 
