@@ -33,6 +33,7 @@ postGres.addCreateTable(
         
     )`
 );
+
 //might delete the media type not really usefull to be honest
 // ------------- And then let modify them ------------------------
 
@@ -65,30 +66,20 @@ class MediaDao extends IBaseDao{
      * @param {number} id - The id of the user. 
      */
     async selectId(id){
-
-        let selectResult = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.selectQuery()} id = $id::number`,
-            parameters: [id]
-        }));
+        
+        let selectResult = await this.baseSelect(id);
 
         return new MediaEntities(selectResult.rows[0]);
-
     }
 
-
-    // Should we change the behaviour of commit if media.id is defined ? 
-    // aka if media.id !== undefined then modify instead of insert.
-    // TODO check the return here.
     /**
      * Add a media to the database and return it with it new id.
      * @param {MediaEntities} media - The media to add.
      */
     async commit(media){
-        return await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.insertQuery} ` + Object.keys(MediaEntities).map((key) => `$${$key}`),
-            parameters: Object.keys(media).map((key) => media[key])
-        }));
-
+        media = this.clearMedia(media);
+        let commitResult = await this.baseCommit(media);
+        return new MediaEntities(commitResult.rows[0]);
     }
 
     /**
@@ -96,16 +87,34 @@ class MediaDao extends IBaseDao{
      * @param {MediaEntities} media 
      */
     async modify(media){
-        return await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.updateQuery(Object.keys(media).map((key) => `${key} = ${key}`))}`,
-            parameters: somethig
-        }));
+        media = this.clearMedia(media);
+        return await this.baseModify(modify);
     }
 
 
-    delete(media){
-
+    /**
+     * @description Delete 
+     * @param {number} id 
+     */
+    async delete(id){
+        return await this.baseDelete(id);
     }
+
+    /**
+     * @description extract the id for the media type
+     * @param {*} media 
+     */
+    clearMedia(media){
+        
+        media.mediaTypeId = media.mediaTypeEntity.id;
+        media.mediaTypeEntity = null;
+
+        // delete see this: https://stackoverflow.com/questions/208105/how-do-i-remove-a-property-from-a-javascript-object
+        delete media.mediaTypeEntity;
+
+        return media;
+    }
+
 
 }
 

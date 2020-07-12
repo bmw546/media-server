@@ -44,6 +44,8 @@ class IBaseDao{
         throw new NotImplementedError('delete');
     }
 
+
+    // -------------------------------------- Query keyword shortcut --------------------------
     selectQuery(){
         return `SELECT * FROM ${name} WHERE`;
     }
@@ -52,15 +54,55 @@ class IBaseDao{
         return `DELETE FROM ${name} WHERE`;
     }
 
-    /**
-     * @description 
-     */
     updateQuery(update){
         return `UPDATE ${name} SET ${update} WHERE`;
     }
 
     insertQuery(){
         return `INSERT INTO ${name} VALUES`;
+    }
+
+    //------------------------------ Base Query --------------------------------------
+    /**
+     * @description Base Select to select a object by its id.
+     * @param {number} id 
+     */
+    async baseSelect(id){
+        return await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.selectQuery()} id = $id`,
+            parameters: [id]
+        }));
+    }
+    
+    
+    /**
+     * @description Base object to create a update a element in the db by its id.
+     * @param {*} object 
+     */
+    async baseModify(object){
+        return await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.updateQuery(Object.keys(object).map((key) => `${key} = $${key}`))}`+
+            `id = $id`,
+            parameters: Object.keys(media).map((key) => `${object[key]}`).concat([object.id])
+        }));
+    }
+
+    /**
+     * @description Base object to create a commit.
+     * @param {*} object 
+     */
+    async baseCommit(object){
+        return await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.insertQuery} ` + Object.keys(object).map((key) => `$${$key}`),
+            parameters: Object.keys(media).map((key) => object[key])
+        }));
+    }
+
+    async baseDelete(id){
+        return await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.deleteQuery} id = $id`,
+            parameters: [id]
+        }));
     }
 }
 

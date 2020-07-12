@@ -52,11 +52,6 @@ class MediaEntity  extends BaseIdEntity{
         // The type of the media only here to help query get faster.
         /** @type {string} */
         this.mediaTypeEntity = JsUtil.undefinedIfNothing(params.mediaTypeEntity);
-        
-        //TODO remove this since music cannot have resolution
-        /** @type {ResolutionDto} */
-        this.resolution = JsUtil.undefinedIfNothing(params.resolution);
-
     }
 
 }
