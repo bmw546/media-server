@@ -22,10 +22,7 @@ class ResolutionDao extends IBaseDao{
      * @param {number} id - The id of the resolution. 
      */
     async select(id){
-        let selectResult = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.selectQuery()} id = $id`,
-            parameters: [id]
-        }));
+        let selectResult = await this.baseSelect(id);
         return new ResolutionEntity(selectResult.rows[0]);
     }
 
@@ -35,10 +32,8 @@ class ResolutionDao extends IBaseDao{
      * @param {ResolutionEntity} resolution - The resolution to add.
      */
     async commit(resolution){
-        return await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.insertQuery} ` + Object.keys(resolution).map((key) => `$${$key}`),
-            parameters: Object.keys(media).map((key) => resolution[key])
-        }));
+        let commitResult = await this.baseCommit(resolution);
+        return new ResolutionEntity(commitResult.rows[0]); 
     }
 
     /**
@@ -46,20 +41,16 @@ class ResolutionDao extends IBaseDao{
      * @param {ResolutionEntity} resolution 
      */
     async modify(resolution){
-        return await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.updateQuery(Object.keys(media).map((key) => `${key} = $${key}`))}`+
-            `id = $id`,
-            parameters: Object.keys(media).map((key) => `${media[key]}`).concat([media.id])
-        }));
+        return await this.baseModify(resolution);
     }
 
 
     /**
      * @description Delete a resolution to the database.
-     * @param {ResolutionEntity} resolution 
+     * @param {number} id 
      */
-    delete(resolution){
-
+    async delete(id){
+        return await this.baseDelete(id);
     }
 
 }

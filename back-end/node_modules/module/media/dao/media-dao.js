@@ -57,8 +57,6 @@ postGres.addModifyTable(
     )`
 );
 
-// REDO THE PARAMETER QUERY
-
 class MediaDao extends IBaseDao{
     
     /**
@@ -66,7 +64,7 @@ class MediaDao extends IBaseDao{
      * @param {number} id - The id of the user. 
      */
     async selectId(id){
-        
+
         let selectResult = await this.baseSelect(id);
 
         return new MediaEntities(selectResult.rows[0]);
