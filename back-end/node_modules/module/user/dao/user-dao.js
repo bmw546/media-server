@@ -43,8 +43,8 @@ class UserDao extends IBaseDao{
      * Search and return the user with the corresponding id.
      * @param {number} id - The id of the user. 
      */
-    select(id){
-
+    async select(id){
+        return this._buildUser(await this.baseSelect(id));
     }
 
 
@@ -55,18 +55,29 @@ class UserDao extends IBaseDao{
      * Add a user to the database and return it with it new id.
      * @param {UserEntity} user - The user to add.
      */
-    commit(user){
-
+    async commit(user){
+        return this._buildUser(await this.baseCommit(this._clearUser(user)));
     }
 
     /**
      * 
      * @param {UserEntity} user 
      */
-    modify(user){
+    async modify(user){
 
     }
 
+    _clearUser(user){
+        user.role = user.role.id;
+        return user;
+    }
+
+    _buildUser(result){
+        let user = new UserEntity(result.rows[0]);
+        user.role = new RoleEntity(result.rows[0].role);
+
+        return user;
+    }
 }
 
 module.exports = UserDao;

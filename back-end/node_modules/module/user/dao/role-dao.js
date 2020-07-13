@@ -30,8 +30,8 @@ class UserDao extends IBaseDao{
      * Search and return the role with the corresponding id.
      * @param {number} id - The id of the role. 
      */
-    select(id){
-
+    async select(id){
+        return new RoleEntity(await this.baseSelect(id).rows[0]);
     }
 
     // Not adding role by design.
