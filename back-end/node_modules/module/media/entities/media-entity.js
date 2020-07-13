@@ -5,6 +5,7 @@ const BaseIdEntity = require('servercore/entities/base-id-entity');
 const ResolutionEntity = require('./resolution-entity');
 const AuthorizationEntity = require('module/authorization/entities/authorization-entity');
 const TagsEntity = require('servercore/entities/tags-entity');
+const MediaTypeEntities = require('../entities/media-type-entity');
 
 
 /**
@@ -50,7 +51,7 @@ class MediaEntity  extends BaseIdEntity{
         this.numberView = JsUtil.undefinedIfNothing(params.numberView);
 
         // The type of the media only here to help query get faster.
-        /** @type {string} */
+        /** @type {MediaTypeEntities} */
         this.mediaTypeEntity = JsUtil.undefinedIfNothing(params.mediaTypeEntity);
     }
 

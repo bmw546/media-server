@@ -24,8 +24,11 @@ class TagsDao extends IBaseDao{
      * Search and return the tag with the corresponding id.
      * @param {number} id - The id of the tag. 
      */
-    select(id){
+    async select(id){
+        
+        let selectResult = await this.baseSelect(id);
 
+        return _createEntityFromResult(selectResult);
     }
 
 
@@ -33,27 +36,45 @@ class TagsDao extends IBaseDao{
      * Add a tag to the database and return it with it new id.
      * @param {TagsEntity} tags - The tag to add.
      */
-    commit(tags){
+    async commit(tags){
+        tags = _convertEntityToDb(tags);
 
+        return _createEntityFromResult(await this.baseCommit(id));
     }
 
     /**
      * Modify a tags to the database.
      * @param {TagsEntity} tags 
      */
-    modify(tags){
+    async modify(tags){
+        tags = _convertEntityToDb(tags);
 
+        return await this.baseModify(tags);
     }
 
 
     /**
      * @description Delete a tags to the database.
-     * @param {TagsEntity} tags 
+     * @param {number} id 
      */
-    delete(tags){
-
+    async delete(id){
+        return await this.baseDelete(id);
     }
 
+    /** @private */
+    _createEntityFromResult(result){
+        let tagEntity = new TagsDao(selectResult.rows[0]);
+        tagEntity.creator = selectResult.rows[0].fk_creator;
+        
+        return tagEntity;
+    }
+
+    /** @private  */
+    _convertEntityToDb(tags){
+        tags.fk_creator = tags.creator.id;
+        delete tags.creator;
+        return tags;
+    }
 }
 
 module.exports = TagsDao;

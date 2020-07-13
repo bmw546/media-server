@@ -5,6 +5,12 @@ const MediaEntities = require('../entities/media-entity');
 const {postGres} = require('servercore/postgres/postgresPipe');
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
 
+const ResolutionEntity = require('./resolution-entity');
+const AuthorizationEntity = require('module/authorization/entities/authorization-entity');
+const TagsEntity = require('servercore/entities/tags-entity');
+const MediaTypeEntities = require('../entities/media-type-entity');
+
+
 
 /** @description The name of this dao table */
 const name = "media";
@@ -77,8 +83,8 @@ class MediaDao extends IBaseDao{
      */
     async commit(media){
         media = this.clearMedia(media);
-        let commitResult = await this.baseCommit(media);
-        return new MediaEntities(commitResult.rows[0]);
+
+        return _repopulateMedia(await this.baseCommit(media));
     }
 
     /**
@@ -87,7 +93,7 @@ class MediaDao extends IBaseDao{
      */
     async modify(media){
         media = this.clearMedia(media);
-        return await this.baseModify(modify);
+        return _repopulateMedia(await this.baseModify(media));
     }
 
 
@@ -101,9 +107,9 @@ class MediaDao extends IBaseDao{
 
     /**
      * @description extract the id for the media type
-     * @param {*} media 
+     * @private
      */
-    clearMedia(media){
+    _clearMedia(media){
         
         media.mediaTypeId = media.mediaTypeEntity.id;
         media.mediaTypeEntity = null;
@@ -115,6 +121,12 @@ class MediaDao extends IBaseDao{
     }
 
 
+    _repopulateMedia(result){
+        let media = new MediaEntities(commitResult.rows[0]);
+        media.mediaTypeEntity = new MediaTypeEntities({id:commitResult.rows[0].mediaTypeId});
+
+        return media;
+    }
 }
 
 module.exports = MediaDao;
