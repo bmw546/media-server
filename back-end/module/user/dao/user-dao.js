@@ -64,7 +64,7 @@ class UserDao extends IBaseDao{
      * @param {UserEntity} user 
      */
     async modify(user){
-
+        return this._buildUser(await this.baseModify(this._clearUser(user)));
     }
 
     _clearUser(user){
