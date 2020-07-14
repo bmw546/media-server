@@ -3,7 +3,6 @@ const IBaseDao = require('servercore/dao/i-base-dao');
 const AuthorizationEntity = require('../entities/authorization-entity');
 const RoleEntity = require('module/user/entities/role-entity');
 
-
 const {postGres} = require('servercore/postgres/postgresPipe');
 
 
@@ -11,7 +10,7 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS authorization (
         id INT GENERATED ALWAYS AS IDENTITY,
-        role STRING,
+        role INT,
         authorizationRule STRING,
         condition STRING
     )`
@@ -28,8 +27,8 @@ class AuthorizationDao extends IBaseDao{
      * Search and return the authorization with the corresponding id.
      * @param {number} id - The id of the user. 
      */
-    select(id){
-
+    async select(id){
+        return this._repopulateAuthorization(await this.baseSelect(id));
     }
 
 
@@ -40,16 +39,16 @@ class AuthorizationDao extends IBaseDao{
      * Add a authorization to the database and return it with it new id.
      * @param {AuthorizationEntity} authorization - The authorization to add.
      */
-    commit(authorization){
-
+    async commit(authorization){
+        return this._repopulateAuthorization(await this.baseCommit(this._clearAuthorization(authorization)));
     }
 
     /**
      * Modify an authorization to the database
      * @param {AuthorizationEntity} authorization 
      */
-    modify(authorization){
-
+    async modify(authorization){
+        return this._repopulateAuthorization(await this.baseModify(this._clearAuthorization(authorization)));
     }
 
 
@@ -57,10 +56,23 @@ class AuthorizationDao extends IBaseDao{
      * Delete an authorization from the database.
      * @param {number} id 
      */
-    delete(id){
-
+    async delete(id){
+        return this._repopulateAuthorization(await this.baseDelete(this._clearAuthorization(authorization)));
     }
 
+    _clearAuthorization(authorization){
+        authorization.role = authorization.creator.id;
+        delete authorization.creator;
+        
+        return authorization;
+    }
+
+    _repopulateAuthorization(result){
+        let authorization = new AuthorizationEntity(result.rows[0]);
+        authorization.role = new RoleEntity({id: result.rows[0].role});
+
+        return authorization;
+    }
 }
 
 module.exports = AuthorizationDao;
