@@ -57,6 +57,7 @@ class ModuleDao extends IBaseDao{
      * @param {ModuleEntity} module 
      */
     async delete(module){
+
         return this._populateModule(await this.baseDelete(this._clearModule(module)));
     }
 
@@ -65,7 +66,7 @@ class ModuleDao extends IBaseDao{
      * @description Prepare the entity for the db query
      * @param {ModuleEntity} module 
      */
-    _clearModule(module){
+    prepare(module){
         module.logo = module.logo.id;
         return module;
     }

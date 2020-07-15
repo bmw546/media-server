@@ -51,6 +51,10 @@ class AuthorizationDao extends IBaseDao{
         return this._repopulateAuthorization(await this.baseModify(this._clearAuthorization(authorization)));
     }
 
+    async delete(id) {
+        // do very special query
+    }
+
 
     /**
      * Delete an authorization from the database.
