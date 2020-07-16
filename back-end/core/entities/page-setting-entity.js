@@ -8,8 +8,8 @@ const UserEntity = require('module/user/entities/user-entity');
 
 const ModuleEntity = require('./module-entity');
 
-/**
- * @description entity for making module.
+/** //TODO explain each entity why we use them. (see registrationToken long description)
+ * @description The setting for a page. e.g Contain the info for theming the page.
  */
 class PageSettingEntity extends BaseIdEntity{
     

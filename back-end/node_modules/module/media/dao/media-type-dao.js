@@ -24,11 +24,7 @@ postGres.addCreateTable(
 
 class MediaDao extends IBaseDao{
 
-    // commit, update and delete should not be used here
-
-    async select(id){
-        let selectResult = await this.baseSelect(id);
+    _buildEntity(result){
         return new MediaTypeEntities(selectResult.rows[0]);
     }
-
 }

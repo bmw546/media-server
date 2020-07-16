@@ -38,41 +38,13 @@ postGres.addModifyTable(
     `
 );
 class UserDao extends IBaseDao{
-    
-    /**
-     * Search and return the user with the corresponding id.
-     * @param {number} id - The id of the user. 
-     */
-    async select(id){
-        return this._buildUser(await this.baseSelect(id));
-    }
 
-
-    // Should we change the behaviour of commit if user.id is defined ? 
-    // aka if user.id !== undefined then modify instead of insert.
-    
-    /**
-     * Add a user to the database and return it with it new id.
-     * @param {UserEntity} user - The user to add.
-     */
-    async commit(user){
-        return this._buildUser(await this.baseCommit(this._clearUser(user)));
-    }
-
-    /**
-     * 
-     * @param {UserEntity} user 
-     */
-    async modify(user){
-        return this._buildUser(await this.baseModify(this._clearUser(user)));
-    }
-
-    _clearUser(user){
+    _prepare(user){
         user.role = user.role.id;
         return user;
     }
 
-    _buildUser(result){
+    _buildEntity(result){
         let user = new UserEntity(result.rows[0]);
         user.role = new RoleEntity(result.rows[0].role);
 

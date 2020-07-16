@@ -65,51 +65,8 @@ postGres.addModifyTable(
 
 
 class MediaDao extends IBaseDao{
-    
-    /**
-     * Search and return the media with the corresponding id.
-     * @param {number} id - The id of the user. 
-     */
-    async selectId(id){
 
-        let selectResult = await this.baseSelect(id);
-
-        return new MediaEntities(selectResult.rows[0]);
-    }
-
-    /**
-     * Add a media to the database and return it with it new id.
-     * @param {MediaEntities} media - The media to add.
-     */
-    async commit(media){
-        media = this.clearMedia(media);
-
-        return _repopulateMedia(await this.baseCommit(media));
-    }
-
-    /**
-     * 
-     * @param {MediaEntities} media 
-     */
-    async modify(media){
-        media = this.clearMedia(media);
-        return _repopulateMedia(await this.baseModify(media));
-    }
-
-
-    /**
-     * @description Delete 
-     * @param {number} id 
-     */
-    async delete(id){
-        return await this.baseDelete(id);
-    }
-
-    /**
-     * @description extract the id for the media type
-     * @private
-     */
-    _clearMedia(media){
+    _prepare(media){
         
         media.mediaTypeId = media.mediaTypeEntity.id;
         media.mediaTypeEntity = null;
@@ -121,7 +78,7 @@ class MediaDao extends IBaseDao{
     }
 
 
-    _repopulateMedia(result){
+    _buildEntity(result){
         let media = new MediaEntities(commitResult.rows[0]);
         media.mediaTypeEntity = new MediaTypeEntities({id:commitResult.rows[0].mediaTypeId});
 

@@ -1,6 +1,7 @@
 const NotImplementedError = require('servercore/errors/not-implemented-error');
 
 /**
+ * see hopchild/file-management/daos/file-info-daos
  * @abstract
  * 
  * @description Handles the communication with the database
@@ -8,44 +9,9 @@ const NotImplementedError = require('servercore/errors/not-implemented-error');
 class IBaseDao{
     
     //------------------- Base Function that everyone should have ----------------------------- //
-    ///**
-    // * @abstract
-    // * 
-    // * @description Retrieve from the database with a specific id
-    // */
-    //select(){
-    //    throw new NotImplementedError('select');
-    //}
-//
-    ///**
-    // * @abstract
-    // * 
-    // * @description Set a value to the database
-    // */
-    //commit(){
-    //    throw new NotImplementedError('commit');
-    //}
-//
-    ///**
-    // * @abstract
-    // * 
-    // * @description Modify a value to the database
-    // */
-    //modify(){
-    //    throw new NotImplementedError('modify');
-    //}
-//
-    ///**
-    // * @abstract
-    // * 
-    // * @description Delete a value from the database
-    // */
-    //delete(){
-    //    throw new NotImplementedError('delete');
-    //}
 
     /**
-     * @abstract
+     * @protected
      * @description Prepare an entity for an db query.
      * @param {*} entity 
      */
@@ -54,11 +20,11 @@ class IBaseDao{
     }
 
     /**
-     * @abstract
+     * @protected
      * @description Transform an query result to an entity.
      * @param {*} result 
      */
-    _entityBuilder(result){
+    _buildEntity(result){
         return result;
     }
 
@@ -84,7 +50,7 @@ class IBaseDao{
      * @description Base Select to select a object by its id.
      * @param {number} id 
      */
-    async baseSelect(id){
+    async selectById(id){
         
         return this._entityBuilder(
             await postGres.executeQuery(new PostgresQueryEntity({
@@ -99,7 +65,7 @@ class IBaseDao{
      * @description Base object to create a update a element in the db by its id.
      * @param {*} object 
      */
-    async baseModify(object){
+    async modify(object){
         object = this._prepare(object);
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
@@ -114,7 +80,7 @@ class IBaseDao{
      * @description Base object to create a commit.
      * @param {*} object 
      */
-    async baseCommit(object){
+    async commit(object){
         object = this._prepare(object);
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
@@ -125,7 +91,7 @@ class IBaseDao{
     }
 
     // protect those function and keep tem like 'delete'
-    async baseDelete(id){
+    async delete(id){
 
         return this._entityBuilder( 
             await postGres.executeQuery(new PostgresQueryEntity({

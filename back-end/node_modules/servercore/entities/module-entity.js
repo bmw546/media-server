@@ -6,7 +6,8 @@ const ImageEntity = require('module/image/entities/image-entity');
 
 /**
  * @description entity for making module.
- */
+ */ 
+//TODO explain this better !
 class ModuleEntity extends BaseIdEntity{
     
     /** @param {ModuleEntity} params*/

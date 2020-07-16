@@ -26,12 +26,8 @@ postGres.addCreateTable(
 
 class UserDao extends IBaseDao{
     
-    /**
-     * Search and return the role with the corresponding id.
-     * @param {number} id - The id of the role. 
-     */
-    async select(id){
-        return new RoleEntity(await this.baseSelect(id).rows[0]);
+    _buildEntity(result){
+        return new RoleEntity(result.rows[0]);
     }
 
     // Not adding role by design.
