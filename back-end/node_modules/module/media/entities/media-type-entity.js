@@ -6,7 +6,7 @@ const BaseIdEntity = require('servercore/entities/base-id-entity');
 /**
  * @description This is the dto that will contain the type of media (image,video,etc ...)
  */
-class MediaTypeEntities  extends BaseIdEntity{
+class MediaTypeEntity  extends BaseIdEntity{
 
     /** @param {MediaTypeEntities} params */
     constructor(params){
@@ -21,4 +21,4 @@ class MediaTypeEntities  extends BaseIdEntity{
     }
 
 }
-module.exports = MediaTypeEntities;
+module.exports = MediaTypeEntity;

@@ -2,6 +2,12 @@ const IBaseDao = require('servercore/dao/i-base-dao');
 
 const PageSettingEntity = require('../entities/page-setting-entity');
 
+const UserEntity = require('module/user/entities/user-entity');
+
+const ModuleEntity = require('./module-entity');
+
+const ImageEntity = require('module/image/entities/image-entity');
+
 const {postGres} = require('servercore/postgres/postgresPipe');
 
 
@@ -33,41 +39,36 @@ postGres.addModifyTable(
 );
 
 class PageSettingDao extends IBaseDao{
-    
-    /**
-     * Search and return the page setting with the corresponding id.
-     * @param {number} id - The id of the page setting. 
-     */
-    select(id){
-
-    }
-
 
     /**
-     * Add a page setting to the database and return it with it new id.
-     * @param {PageSettingEntity} pageSetting - The page setting to add.
-     */
-    commit(pageSetting){
-
-    }
-
-    /**
-     * Modify a page setting to the database.
+     * @description Change the other entity to their id so we can insert it into the data store.
      * @param {PageSettingEntity} pageSetting 
      */
-    modify(pageSetting){
+    _prepare(pageSetting){
+        
+        pageSetting.creator = creator.id;
+        
+        pageSetting.backgroundImage = pageSetting.backgroundImage.id;
+
+        pageSetting.module = pageSetting.module.id;
 
     }
-
 
     /**
-     * @description Delete a page setting to the database.
-     * @param {PageSettingEntity} pageSetting 
+     * @description Convert the result from the dataStore to an entity
+     * @param {*} result 
      */
-    delete(pageSetting){
+    _buildEntity(result){
+        let pageSetting = new PageSettingEntity(result);
 
+        pageSetting.creator = new UserEntity({id: result.module});
+
+        pageSetting.backgroundImage = new ImageEntity({id: result.backgroundImage});
+
+        pageSetting.module = new ModuleEntity({id: result.module});
+
+        return pageSetting;
     }
-
 }
 
 module.exports = PageSettingDao; 

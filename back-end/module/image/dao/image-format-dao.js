@@ -18,37 +18,11 @@ postGres.addCreateTable(
 class ImageFormatDao extends IBaseDao{
     
     /**
-     * Search and return the image format with the corresponding id.
-     * @param {number} id - The id of the image format. 
+     * @description build an image format entity from an postgres result.
+     * @param {*} result 
      */
-    select(id){
-
-    }
-
-
-    /**
-     * Add a image format to the database and return it with it new id.
-     * @param {ImageFormatEntity} imageFormat - The image format to add.
-     */
-    commit(imageFormat){
-
-    }
-
-    /**
-     * Modify a image format to the database.
-     * @param {ImageFormatEntity} imageFormat 
-     */
-    modify(imageFormat){
-
-    }
-
-
-    /**
-     * @description Delete a image format to the database.
-     * @param {ImageFormatEntity} imageFormat 
-     */
-    delete(imageFormat){
-
+    _buildEntity(result){
+        return new ImageFormatEntity(result);
     }
 
 }

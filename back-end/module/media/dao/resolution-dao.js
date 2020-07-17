@@ -18,8 +18,12 @@ postGres.addCreateTable(
 
 class ResolutionDao extends IBaseDao{
     
+    /**
+     * @description make an resolution entity from an postgres result.
+     * @param {*} result 
+     */
     _buildEntity(result){
-        return new ResolutionEntity(commitResult.rows[0]); 
+        return new ResolutionEntity(commitResult); 
     }
 
 }

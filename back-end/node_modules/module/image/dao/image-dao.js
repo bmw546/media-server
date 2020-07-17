@@ -1,18 +1,20 @@
 const IBaseDao = require('servercore/dao/i-base-dao');
 
 const ImageEntity = require('../entities/image-entity');
+const ImageFormatEntity = require('../entities/image-format-entity');
+
+const MediaEntity = require('module/media/entities/media-entity');
+const ResolutionEntity = require('module/media/entities/resolution-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 
-
 // --------------- Let add the basic table --------------------
-// Maybe ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS image (
         id INT GENERATED ALWAYS AS IDENTITY,
-        info STRING,
-        format STRING,
-        resolution STRING
+        info int,
+        format int,
+        resolution int
     )`
 );
 
@@ -28,37 +30,30 @@ postGres.addModifyTable(
 class ImageDao extends IBaseDao{
     
     /**
-     * Search and return the image with the corresponding id.
-     * @param {number} id - The id of the image. 
+     * @description prepare an image entity to send it to the data store.
+     * @param {ImageEntity} imageEntity 
      */
-    select(id){
+    _prepare(imageEntity){
+        
+        imageEntity.info = imageEntity.info.id;
+        imageEntity.format = imageEntity.format.id;
+        imageEntity.resolution = imageEntity.resolution.id;
 
-    }
-
-
-    /**
-     * Add a image to the database and return it with it new id.
-     * @param {ImageEntity} image - The image to add.
-     */
-    commit(image){
-
+        return imageEntity;
     }
 
     /**
-     * Modify a image to the database.
-     * @param {ImageEntity} image 
+     * @description build an image entity from the result from postgres.
+     * @param {*} result 
      */
-    modify(image){
+    _buildEntity(result){
+        let imageEntity = new ImageEntity(result);
+        
+        imageEntity.info = new MediaEntity({id: result.info});
+        imageEntity.format = new ImageFormatEntity({id: result.format});
+        imageEntity.resolution = new ResolutionEntity({id: result.resolution});
 
-    }
-
-
-    /**
-     * @description Delete a image to the database.
-     * @param {ImageEntity} image 
-     */
-    delete(image){
-
+        return imageEntity;
     }
 
 }

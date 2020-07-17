@@ -23,6 +23,10 @@ postGres.addModifyTable(
 );
 class AuthorizationDao extends IBaseDao{
     
+    /**
+     * @description prepare an authorization entity too send it to the data store.
+     * @param {AuthorizationEntity} authorization 
+     */
     _prepare(authorization){
         authorization.role = authorization.creator.id;
         delete authorization.creator;
@@ -30,9 +34,13 @@ class AuthorizationDao extends IBaseDao{
         return authorization;
     }
 
+    /**
+     * @description build an entity from an postgres result.
+     * @param {*} result 
+     */
     _buildEntity(result){
-        let authorization = new AuthorizationEntity(result.rows[0]);
-        authorization.role = new RoleEntity({id: result.rows[0].role});
+        let authorization = new AuthorizationEntity(result);
+        authorization.role = new RoleEntity({id: result.role});
 
         return authorization;
     }

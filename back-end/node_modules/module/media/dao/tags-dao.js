@@ -20,13 +20,21 @@ postGres.addModifyTable(
 );
 class TagsDao extends IBaseDao{
 
+    /**
+     * @description Convert an postgres result to an tags entity.
+     * @param {*} result 
+     */
     _buildEntity(result){
-        let tagEntity = new TagsDao(result.rows[0]);
-        tagEntity.creator = result.rows[0].fk_creator;
+        let tagEntity = new TagsDao(result);
+        tagEntity.creator = result.fk_creator;
         
         return tagEntity;
     }
 
+    /**
+     * @description Prepare an Tags entity for the data store.
+     * @param {TagsDao} tags 
+     */
     _prepare(tags){
         tags.fk_creator = tags.creator.id;
         delete tags.creator;

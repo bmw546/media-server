@@ -56,7 +56,7 @@ class IBaseDao{
             await postGres.executeQuery(new PostgresQueryEntity({
                 command: `${this.selectQuery()} id = $id`,
                 parameters: [id]
-            }))
+            })).rows[0]
         );
     }
     
@@ -73,7 +73,7 @@ class IBaseDao{
             `id = $id`,
             parameters: Object.keys(media).map((key) => `${object[key]}`).concat([object.id])
         }));
-        return this._entityBuilder(result);
+        return this._entityBuilder(result.rows[0]);
     }
 
     /**
@@ -87,7 +87,7 @@ class IBaseDao{
             command: `${this.insertQuery} ` + Object.keys(object).map((key) => `$${$key}`),
             parameters: Object.keys(media).map((key) => object[key])
         }));
-        return this._entityBuilder(result);
+        return this._entityBuilder(result.rows[0]);
     }
 
     // protect those function and keep tem like 'delete'
@@ -97,7 +97,7 @@ class IBaseDao{
             await postGres.executeQuery(new PostgresQueryEntity({
                 command: `${this.deleteQuery} id = $id`,
                 parameters: [id]
-            }))
+            })).rows[0]
         );
     }
 }

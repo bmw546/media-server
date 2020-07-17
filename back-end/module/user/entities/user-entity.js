@@ -1,14 +1,14 @@
 const JsUtil = require('servercore/util/js-util');
 
 // 'Normal' Base Entity
-const BaseEntity = require('servercore/entities/base-entity');
+const BaseIdEntity = require('servercore/entities/base-id-entity');
 
 //TODO selectedPageSettingDto, ImageDto, SessionDto
 
 /**
  * @description Dto that will hold the user.
  */
-class UserEntity extends BaseEntity{
+class UserEntity extends BaseIdEntity{
     
     /** @param {UserEntity} params*/
     constructor(params){

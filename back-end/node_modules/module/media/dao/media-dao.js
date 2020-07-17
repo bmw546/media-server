@@ -1,6 +1,6 @@
 const IBaseDao = require('servercore/dao/i-base-dao');
 
-const MediaEntities = require('../entities/media-entity');
+const MediaEntity = require('../entities/media-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
@@ -8,7 +8,7 @@ const PostgresQueryEntity = require('servercore/entities/postgres-query-entity')
 const ResolutionEntity = require('./resolution-entity');
 const AuthorizationEntity = require('module/authorization/entities/authorization-entity');
 const TagsEntity = require('servercore/entities/tags-entity');
-const MediaTypeEntities = require('../entities/media-type-entity');
+const MediaTypeEntity = require('../entities/media-type-entity');
 
 
 
@@ -66,6 +66,10 @@ postGres.addModifyTable(
 
 class MediaDao extends IBaseDao{
 
+    /**
+     * @description prepare an media entity to send it to the data store.
+     * @param {MediaEntity} media 
+     */
     _prepare(media){
         
         media.mediaTypeId = media.mediaTypeEntity.id;
@@ -78,9 +82,13 @@ class MediaDao extends IBaseDao{
     }
 
 
+    /**
+     * @description build an media entity from a postgres result.
+     * @param {*} result 
+     */
     _buildEntity(result){
-        let media = new MediaEntities(commitResult.rows[0]);
-        media.mediaTypeEntity = new MediaTypeEntities({id:commitResult.rows[0].mediaTypeId});
+        let media = new MediaEntity(commitResult.rows[0]);
+        media.mediaTypeEntity = new MediaTypeEntity({id:commitResult.rows[0].mediaTypeId});
 
         return media;
     }

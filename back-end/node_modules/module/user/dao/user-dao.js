@@ -24,6 +24,8 @@ postGres.addCreateTable(
 );
 
 // ------------- And then let modify them ------------------------
+
+// Create an key table.
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS userPageSetting (
         id INT GENERATED ALWAYS AS IDENTITY,
@@ -39,14 +41,22 @@ postGres.addModifyTable(
 );
 class UserDao extends IBaseDao{
 
+    /**
+     * @description Prepare an user entity for sending it to the database.
+     * @param {UserEntity} user 
+     */
     _prepare(user){
         user.role = user.role.id;
         return user;
     }
 
+    /**
+     * @description build an User entity from an postgres result.
+     * @param {*} result 
+     */
     _buildEntity(result){
-        let user = new UserEntity(result.rows[0]);
-        user.role = new RoleEntity(result.rows[0].role);
+        let user = new UserEntity(result);
+        user.role = new RoleEntity(result.role);
 
         return user;
     }

@@ -22,9 +22,15 @@ postGres.addCreateTable(
 );
 
 
-class MediaDao extends IBaseDao{
+class MediaTypeDao extends IBaseDao{
 
+    /**
+     * @description make an media type entity from an postgres result.
+     * @param {*} result 
+     */
     _buildEntity(result){
         return new MediaTypeEntities(selectResult.rows[0]);
     }
 }
+
+module.exports = MediaTypeDao;

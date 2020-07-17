@@ -40,8 +40,8 @@ class ModuleDao extends IBaseDao{
      * @param {*} result 
      */
     _buildEntity(result){
-        let module = new ModuleEntity(result.rows[0]);
-        module.logo = new ImageEntity({id: result.rows[0].logo});
+        let module = new ModuleEntity(result);
+        module.logo = new ImageEntity({id: result.logo});
         
         return module;
     }

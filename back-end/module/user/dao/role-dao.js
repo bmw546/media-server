@@ -24,13 +24,15 @@ postGres.addCreateTable(
     ('guest', "A non registered user")`
 );
 
-class UserDao extends IBaseDao{
+class RoleDao extends IBaseDao{
     
+    /**
+     * @description Create an role entity from an postgres result.
+     * @param {RoleEntity} result 
+     */
     _buildEntity(result){
-        return new RoleEntity(result.rows[0]);
+        return new RoleEntity(result);
     }
-
-    // Not adding role by design.
 }
 
-module.exports = UserDao;
+module.exports = RoleDao;
