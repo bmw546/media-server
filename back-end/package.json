@@ -22,6 +22,7 @@
     "lodash": "^4.17.15",
     "module": "file:module",
     "pg": "^8.2.1",
+    "redis-sessions": "^3.0.0",
     "servercore": "file:core",
     "uuid": "^8.2.0"
   }
