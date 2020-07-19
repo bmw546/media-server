@@ -4,7 +4,10 @@ const BaseIdEntity = require('servercore/entities/base-id-entity');
 
 const ResolutionEntity = require('./resolution-entity');
 const AuthorizationEntity = require('module/authorization/entities/authorization-entity');
-const TagsEntity = require('servercore/entities/tags-entity');
+
+const UserEntity = require('module/user/entities/user-entity');
+
+const TagsEntity = require('../entities/tags-entity');
 const MediaTypeEntities = require('../entities/media-type-entity');
 
 
@@ -26,10 +29,10 @@ class MediaEntity  extends BaseIdEntity{
         /** @type {string} */
         this.description = JsUtil.undefinedIfNothing(params.description);
 
-        /** @type {user} */
+        /** @type {UserEntity} */
         this.creator = JsUtil.undefinedIfNothing(params.creator);
 
-        /** @type {AuthorizationDto} */
+        /** @type {AuthorizationEntity[]} */
         this.authorization = JsUtil.undefinedIfNothing(params.authorization);
 
         /** @type {number} */
@@ -38,7 +41,7 @@ class MediaEntity  extends BaseIdEntity{
         /** @type {string} */
         this.fileName = JsUtil.undefinedIfNothing(params.fileName);
 
-        /** @type {TagsDto} */
+        /** @type {TagsEntity[]} */
         this.tags = JsUtil.undefinedIfNothing(params.tags);
 
         /** @type {number} */

@@ -29,20 +29,20 @@ class IBaseDao{
     }
 
     // -------------------------------------- Query keyword shortcut --------------------------
-    selectQuery(){
-        return `SELECT * FROM ${name} WHERE`;
+    selectQuery(tableName = name){
+        return `SELECT * FROM ${tableName} WHERE`;
     }
 
-    deleteQuery(){
-        return `DELETE FROM ${name} WHERE`;
+    deleteQuery(tableName = name){
+        return `DELETE FROM ${tableName} WHERE`;
     }
 
-    updateQuery(update){
-        return `UPDATE ${name} SET ${update} WHERE`;
+    updateQuery(update, tableName = name){
+        return `UPDATE ${tableName} SET ${update} WHERE`;
     }
 
-    insertQuery(){
-        return `INSERT INTO ${name} VALUES`;
+    insertQuery(tableName = name){
+        return `INSERT INTO ${tableName} VALUES`;
     }
 
     //------------------------------ Base Query --------------------------------------
@@ -85,7 +85,7 @@ class IBaseDao{
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
             command: `${this.insertQuery} ` + Object.keys(object).map((key) => `$${$key}`),
-            parameters: Object.keys(media).map((key) => object[key])
+            parameters: Object.keys(object).map((key) => object[key])
         }));
         return this._entityBuilder(result.rows[0]);
     }
@@ -99,6 +99,21 @@ class IBaseDao{
                 parameters: [id]
             })).rows[0]
         );
+    }
+
+
+
+    async getAssociationTable(tableName, entity){
+        let result = [];
+
+        for(let tags of media.tags){
+            result.push(await postGres.executeQuery(new PostgresQueryEntity({
+                command: `${this.insertQuery(tableName)}`,
+                parameters: [media.id, tags]
+            })));
+        }
+
+        return result;
     }
 }
 

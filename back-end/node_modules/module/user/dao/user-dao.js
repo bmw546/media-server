@@ -3,7 +3,11 @@ const IBaseDao = require('servercore/dao/i-base-dao');
 const UserEntity = require('../entities/user-entity');
 const RoleEntity = require('../entities/role-entity');
 
+const PageSettingEntity = require('servercore/entities/page-setting-entity');
+
 const {postGres} = require('servercore/postgres/postgresPipe');
+const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
+
 
 
 // --------------- Let add the basic table --------------------
@@ -25,11 +29,11 @@ postGres.addCreateTable(
 
 // ------------- And then let modify them ------------------------
 
-// Create an key table.
+// Create an userPageSetting association table.
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS userPageSetting (
         id INT GENERATED ALWAYS AS IDENTITY,
-        FOREIGN KEY user REFERENCES user (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY userId REFERENCES user (id) ON UPDATE CASCADE ON DELETE CASCADE,
         FOREIGN KEY pageSetting REFERENCES pageSetting (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
@@ -41,6 +45,55 @@ postGres.addModifyTable(
 );
 class UserDao extends IBaseDao{
 
+    // ========================== UserPageSetting ================================
+
+    /**
+     * @description Retrieve the list of user page setting for a specific user from the data store.
+     * @param {UserEntity} user - The user to populate the page setting array. 
+     * @returns {UserEntity} The same user entity as the one passed but with its selectedPageSettings populated.
+     */
+    async getUserPageSetting(user){
+        let result = await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.selectQuery('userPageSetting')} userId = $id`,
+            parameters: [user.id]
+        }));
+        for(let row of result.row){
+            user.selectedPageSettings.push(new PageSettingEntity({id: row}));
+        }
+    }
+
+
+    /**
+     * @description  Deletes to the associative table all the association of user - userPageSetting
+     * 
+     * @param {UserEntity} user - The user to delete its userPageSetting.
+     */
+    async deleteUserPageSetting(user){
+        return await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.deleteQuery('userPageSetting')} userId = $id`,
+            parameters: [user.id]
+        }));    
+    }
+
+    /**
+     * @description Add to the associative table all the association of user - userPageSetting
+     * 
+     * @param {UserEntity} user - The user with its page setting
+     */
+    async addUsePageSetting(user){
+        let result = [];
+        for(let setting of user.selectedPageSettings){
+            result.push(await postGres.executeQuery(new PostgresQueryEntity({
+                command: `${this.insertQuery('userPageSetting')}`,
+                parameters: [user.id, user.setting]
+            })));
+        }
+        return result;
+    }
+    
+
+    // ===============================================================================
+    
     /**
      * @description Prepare an user entity for sending it to the database.
      * @param {UserEntity} user 
@@ -58,7 +111,8 @@ class UserDao extends IBaseDao{
         let user = new UserEntity(result);
         user.role = new RoleEntity(result.role);
 
-        return user;
+        //TODO check this if we can even do this (so  we do like await selectById())
+        return this.getUserPageSetting(user);
     }
 }
 
