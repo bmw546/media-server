@@ -1,5 +1,7 @@
-const CryptoJS = require ('crypto-js');
+const { v4: uuidv4 } = require('uuid');
+//see https://www.npmjs.com/package/uuid
 
+const CryptoJS = require ('crypto-js');
 
 const UserDao = require('module/user/dao/user-dao');
 const userDao = new UserDao();

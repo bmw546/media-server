@@ -22,6 +22,7 @@
     "lodash": "^4.17.15",
     "module": "file:module",
     "pg": "^8.2.1",
-    "servercore": "file:core"
+    "servercore": "file:core",
+    "uuid": "^8.2.0"
   }
 }
