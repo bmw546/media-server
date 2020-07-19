@@ -107,7 +107,6 @@ class MediaDao extends IBaseDao{
         })); 
     }
 
-
     // ========================= MEDIA TAGS ============================================
 
     /**
@@ -116,9 +115,11 @@ class MediaDao extends IBaseDao{
      */
     async getMediaTags(media){
         let result = await this._getAssociationMediaTable('tags_media', media.id);
+
         for(let row of result.row){
             media.tags.push(new TagsEntity({id: row}));
         }
+        
         return media;
     }
 
@@ -150,8 +151,8 @@ class MediaDao extends IBaseDao{
     async getMediaAuthorizations(media){
         let result = await this._getAssociationMediaTable('authorization_media', media.id);
         
-        for(let row of result.row){
-            media.authorization.push(new AuthorizationEntity({id: row}));
+        for(let authorization of result.row){
+            media.authorization.push(new AuthorizationEntity({id: authorization}));
         }
 
         return media;
