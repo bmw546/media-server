@@ -1,9 +1,12 @@
 const redisSessions = require("redis-sessions");
 /** @see https://github.com/smrchy/redis-sessions#readme **/
 
+const SessionEntity = require(`../entities/session-entity`);
+
 const RedisConfigs = {
     requestTimeout: 3000,
-}
+    appName: `MediaServer`,
+};
 
 class SessionDao{
     /**
@@ -78,5 +81,34 @@ class SessionDao{
         });
     }
 
+    /**
+     * 
+     * @param {SessionEntity} session 
+     */
+    create(session){
+        // throw if session not ok
+        return new Promise((resolve, reject) => {
+            let timeout = this._timeout(`create`, reject);
+            
+            this.redisClient.create({
+                app: RedisConfigs.appName,
+                    id: session.userId,
+                    ip: session.ip,
+                    ttl: session.timeToLive,
+                    d: {sessionJson: JSON.stringify(session)},
+            },
+            (error, response) => {
+                clearTimeout(timeout);
+
+                if (error) return reject(error);
+
+                session.uuid = response.token;
+
+                resolve(session);
+            });
+
+
+        });
+    }
 
 }
