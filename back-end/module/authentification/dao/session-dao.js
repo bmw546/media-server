@@ -1,3 +1,5 @@
+const JsUtil = require('servercore/util/js-util');
+
 const redisSessions = require("redis-sessions");
 /** @see https://github.com/smrchy/redis-sessions#readme **/
 
@@ -54,7 +56,7 @@ class SessionDao{
     }
 
     /**
-     * @description Create a timeout for the command send to redis
+     * @description Create a timeout for the command send to redis.
      * @param {string} command 
      * @param {*} reject 
      * @return A timeout created by {@link setTimeout}.
@@ -89,7 +91,7 @@ class SessionDao{
 
     /**
      * @description Add a session to the redis server.
-     * @param {SessionEntity} session 
+     * @param {SessionEntity} session - The session to insert into redis.
      */
     create(session){
         // throw if session not ok
@@ -120,14 +122,17 @@ class SessionDao{
      * @description Get a session from the redis server.
      * @param {string} uuid 
      */
-    get(uuid){
+    get(uuid, update = false){
         return new Promise((resolve, reject) => {
 
             let timeout = this._timeout('get', reject);
 
-            this.redisSessionsClient.get({
+            this.redisClient.get({
                     app: RedisConfigs.appName,
                     token: uuid,
+                    //`Hack`: we aren't suppose to use _noupdate since it private and it doesn't have any documentation.
+                    // Used here to access session without renewing their ttl.
+                    _noupdate: !update || false,
                 },
                 (error, response) => {
                     clearTimeout(timeout);
@@ -148,7 +153,7 @@ class SessionDao{
 
             let timeout = this._timeout('delete', reject);
 
-            this.redisSessionsClient.kill({
+            this.redisClient.kill({
                     app: RedisConfigs.appName,
                     token: uuid,
                 },
@@ -157,8 +162,39 @@ class SessionDao{
 
                     if (error) return reject(error);
 
-                    resolve()
+                    resolve();
                 });
+        });
+    }
+
+
+
+    /**
+     * @description Find session stored in redis.
+     * @param {number[]} [userIds] - Filter out session that doesn't belong to one of these user.
+     * @param {number} [lastActive] - Number of second we should search session who were active in the last x seconds, default 1 hours.
+     */
+    search(userIds, lastActive = (60*60)) {
+
+        return new Promise((resolve, reject) => {
+
+            let timeout = this.timeout('search', reject);
+
+            this.redisClient.soapp({
+                app: RedisConfigs.appName,
+                dt: lastActive
+
+            }, (err, {sessions}) => {
+                clearTimeout(timeout);
+
+                if (err) return reject(err);
+
+                // We convert session.id to number since redis keeps it as a string.
+                if(userIds)
+                    sessions = sessions.filter(session => userIds.indexOf(Number(session.id)) !== -1);
+
+                resolve(redisSessionConverter(sessions));
+            });
         });
     }
 

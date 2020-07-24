@@ -21,7 +21,7 @@ class SessionEntity extends BaseIdEntity{
         /** @type {string} */
         this.ip = JsUtil.undefinedIfNothing(params.ip, `0.0.0.0`);
 
-        /** @type {int} */
+        /** @type {number} */
         this.userId = JsUtil.undefinedIfNothing(params.userId);
 
          /** @type {string} */
