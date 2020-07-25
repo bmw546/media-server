@@ -96,12 +96,12 @@ class UserDao extends IBaseDao{
     // ===============================================================================
     async getFromUserPw(username, hashedPassword){
         let result = await postGres.selectQuery(new PostgresQueryEntity({
-            command: `${this.insertQuery()} username = $1 AND saltedUserNamePassword = $2`,
+            command: `${this.selectQuery()} username = $1 AND saltedUserNamePassword = $2`,
             parameters: [username, hashedPassword]
         })).rows[0];
         return this._buildEntity(result);
-
     }  
+    
     /**
      * @description Prepare an user entity for sending it to the database.
      * @param {UserEntity} user 

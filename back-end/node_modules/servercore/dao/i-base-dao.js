@@ -96,7 +96,7 @@ class IBaseDao{
 
         return this._entityBuilder( 
             await postGres.executeQuery(new PostgresQueryEntity({
-                command: `${this.deleteQuery} id = $id`,
+                command: `${this.deleteQuery} id = $1`,
                 parameters: [id]
             })).rows[0]
         );
