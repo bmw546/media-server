@@ -41,8 +41,8 @@ class IBaseDao{
         return `UPDATE ${tableName} SET ${update} WHERE`;
     }
 
-    insertQuery(tableName = name, column){
-        return `INSERT INTO ${tableName} VALUES`;
+    insertQuery(columns, tableName = name){
+        return `INSERT INTO ${tableName}${columns} VALUES`;
     }
 
     //------------------------------ Base Query --------------------------------------
@@ -54,7 +54,7 @@ class IBaseDao{
         
         return this._entityBuilder(
             await postGres.executeQuery(new PostgresQueryEntity({
-                command: `${this.selectQuery()} id = $id`,
+                command: `${this.selectQuery()} id = $1`,
                 parameters: [id]
             })).rows[0]
         );
@@ -66,12 +66,12 @@ class IBaseDao{
      * @param {*} object 
      */
     async modify(object){
-        object = this._prepare(object);
+        let obj = this._prepare(object);
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.updateQuery(Object.keys(object).map((key) => `${key} = $${key}`))}`+
-            `id = $id`,
-            parameters: Object.keys(media).map((key) => `${object[key]}`).concat([object.id])
+            command: `${this.updateQuery(Object.keys(obj).map((key) => (`$`+Number(key))))}`+
+            `id = $`+ ( Object.keys(obj).length + 1 ),
+            parameters: Object.keys(obj).map((key) => `${obj[key]}`).concat([obj.id])
         }));
         return this._entityBuilder(result.rows[0]);
     }
@@ -84,7 +84,8 @@ class IBaseDao{
         object = this._prepare(object);
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.insertQuery} ` + Object.keys(object).map((key) => `$${$key}`),
+            command: `${this.insertQuery(name,`(`+ Object.keys(object).map((key) => `${$key}`) + `)` )}` +
+                    `(`+ Object.keys(object).map((key) => (`$`+Number(key))) + `) RETURNING *`,
             parameters: Object.keys(object).map((key) => object[key])
         }));
         return this._entityBuilder(result.rows[0]);
