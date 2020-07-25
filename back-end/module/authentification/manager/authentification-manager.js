@@ -8,13 +8,23 @@ const userDao = new UserDao();
 
 const UserEntity = require('module/user/entities/user-entity');
 
+const SessionEntity = require('../entities/session-entity');
+
+const {sessionDao} = require('../injector');
+
 const key = 'b55e1e9a7c794e58d53347ff3ce9251d';
 class AuthentificationManager {
+
 
     loginByAuth(){
         //TODO WIP
     }
 
+    /**
+     * @description Connected a user with username + password only.
+     * @param {string} username 
+     * @param {string} password 
+     */
     async classicLogin(username, password){
         let saltedMessage = password + username + 'xXx_SaltTheMediaServer_xXx';
         let saltedHashPassword = CryptoJS.HmacSHA256(saltedMessage, key).toString();
@@ -29,13 +39,29 @@ class AuthentificationManager {
         return undefined;
     }
 
-    createSession(user){
+    async disconnect(uuid){
+        await sessionDao.delete(uuid);
     }
 
-    renewSession(session){
+    async createSession(user, token, ip){
+        let session = new SessionEntity({
+            userId: user.id,
+            uuid: uuidv4(),
+            rawAccessToken: token,
+            ip: ip,
+            creationTime: Date.now(),
+
+        });
+        
+        return session;
     }
 
-    deleteSession(session){
+    async getSession(uuid, renew = false){
+        return await sessionDao.get(uuid, renew);
+    }
+
+    async renewSession(session){
+        await sessionDao.get(session.uuid, true);
     }
     
     async signup(user){

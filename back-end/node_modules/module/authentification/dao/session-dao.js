@@ -17,10 +17,6 @@ function redisSessionConverter(redisSession){
 }
 
 class SessionDao{
-    /**
-     * @description Delay to wait before assuming Redis has successfully started.
-     */
-    static get StartUpDelay() { return 850; }
 
     // We have to start redis !
     // or do something to other start it.
@@ -199,3 +195,5 @@ class SessionDao{
     }
 
 }
+
+module.exports = SessionDao;

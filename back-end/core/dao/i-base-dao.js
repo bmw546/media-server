@@ -41,7 +41,7 @@ class IBaseDao{
         return `UPDATE ${tableName} SET ${update} WHERE`;
     }
 
-    insertQuery(tableName = name){
+    insertQuery(tableName = name, column){
         return `INSERT INTO ${tableName} VALUES`;
     }
 

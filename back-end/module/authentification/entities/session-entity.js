@@ -39,4 +39,4 @@ class SessionEntity extends BaseIdEntity{
     
 }
 
-module.exports = ImageEntity;
+module.exports = SessionEntity;

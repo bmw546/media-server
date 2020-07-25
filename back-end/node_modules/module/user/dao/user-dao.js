@@ -7,6 +7,7 @@ const PageSettingEntity = require('servercore/entities/page-setting-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
+const JsUtil = require('servercore/util/js-util');
 
 
 
@@ -91,9 +92,16 @@ class UserDao extends IBaseDao{
         return result;
     }
     
-
-    // ===============================================================================
     
+    // ===============================================================================
+    async getFromUserPw(username, hashedPassword){
+        let result = await postGres.selectQuery(new PostgresQueryEntity({
+            command: `${this.insertQuery()} username = $1 AND saltedUserNamePassword = $2`,
+            parameters: [username, hashedPassword]
+        })).rows[0];
+        return this._buildEntity(result);
+
+    }  
     /**
      * @description Prepare an user entity for sending it to the database.
      * @param {UserEntity} user 
@@ -108,6 +116,9 @@ class UserDao extends IBaseDao{
      * @param {*} result 
      */
     _buildEntity(result){
+        if(JsUtil.isNill(result))
+            return undefined;
+
         let user = new UserEntity(result);
         user.role = new RoleEntity(result.role);
 
