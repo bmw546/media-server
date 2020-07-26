@@ -101,7 +101,23 @@ class UserDao extends IBaseDao{
         })).rows[0];
         return this._buildEntity(result);
     }  
-    
+
+    /**
+     * 
+     * @param {string} username - The name to check if it exists
+     */
+    async doesUsernameNameExist(username){
+        let result = await postGres.selectQuery(new PostgresQueryEntity({
+            command: `select exists (${this.selectQuery()} username = $1 )`,
+            parameters: [username]
+        })).rows[0];
+
+        if(JsUtil.isNill(result) || result === 0){
+            return false;
+        } else if (result === 1){
+            return true;
+        }
+    }
     /**
      * @description Prepare an user entity for sending it to the database.
      * @param {UserEntity} user 

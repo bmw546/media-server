@@ -3,6 +3,8 @@ const { v4: uuidv4 } = require('uuid');
 
 const CryptoJS = require ('crypto-js');
 
+const JsUtil = require('servercore/util/js-util');
+
 const UserDao = require('module/user/dao/user-dao');
 const userDao = new UserDao();
 
@@ -20,16 +22,46 @@ class AuthentificationManager {
         //TODO WIP
     }
 
+    _hashPassword(username, password){
+        let saltedMessage = password + username + 'xXx_SaltTheMediaServer_xXx';
+        return CryptoJS.HmacSHA256(saltedMessage, key).toString();
+    }
     /**
      * @description Connected a user with username + password only.
      * @param {string} username 
      * @param {string} password 
      */
     async classicLogin(username, password){
-        let saltedMessage = password + username + 'xXx_SaltTheMediaServer_xXx';
-        let saltedHashPassword = CryptoJS.HmacSHA256(saltedMessage, key).toString();
 
-        let user = userDao.getFromUserPw(username, saltedHashPassword);
+        let user = userDao.getFromUserPw(username, _hashPassword(username, password));
+        if(user){
+            // create session and returns it.
+            return await this.createSession(user);
+        }
+
+        // Throw cannot find user error.
+        return undefined;
+    }
+
+    /**
+     * 
+     * @param {UserEntity} user 
+     */
+    async classicSignup(user){
+
+        if(!(userDao.doesUsernameNameExist(user.username))){
+            // Username exist cannot create this account !
+            return undefined;
+        }        
+
+        if(JsUtil.isNill(user.username) || JsUtil.isNill(user.password)){
+            return undefined; // cannot create account without any username !
+        }
+
+        // Hash the password for security
+        user.password = this._hashPassword(user.username, user.password);
+
+        user = userDao.commit(user);
         if(user){
             // create session and returns it.
             return await this.createSession(user);
