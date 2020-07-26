@@ -1,5 +1,8 @@
+
+
+
 /**
- * @description Base error class for this system.
+ * @description Base error class for the server.
  */
 class BaseError extends Error {
 
