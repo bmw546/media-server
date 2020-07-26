@@ -11,8 +11,9 @@ const userDao = new UserDao();
 const UserEntity = require('module/user/entities/user-entity');
 
 const SessionEntity = require('../entities/session-entity');
-
 const {sessionDao} = require('../injector');
+
+const UnauthorizedError = require('servercore/base-errors/unauthorized-error')
 
 const key = 'b55e1e9a7c794e58d53347ff3ce9251d';
 class AuthentificationManager {
