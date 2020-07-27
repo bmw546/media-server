@@ -13,10 +13,15 @@ const UserEntity = require('module/user/entities/user-entity');
 const SessionEntity = require('../entities/session-entity');
 const {sessionDao} = require('../injector');
 
-const UnauthorizedError = require('servercore/base-errors/unauthorized-error')
+const UnauthorizedError = require('servercore/errors/unauthorized-error');
+const InvalidArgumentTypeError = require('servercore/errors/invalid-argument-type-error');
+
+const AlreadyExistsError = require('servercore/errors/already-exists-error');
+const NotFoundError = require('servercore/errors/not-found-error');
 
 const key = 'b55e1e9a7c794e58d53347ff3ce9251d';
-class AuthentificationManager {
+
+class AuthenticationManager {
 
 
     loginByAuth(){
@@ -29,34 +34,37 @@ class AuthentificationManager {
     }
     /**
      * @description Connected a user with username + password only.
-     * @param {string} username 
-     * @param {string} password 
+     * @param {string} username - The username of the user to log in.
+     * @param {string} password - The password (clear) of the user to log in.
      */
     async classicLogin(username, password){
 
+        // Create a user entity and hash the password.
         let user = userDao.getFromUserPw(username, _hashPassword(username, password));
+
         if(user){
             // create session and returns it.
             return await this.createSession(user);
         }
 
-        // Throw cannot find user error.
-        return undefined;
+        // Throw since user cannot be found / password is wrong !
+        throw UnauthorizedError(`user ${username}`, `The username-password doesn't match any user in the database !`);
     }
 
     /**
-     * 
+     * @description A classical sign up with a user. It need at least an username and an password.
      * @param {UserEntity} user 
      */
     async classicSignup(user){
 
         if(!(userDao.doesUsernameNameExist(user.username))){
             // Username exist cannot create this account !
-            return undefined;
+            throw new AlreadyExistsError('username', `This username already exists!`);
         }        
 
         if(JsUtil.isNill(user.username) || JsUtil.isNill(user.password)){
-            return undefined; // cannot create account without any username !
+            // make a better error here.
+            throw new InvalidArgumentTypeError('user.username, user.password', `'string' and 'string'`, `both are 'null'`);
         }
 
         // Hash the password for security
@@ -68,8 +76,7 @@ class AuthentificationManager {
             return await this.createSession(user);
         }
 
-        // Throw cannot find user error.
-        return undefined;
+        throw new NotFoundError('user', `The server cannot find the created user !`);
     }
 
     async disconnect(uuid){
@@ -77,7 +84,7 @@ class AuthentificationManager {
     }
 
     async createSession(user, token, ip){
-        let session = new SessionEntity({
+        return new SessionEntity({
             userId: user.id,
             uuid: uuidv4(),
             rawAccessToken: token,
@@ -85,8 +92,6 @@ class AuthentificationManager {
             creationTime: Date.now(),
 
         });
-        
-        return session;
     }
 
     async getSession(uuid, renew = false){
@@ -96,13 +101,6 @@ class AuthentificationManager {
     async renewSession(session){
         await sessionDao.get(session.uuid, true);
     }
-    
-    async signup(user){
-        // throw if user invalid
-        user = new UserEntity(await userDao.commit(user));
-        return await this.createSession(user);
-    }
-
 }
 
-exports.module = AuthentificationManager;
+exports.module = AuthenticationManager;
