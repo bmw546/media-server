@@ -26,9 +26,6 @@ class PostGres{
         this.tableToModify = [];
     }
 
-    async printVersion(){
-        console.log(await this.executeQuery('select version()'));
-    }
     // -------------------- 'NORMAL QUERY' ----------------------- //
     /**
      * @description Used for straight forward (without transaction) e.g: Create table ;
@@ -111,12 +108,12 @@ class PostGres{
         // https://stackoverflow.com/questions/40034119/promises-inside-for-loops-promise-all-using-psql-pg-promise-in-node
         for(let createTable of this.tableToCreate){
             console.log(`Executing this query: ${createTable}`);
-            await this.executeQuery(createTable);
+            await this.executeQuery({command: createTable});
         }
 
         for(let modifyTable of this.tableToModify){
             console.log(`Executing this query: ${modifyTable}`);
-            await this.executeTransactionQuery(modifyTable);
+            await this.executeTransactionQuery({command: modifyTable});
         }
     }
 }

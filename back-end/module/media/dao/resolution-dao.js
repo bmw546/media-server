@@ -5,12 +5,14 @@ const ResolutionEntity = require('../entities/resolution-entity');
 const {postGres} = require('servercore/postgres/postgresPipe');
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
 
+/** @description The name of this dao table */
 const name = 'resolution';
+
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS ${name} (
-        id INT GENERATED ALWAYS AS IDENTITY,
+        id serial primary key,
         height INT,
         width INT
     )`

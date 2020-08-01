@@ -5,21 +5,23 @@ const RoleEntity = require('module/user/entities/role-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 
+/** @description The name of this dao table */
+const name = "authorizationTable";
 
 // --------------- Let add the basic table --------------------
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS authorization (
-        id INT GENERATED ALWAYS AS IDENTITY,
+    `CREATE TABLE IF NOT EXISTS ${name} (
+        id serial primary key,
         role INT,
-        authorizationRule STRING,
-        condition STRING
+        authorizationRule VARCHAR(175),
+        condition TEXT
     )`
 );
 
 
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
-    `ALTER TABLE authorization ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id)  ON UPDATE CASCADE ON DELETE CASCADE`
+    `ALTER TABLE ${name} ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id)  ON UPDATE CASCADE ON DELETE CASCADE`
 );
 class AuthorizationDao extends IBaseDao{
     

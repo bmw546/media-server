@@ -9,9 +9,9 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS imageFormat (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        name STRING,
-        description STRING
+        id serial primary key,
+        name VARCHAR(100),
+        description TEXT
     )`
 );
 

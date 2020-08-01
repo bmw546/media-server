@@ -15,15 +15,14 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS pageSetting (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        styleName STRING,
-        foreground STRING,
-        background STRING,
-        background STRING,
-        text STRING,
-        button STRING,
+        id serial primary key,
+        styleName VARCHAR(100),
+        foreground TEXT,
+        background TEXT,
+        text TEXT,
+        button TEXT,
         creator INT,
-        options STRING,
+        options TEXT,
         backgroundImage INT,
         module INT
     )`

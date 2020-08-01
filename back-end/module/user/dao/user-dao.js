@@ -9,21 +9,21 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
 const JsUtil = require('servercore/util/js-util');
 
-
+/** @description The name of this dao table */
+const name = "user";
 
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS user (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        username STRING,
-        avatarImage STRING,
-        session STRING,
-        saltedUserNamePassword STRING,
+    `CREATE TABLE IF NOT EXISTS ${name} (
+        id serial primary key,
+        username VARCHAR(50),
+        avatarImageId INT,
+        saltedUserNamePassword VARCHAR(150),
         auth0Id INT,
-        email STRING,
-        lastMedia INT,
-        time DATE,
+        email VARCHAR(100),
+        lastMediaId INT,
+        lastMediaTime INT,
         role INT
     )`
 );
@@ -33,14 +33,14 @@ postGres.addCreateTable(
 // Create an userPageSetting association table.
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS userPageSetting (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        FOREIGN KEY userId REFERENCES user (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        id serial primary key,
+        FOREIGN KEY userId REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
         FOREIGN KEY pageSetting REFERENCES pageSetting (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 
 postGres.addModifyTable(
-    `ALTER TABLE user
+    `ALTER TABLE ${name}
         ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id) ON UPDATE CASCADE ON DELETE SET NULL
     `
 );
@@ -124,6 +124,10 @@ class UserDao extends IBaseDao{
      */
     _prepare(user){
         user.role = user.role.id;
+        user.avatarImageId = user.avatarImage.id;
+
+        delete user.avatarImage;
+
         return user;
     }
 
@@ -137,6 +141,8 @@ class UserDao extends IBaseDao{
 
         let user = new UserEntity(result);
         user.role = new RoleEntity(result.role);
+        user.avatarImage.id = result.avatarImageId;
+        
 
         //TODO check this if we can even do this (so  we do like await selectById())
         return this.getUserPageSetting(user);

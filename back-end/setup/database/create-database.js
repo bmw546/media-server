@@ -25,7 +25,6 @@ async function build(){
     
     try{
         //await pool.query(command);
-        await postGres.printVersion();
         await postGres.executeTableQueries();
     } catch(e) {
         console.log(e);

@@ -4,19 +4,21 @@ const TagsEntity = require('../entities/tags-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 
+/** @description The name of this dao table */
+const name = "tag";
 
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS tag (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        name STRING
+    `CREATE TABLE IF NOT EXISTS ${name} (
+        id serial primary key,
+        name VARCHAR(50)
     )`
 );
 
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
-    `ALTER TABLE tag ADD CONSTRAIN fk_creator FOREIGN KEY (creator) REFERENCES user (id) ON UPDATE CASCADE ON DELETE SET NULL`
+    `ALTER TABLE ${name} ADD CONSTRAIN fk_creator FOREIGN KEY (creator) REFERENCES user (id) ON UPDATE CASCADE ON DELETE SET NULL`
 );
 class TagsDao extends IBaseDao{
 

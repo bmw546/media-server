@@ -25,16 +25,16 @@ require('./media-type-dao');
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS ${name} (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        title STRING,
-        description STRING,
-        creator STRING,
-        authorization STRING,
+        id serial primary key,
+        title VARCHAR(150),
+        description TEXT,
+        creatorId INT,
         size INT,
-        fileName STRING,
+        fileName TEXT,
         rating INT,
         numberRating INT,
         numberView INT,
+        mediaTypeId INT,
         FOREIGN KEY (mediaTypeId) REFERENCES mediaType (id) ON UPDATE CASCADE ON DELETE SET NULL
         
     )`

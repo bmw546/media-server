@@ -38,10 +38,10 @@ class UserEntity extends BaseIdEntity{
 
         // -------------- Here will be what the user last saw ------------------ //
         /** @type {number} */
-        this.lastMedia = JsUtil.undefinedIfNothing(params.lastMedia);
+        this.lastMediaId = JsUtil.undefinedIfNothing(params.lastMediaId);
 
         /** @type {number} */
-        this.time = JsUtil.undefinedIfNothing(params.time);
+        this.lastMediaTime = JsUtil.undefinedIfNothing(params.lastMediaTime);
 
     }
     

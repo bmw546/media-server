@@ -4,20 +4,22 @@ const RoleEntity = require('../entities/role-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 
+/** @description The name of this dao table */
+const name = "role";
 
 // --------------- Let add the basic table --------------------
 // Mayby ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS role (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        title STRING,
-        description STRING
+    `CREATE TABLE IF NOT EXISTS ${name} (
+        id serial primary key,
+        title VARCHAR(50),
+        description VARCHAR(150)
     )`
 );
 
 // Adding some data
 postGres.addCreateTable(
-    `INSERT INTO mediaType (title, description)
+    `INSERT INTO ${name} (title, description)
     VALUES ('root', 'The root system'), 
     ('admin', "The system admin"),
     ('user', "A registered user"),

@@ -7,12 +7,13 @@ const PostgresQueryEntity = require('servercore/entities/postgres-query-entity')
 
 /** @description The name of this dao table */
 const name = "mediaType";
+
 // --------------- Let add the basic table --------------------
 // Mayby ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS ${name} (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        name STRING,
+        id serial primary key,
+        name VARCHAR(75)
     )`
 );
 

@@ -11,10 +11,10 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 // --------------- Let add the basic table --------------------
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS image (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        info int,
-        format int,
-        resolution int
+        id serial primary key,
+        info INT,
+        format INT,
+        resolution INT
     )`
 );
 
