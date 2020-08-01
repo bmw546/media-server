@@ -17,14 +17,14 @@
   },
   "homepage": "https://github.com/bmw546/media-server#readme",
   "dependencies": {
-    "crypto-js": "^4.0.0",
-    "express": "^4.17.1",
-    "lodash": "^4.17.15",
-    "mocha": "^8.1.0",
+    "crypto-js": "latest",
+    "express": "latest",
+    "lodash": "latest",
+    "mocha": "latest",
     "module": "file:module",
-    "pg": "^8.2.1",
-    "redis-sessions": "^3.0.0",
+    "pg": "latest",
+    "redis-sessions": "latest",
     "servercore": "file:core",
-    "uuid": "^8.2.0"
+    "uuid": "latest"
   }
 }

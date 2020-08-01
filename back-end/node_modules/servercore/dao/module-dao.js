@@ -10,7 +10,7 @@ const ImageEntity = require('module/image/entities/image-entity');
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS module (
-        id INT GENERATED ALWAYS AS IDENTITY,
+        id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         title STRING,
         description STRING,
         logo INT

@@ -1,7 +1,7 @@
 const configs = {
     host: 'localhost', // server name or IP address;
     port: 5432,
-    database: 'mediaServer',
+    database: 'mediaserver',
     user: 'postgres',
     password: 'admin'
 };

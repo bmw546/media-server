@@ -25,6 +25,10 @@ class PostGres{
         /**@description A list of function to execute to create the foreign key*/
         this.tableToModify = [];
     }
+
+    async printVersion(){
+        console.log(await this.executeQuery('select version()'));
+    }
     // -------------------- 'NORMAL QUERY' ----------------------- //
     /**
      * @description Used for straight forward (without transaction) e.g: Create table ;
@@ -106,10 +110,12 @@ class PostGres{
         // We might not be able to use Promise.all() instead since:
         // https://stackoverflow.com/questions/40034119/promises-inside-for-loops-promise-all-using-psql-pg-promise-in-node
         for(let createTable of this.tableToCreate){
+            console.log(`Executing this query: ${createTable}`);
             await this.executeQuery(createTable);
         }
 
         for(let modifyTable of this.tableToModify){
+            console.log(`Executing this query: ${modifyTable}`);
             await this.executeTransactionQuery(modifyTable);
         }
     }

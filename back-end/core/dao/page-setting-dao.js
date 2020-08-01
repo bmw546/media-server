@@ -4,7 +4,7 @@ const PageSettingEntity = require('../entities/page-setting-entity');
 
 const UserEntity = require('module/user/entities/user-entity');
 
-const ModuleEntity = require('./module-entity');
+const ModuleEntity = require('../entities/module-entity');
 
 const ImageEntity = require('module/image/entities/image-entity');
 

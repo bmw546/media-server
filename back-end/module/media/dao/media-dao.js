@@ -6,7 +6,6 @@ const PostgresQueryEntity = require('servercore/entities/postgres-query-entity')
 const MediaEntity = require('../entities/media-entity');
 
 const MediaTypeEntity = require('../entities/media-type-entity');
-const ResolutionEntity = require('./resolution-entity');
 
 const AuthorizationEntity = require('module/authorization/entities/authorization-entity');
 const TagsEntity = require('../entities/tags-entity');
