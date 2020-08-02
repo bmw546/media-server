@@ -5,10 +5,13 @@ const ImageFormatEntity = require('../entities/image-format-entity');
 const {postGres} = require('servercore/postgres/postgresPipe');
 
 
+/** @description The name of this dao table */
+const name = "image_format";
+
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS imageFormat (
+    `CREATE TABLE IF NOT EXISTS ${name} (
         id serial primary key,
         name VARCHAR(100),
         description TEXT

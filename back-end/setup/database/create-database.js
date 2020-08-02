@@ -25,6 +25,9 @@ async function build(){
     
     try{
         //await pool.query(command);
+        await postGres.executeQuery({command: 'DROP SCHEMA public CASCADE;'});
+        await postGres.executeQuery({command: 'CREATE SCHEMA public;'});
+        
         await postGres.executeTableQueries();
     } catch(e) {
         console.log(e);

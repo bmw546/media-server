@@ -20,7 +20,6 @@ const name = "media";
 // Add the media type tables and populates it with some base info.
 require('./media-type-dao');
 
-
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
@@ -35,7 +34,7 @@ postGres.addCreateTable(
         numberRating INT,
         numberView INT,
         mediaTypeId INT,
-        FOREIGN KEY (mediaTypeId) REFERENCES mediaType (id) ON UPDATE CASCADE ON DELETE SET NULL
+        FOREIGN KEY (mediaTypeId) REFERENCES media_type (id) ON UPDATE CASCADE ON DELETE SET NULL
         
     )`
 );
@@ -44,24 +43,22 @@ postGres.addCreateTable(
 // ------------- And then let modify them ------------------------
 
 postGres.addModifyTable(
-    `CREATE INDEX mediaType ON mediaTypId`
+    `CREATE INDEX ON ${name} (mediaTypeId)`
 );
 
 // Add a tags association table
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS tags_media (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        FOREIGN KEY (media_id) REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        FOREIGN KEY (fk_tags) REFERENCES tag (id) ON UPDATE CASCADE ON DELETE SET NULL
+        fk_media int REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        fk_tags int REFERENCES tag (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 
 // Add authorization association table
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS authorization_media (
-        id INT GENERATED ALWAYS AS IDENTITY,
-        FOREIGN KEY (media_id) REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        FOREIGN KEY (fk_authorization) REFERENCES authorization (id) ON UPDATE CASCADE ON DELETE CASCADE
+        media_id int REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        fk_authorization int REFERENCES authorization_table (id) ON UPDATE CASCADE ON DELETE CASCADE
     )`
 );
 

@@ -21,9 +21,9 @@ postGres.addCreateTable(
 postGres.addCreateTable(
     `INSERT INTO ${name} (title, description)
     VALUES ('root', 'The root system'), 
-    ('admin', "The system admin"),
-    ('user', "A registered user"),
-    ('guest', "A non registered user")`
+    ('admin', 'The system admin'),
+    ('user', 'A registered user'),
+    ('guest', 'A non registered user')`
 );
 
 class RoleDao extends IBaseDao{

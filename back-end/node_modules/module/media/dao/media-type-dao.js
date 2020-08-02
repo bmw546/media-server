@@ -6,7 +6,7 @@ const {postGres} = require('servercore/postgres/postgresPipe');
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
 
 /** @description The name of this dao table */
-const name = "mediaType";
+const name = "media_type";
 
 // --------------- Let add the basic table --------------------
 // Mayby ask for a better generated ID

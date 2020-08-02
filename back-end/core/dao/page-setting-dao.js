@@ -10,11 +10,14 @@ const ImageEntity = require('module/image/entities/image-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 
+/** @description The name of this dao table */
+const name = "page_setting";
+
 
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS pageSetting (
+    `CREATE TABLE IF NOT EXISTS ${name} (
         id serial primary key,
         styleName VARCHAR(100),
         foreground TEXT,
@@ -30,10 +33,10 @@ postGres.addCreateTable(
 
 // And then let modify it so we can add the fk key
 postGres.addModifyTable(
-    `ALTER TABLE pageSetting 
-        ADD CONSTRAINT fk_creator FOREIGN KEY (creator) REFERENCES user (id)  ON UPDATE CASCADE ON DELETE SET NULL,
+    `ALTER TABLE ${name} 
+        ADD CONSTRAINT fk_creator FOREIGN KEY (creator) REFERENCES user_table (id)  ON UPDATE CASCADE ON DELETE SET NULL,
         ADD CONSTRAINT fk_backgroundImage FOREIGN KEY (backgroundImage) REFERENCES image (id) ON UPDATE CASCADE ON DELETE SET NULL,
-        ADD CONSTRAINT fk_module FOREIGN KEY (module) REFERENCES module (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        ADD CONSTRAINT fk_module FOREIGN KEY (module) REFERENCES module (id) ON UPDATE CASCADE ON DELETE CASCADE
     `
 );
 

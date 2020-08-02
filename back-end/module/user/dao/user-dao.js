@@ -10,7 +10,7 @@ const PostgresQueryEntity = require('servercore/entities/postgres-query-entity')
 const JsUtil = require('servercore/util/js-util');
 
 /** @description The name of this dao table */
-const name = "user";
+const name = "user_table";
 
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
@@ -32,10 +32,10 @@ postGres.addCreateTable(
 
 // Create an userPageSetting association table.
 postGres.addModifyTable(
-    `CREATE TABLE IF NOT EXISTS userPageSetting (
+    `CREATE TABLE IF NOT EXISTS user_page_setting (
         id serial primary key,
         FOREIGN KEY userId REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        FOREIGN KEY pageSetting REFERENCES pageSetting (id) ON UPDATE CASCADE ON DELETE SET NULL
+        FOREIGN KEY page_setting REFERENCES page_setting (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 

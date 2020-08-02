@@ -6,7 +6,7 @@ const RoleEntity = require('module/user/entities/role-entity');
 const {postGres} = require('servercore/postgres/postgresPipe');
 
 /** @description The name of this dao table */
-const name = "authorizationTable";
+const name = "authorization_table";
 
 // --------------- Let add the basic table --------------------
 postGres.addCreateTable(
