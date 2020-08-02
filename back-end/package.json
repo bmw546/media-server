@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bmw546/media-server#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "crypto-js": "latest",
     "express": "latest",
     "lodash": "latest",

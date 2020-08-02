@@ -68,10 +68,13 @@ class IBaseDao{
     async modify(object){
         let obj = this._prepare(object);
 
+        let id = obj.id;
+        delete obj.id;
+
         let result = await postGres.executeQuery(new PostgresQueryEntity({
             command: `${this.updateQuery(Object.keys(obj).map((key) => (`$`+Number(key))))}`+
             `id = $`+ ( Object.keys(obj).length + 1 ),
-            parameters: Object.keys(obj).map((key) => `${obj[key]}`).concat([obj.id])
+            parameters: Object.keys(obj).map((key) => `${obj[key]}`).concat([id])
         }));
         return this._entityBuilder(result.rows[0]);
     }
@@ -82,6 +85,8 @@ class IBaseDao{
      */
     async commit(object){
         object = this._prepare(object);
+
+        delete object.id;
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
             command: `${this.insertQuery(name,`(`+ Object.keys(object).map((key) => `${$key}`) + `)` )}` +
