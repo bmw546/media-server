@@ -1,3 +1,5 @@
+const JsUtil = require('servercore/util/js-util');
+
 const IBaseDao = require('servercore/dao/i-base-dao');
 
 const ModuleEntity = require('../entities/module-entity');
@@ -26,6 +28,10 @@ postGres.addModifyTable(
 );
 
 class ModuleDao extends IBaseDao{
+    constructor(){
+        super();
+        this.name = name;
+    }
     
     /**
      * @private
@@ -33,7 +39,11 @@ class ModuleDao extends IBaseDao{
      * @param {ModuleEntity} module 
      */
     _prepare(module){
-        module.logo = module.logo.id;
+
+        if(!JsUtil.isNil(module.logo)){
+            module.logo = module.logo.id;
+        }
+        
         return module;
     }
 

@@ -11,7 +11,7 @@ class JsUtil extends lodash{
      * @param {*} value The value to check.
      * @param {*} defaultValue The default value return undefined if not specified (is undefined/null). 
      */
-    static undefinedIfNothing(value, defaultValue){
+    static defaultIfNothing(value, defaultValue){
         
         if(lodash.isNil(value)){
             if(lodash.isNil(defaultValue)){

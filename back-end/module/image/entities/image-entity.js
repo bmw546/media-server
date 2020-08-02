@@ -16,13 +16,13 @@ class ImageEntity extends BaseIdEntity{
         super();
 
         /** @type {MediaEntity} */
-        this.info = JsUtil.undefinedIfNothing(params.info);
+        this.info = JsUtil.defaultIfNothing(params.info);
 
         /** @type {ImageFormatEntity} */
-        this.format = JsUtil.undefinedIfNothing(params.format);
+        this.format = JsUtil.defaultIfNothing(params.format);
 
         /** @type {ResolutionEntity} */
-        this.resolution = JsUtil.undefinedIfNothing(params.resolution);
+        this.resolution = JsUtil.defaultIfNothing(params.resolution);
 
     }
     

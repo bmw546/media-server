@@ -1,3 +1,6 @@
+const {postGres} = require('servercore/postgres/postgresPipe');
+const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
+
 const NotImplementedError = require('servercore/errors/not-implemented-error');
 
 /**
@@ -29,19 +32,19 @@ class IBaseDao{
     }
 
     // -------------------------------------- Query keyword shortcut --------------------------
-    selectQuery(tableName = name){
+    selectQuery(tableName = this.name){
         return `SELECT * FROM ${tableName} WHERE`;
     }
 
-    deleteQuery(tableName = name){
+    deleteQuery(tableName = this.name){
         return `DELETE FROM ${tableName} WHERE`;
     }
 
-    updateQuery(update, tableName = name){
+    updateQuery(update, tableName = this.name){
         return `UPDATE ${tableName} SET ${update} WHERE`;
     }
 
-    insertQuery(columns, tableName = name){
+    insertQuery(columns, tableName = this.name){
         return `INSERT INTO ${tableName}${columns} VALUES`;
     }
 
@@ -89,7 +92,7 @@ class IBaseDao{
         delete object.id;
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.insertQuery(name,`(`+ Object.keys(object).map((key) => `${$key}`) + `)` )}` +
+            command: `${this.insertQuery(Object.keys(object).map((key) => (`$`+Number(key))))}` +
                     `(`+ Object.keys(object).map((key) => (`$`+Number(key))) + `) RETURNING *`,
             parameters: Object.keys(object).map((key) => object[key])
         }));

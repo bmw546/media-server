@@ -15,13 +15,13 @@ class ModuleEntity extends BaseIdEntity{
         super();
         
         /** @type {string} */
-        this.title = JsUtil.undefinedIfNothing(params.title);
+        this.title = JsUtil.defaultIfNothing(params.title);
 
         /** @type {string} */
-        this.description = JsUtil.undefinedIfNothing(params.description);
+        this.description = JsUtil.defaultIfNothing(params.description);
 
         /** @type {ImageEntity} */
-        this.logo = JsUtil.undefinedIfNothing(params.logo);
+        this.logo = JsUtil.defaultIfNothing(params.logo);
     }
     
 }
