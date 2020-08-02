@@ -19,12 +19,8 @@ const MediaDaos = require('module/media/media-daos');
 const UserDaos = require('module/user/user-daos');
 // -----------------
 
-async function build(){
-    const db = 'mediaserver';
-    //const command = `CREATE DATABASE ${db}`;
-    
+async function build(){   
     try{
-        //await pool.query(command);
         await postGres.executeQuery({command: 'DROP SCHEMA public CASCADE;'});
         await postGres.executeQuery({command: 'CREATE SCHEMA public;'});
         

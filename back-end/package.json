@@ -25,6 +25,7 @@
     "pg": "latest",
     "redis-sessions": "latest",
     "servercore": "file:core",
+    "sinon": "^9.0.2",
     "uuid": "latest"
   }
 }
