@@ -49,16 +49,20 @@ postGres.addModifyTable(
 // Add a tags association table
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS tags_media (
-        fk_media int REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        fk_tags int REFERENCES tag (id) ON UPDATE CASCADE ON DELETE SET NULL
+        fk_media int,
+        fk_tags int,
+        FOREIGN KEY (fk_media) REFERENCES ${name}(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (fk_tags) REFERENCES tag(id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 
 // Add authorization association table
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS authorization_media (
-        media_id int REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        fk_authorization int REFERENCES authorization_table (id) ON UPDATE CASCADE ON DELETE CASCADE
+        media_id int,
+        fk_authorization int,
+        FOREIGN KEY (media_id) REFERENCES ${name}(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (fk_authorization) REFERENCES authorization_table(id) ON UPDATE CASCADE ON DELETE CASCADE
     )`
 );
 

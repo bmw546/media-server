@@ -33,15 +33,16 @@ postGres.addCreateTable(
 // Create an userPageSetting association table.
 postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS user_page_setting (
-        id serial primary key,
-        FOREIGN KEY userId REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
-        FOREIGN KEY page_setting REFERENCES page_setting (id) ON UPDATE CASCADE ON DELETE SET NULL
+        user_id int,
+        page_setting int,
+        FOREIGN KEY (user_id) REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (page_setting) REFERENCES page_setting (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 
 postGres.addModifyTable(
     `ALTER TABLE ${name}
-        ADD CONSTRAINT fk_role FOREIGN KEY (role) REFERENCES role (id) ON UPDATE CASCADE ON DELETE SET NULL
+        ADD FOREIGN KEY (role) REFERENCES role(id) ON UPDATE CASCADE ON DELETE SET NULL
     `
 );
 class UserDao extends IBaseDao{

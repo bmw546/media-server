@@ -12,13 +12,14 @@ const name = "tag";
 postGres.addCreateTable(
     `CREATE TABLE IF NOT EXISTS ${name} (
         id serial primary key,
-        name VARCHAR(50)
+        name VARCHAR(50),
+        fk_creator int
     )`
 );
 
 // ------------- And then let modify them ------------------------
 postGres.addModifyTable(
-    `ALTER TABLE ${name} ADD CONSTRAIN fk_creator REFERENCES (creator) REFERENCES user_table (id) ON UPDATE CASCADE ON DELETE SET NULL`
+    `ALTER TABLE ${name} ADD FOREIGN KEY (fk_creator) REFERENCES user_table(id) ON UPDATE CASCADE ON DELETE SET NULL`
 );
 class TagsDao extends IBaseDao{
 
