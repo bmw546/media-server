@@ -1,9 +1,12 @@
 {
     "cSpell.words": [
         "Postgres",
+        "gres",
         "servercore",
-        "uuidv"
+        "uuidv",
+        "varchar"
     ],
     "mocha.files.glob": "back-end/test/**/*spec?(s).js",
-    "mochaExplorer.cwd": "backend/test/**/*spec?(s).js"
+    "mochaExplorer.cwd": "backend/test/**/*spec?(s).js",
+    "mocha.parallelTests": 1
 }

@@ -10,13 +10,14 @@ class MediaTypeEntity  extends BaseIdEntity{
 
     /** @param {MediaTypeEntities} params */
     constructor(params){
+        params = JsUtil.defaultIfNothing(params, {});
 
-        super();
+        super(params);
 
-        params = JsUtil.undefinedIfNothing(params, {});
+        params = JsUtil.defaultIfNothing(params, {});
 
         /** @type {string} */
-        this.name = JsUtil.undefinedIfNothing(params.name);
+        this.name = JsUtil.defaultIfNothing(params.name);
 
     }
 

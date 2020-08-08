@@ -12,36 +12,38 @@ class UserEntity extends BaseIdEntity{
     
     /** @param {UserEntity} params*/
     constructor(params){
-        super();
+        params = JsUtil.defaultIfNothing(params, {});
+
+        super(params);
 
         /** @type {string} */
-        this.username = JsUtil.undefinedIfNothing(params.username, 'Guest');
+        this.username = JsUtil.defaultIfNothing(params.username, 'Guest');
 
         // An array of PageSetting
         /** @type {PageSettingDto[]} */
-        this.selectedPageSettings = JsUtil.undefinedIfNothing(params.selectedPageSettings, '[{DEFAULT PAGE SETTING}]');
+        this.selectedPageSettings = JsUtil.defaultIfNothing(params.selectedPageSettings, '[{DEFAULT PAGE SETTING}]');
 
         /** @type {ImageDto} */
-        this.avatarImage = JsUtil.undefinedIfNothing(params.avatarImage, 'GuestProfileImageDto');
+        this.avatarImage = JsUtil.defaultIfNothing(params.avatarImage, 'GuestProfileImageDto');
 
         /** @type {SessionDto} */
-        this.session = JsUtil.undefinedIfNothing(params.session);
+        this.session = JsUtil.defaultIfNothing(params.session);
 
         /** @type {string} */
-        this.saltedUserNamePassword = JsUtil.undefinedIfNothing(params.saltedUserNamePassword);
+        this.saltedUserNamePassword = JsUtil.defaultIfNothing(params.saltedUserNamePassword);
 
         /** @type {number} */
-        this.auth0Id = JsUtil.undefinedIfNothing(params.auth0Id);
+        this.auth0Id = JsUtil.defaultIfNothing(params.auth0Id);
 
         /** @type {string} */
-        this.email = JsUtil.undefinedIfNothing(params.email);
+        this.email = JsUtil.defaultIfNothing(params.email);
 
         // -------------- Here will be what the user last saw ------------------ //
         /** @type {number} */
-        this.lastMediaId = JsUtil.undefinedIfNothing(params.lastMediaId);
+        this.lastMediaId = JsUtil.defaultIfNothing(params.lastMediaId);
 
         /** @type {number} */
-        this.lastMediaTime = JsUtil.undefinedIfNothing(params.lastMediaTime);
+        this.lastMediaTime = JsUtil.defaultIfNothing(params.lastMediaTime);
 
     }
     

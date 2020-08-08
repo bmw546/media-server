@@ -13,7 +13,9 @@ class ImageEntity extends BaseIdEntity{
     
     /** @param {ImageEntity} params*/
     constructor(params){
-        super();
+        params = JsUtil.defaultIfNothing(params, {});
+
+        super(params);
 
         /** @type {MediaEntity} */
         this.info = JsUtil.defaultIfNothing(params.info);

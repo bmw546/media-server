@@ -10,13 +10,15 @@ class RoleEntity extends BaseIdEntity{
     
     /** @param {RoleEntity} params*/
     constructor(params){
-        super();
+        params = JsUtil.defaultIfNothing(params, {});
+
+        super(params);
 
         /** @type {string} */
-        this.title = JsUtil.undefinedIfNothing(params.title, 'Guest');
+        this.title = JsUtil.defaultIfNothing(params.title, 'Guest');
 
         /** @type {string} */
-        this.description = JsUtil.undefinedIfNothing(params.description, 'A non registered user');
+        this.description = JsUtil.defaultIfNothing(params.description, 'A non registered user');
     }
     
 }

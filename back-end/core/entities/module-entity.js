@@ -12,8 +12,11 @@ class ModuleEntity extends BaseIdEntity{
     
     /** @param {ModuleEntity} params*/
     constructor(params){
-        super();
-        
+
+        params = JsUtil.defaultIfNothing(params, {});
+
+        super(params);
+
         /** @type {string} */
         this.title = JsUtil.defaultIfNothing(params.title);
 

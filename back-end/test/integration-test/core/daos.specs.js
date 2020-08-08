@@ -4,6 +4,7 @@ const expect = chai.expect;
 const should = chai.should();
 
 const ModuleEntity = require('servercore/entities/module-entity');
+const ImageEntity = require('module/image/entities/image-entity');
 
 const ModuleDao = require('servercore/dao/module-dao');
 const moduleDao = new ModuleDao();
@@ -25,7 +26,8 @@ describe('core/dao/i-base-dao.js', () => {
 
         let commitModule = await moduleDao.commit(module);
 
-        module.id = commitModule;
+        module.id = commitModule.id;
+        module.logo = new ImageEntity();
 
         expect(module).to.eql(commitModule, `The module has been changed when it was committed to the database! Was suppose to be ${module} but was ${commitModule} !`);
 
@@ -37,8 +39,7 @@ describe('core/dao/i-base-dao.js', () => {
 
         getModule = await moduleDao.selectById(module.id);
 
-        expect(getModule).to.eql(undefined, `The module has not been deleted!`);
-        
+        expect(getModule).to.eql(new ModuleEntity(), `The module has not been deleted!`);
     });
 
     it('should update a module to the database', async() => {
@@ -46,7 +47,8 @@ describe('core/dao/i-base-dao.js', () => {
 
         let commitModule = await moduleDao.commit(module);
 
-        module.id = commitModule;
+        module.id = commitModule.id;
+        module.logo = new ImageEntity();
 
         expect(module).to.eql(commitModule, `The module has been changed when it was committed to the database !`);
 
@@ -56,6 +58,8 @@ describe('core/dao/i-base-dao.js', () => {
 
         let getModule = await moduleDao.selectById(module.id);
         expect(module).to.eql(getModule, `The module should have been modified but it didn't !`);
+
+        await moduleDao.delete(module.id);
     });
 
 });

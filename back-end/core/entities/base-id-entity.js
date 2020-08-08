@@ -9,8 +9,6 @@ class BaseIdEntity{
     /** @param {BaseIdEntity} params*/
     constructor(params){
 
-        params = JsUtil.defaultIfNothing(params, {});
-        
         /** @type {number} */
         this.id = JsUtil.defaultIfNothing(params.id);
 

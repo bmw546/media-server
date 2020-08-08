@@ -38,6 +38,10 @@ class PostGres{
         let res;
 
         try{
+            console.log('========================');
+            console.log(JSON.stringify(query));
+            console.log('========================');
+
             res = await pool.query(query.command, query.parameters);
         }catch(e){
             // TODO add some error handling
@@ -79,7 +83,7 @@ class PostGres{
         } finally {
             transactionClient.release();
         }
-        return res
+        return res;
     }
 
 

@@ -10,6 +10,8 @@ class PostgresQueryEntity extends BaseEntity{
     /** @param {PostgresQueryEntity} params*/
     constructor(params){
         super();
+
+        params = JsUtil.defaultIfNothing(params, {});
         
         /** @type {string} */
         this.command = JsUtil.defaultIfNothing(params.command);

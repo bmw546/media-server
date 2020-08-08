@@ -11,13 +11,15 @@ class ResolutionEntity extends BaseIdEntity{
      * @param {ResolutionEntity} params
      */
     constructor(params){
-        super();
+        params = JsUtil.defaultIfNothing(params, {});
+
+        super(params);
 
         /** @type {number} */
-        this.height = JsUtil.undefinedIfNothing(params.height);
+        this.height = JsUtil.defaultIfNothing(params.height);
 
         /** @type {number} */
-        this.width = JsUtil.undefinedIfNothing(params.width);
+        this.width = JsUtil.defaultIfNothing(params.width);
     }
 }
 

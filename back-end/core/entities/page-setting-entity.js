@@ -15,7 +15,10 @@ class PageSettingEntity extends BaseIdEntity{
     
     /** @param {PageSettingEntity} params*/
     constructor(params){
-        super();
+
+        params = JsUtil.defaultIfNothing(params, {});
+
+        super(params);
         
         /** @type {string} */
         this.styleName = JsUtil.undefinedIfNothing(params.styleName);

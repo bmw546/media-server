@@ -12,18 +12,18 @@ class AuthorizationEntity extends BaseIdEntity{
      * @param {AuthorizationEntity} params
      */
     constructor(params){
-        super();
+        params = JsUtil.defaultIfNothing(params, {});
 
+        super(params);
 
         /** @type {RoleEntity} */
-        this.role = JsUtil.undefinedIfNothing(params.role);
+        this.role = JsUtil.defaultIfNothing(params.role);
 
         /** @type {string} */
-        this.authorization = JsUtil.undefinedIfNothing(params.authorization);
-
+        this.authorization = JsUtil.defaultIfNothing(params.authorization);
 
         /** @type {string} */
-        this.condition = JsUtil.undefinedIfNothing(params.condition);
+        this.condition = JsUtil.defaultIfNothing(params.condition);
     }
 }
 

@@ -21,7 +21,7 @@
     "crypto-js": "latest",
     "express": "latest",
     "lodash": "latest",
-    "mocha": "latest",
+    "mocha": "^8.1.1",
     "module": "file:module",
     "pg": "latest",
     "redis-sessions": "latest",

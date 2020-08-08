@@ -18,44 +18,43 @@ class MediaEntity  extends BaseIdEntity{
 
     /** @param {MediaEntity} params */
     constructor(params){
+        params = JsUtil.defaultIfNothing(params, {});
 
-        super();
-
-        params = JsUtil.undefinedIfNothing(params, {});
-
-        /** @type {string} */
-        this.title = JsUtil.undefinedIfNothing(params.title);
+        super(params);
 
         /** @type {string} */
-        this.description = JsUtil.undefinedIfNothing(params.description);
+        this.title = JsUtil.defaultIfNothing(params.title);
+
+        /** @type {string} */
+        this.description = JsUtil.defaultIfNothing(params.description);
 
         /** @type {UserEntity} */
-        this.creator = JsUtil.undefinedIfNothing(params.creator);
+        this.creator = JsUtil.defaultIfNothing(params.creator);
 
         /** @type {AuthorizationEntity[]} */
-        this.authorization = JsUtil.undefinedIfNothing(params.authorization);
+        this.authorization = JsUtil.defaultIfNothing(params.authorization);
 
         /** @type {number} */
-        this.size = JsUtil.undefinedIfNothing(params.size);
+        this.size = JsUtil.defaultIfNothing(params.size);
 
         /** @type {string} */
-        this.fileName = JsUtil.undefinedIfNothing(params.fileName);
+        this.fileName = JsUtil.defaultIfNothing(params.fileName);
 
         /** @type {TagsEntity[]} */
-        this.tags = JsUtil.undefinedIfNothing(params.tags);
+        this.tags = JsUtil.defaultIfNothing(params.tags);
 
         /** @type {number} */
-        this.rating = JsUtil.undefinedIfNothing(params.rating);
+        this.rating = JsUtil.defaultIfNothing(params.rating);
 
         /** @type {number} */
-        this.numberRating = JsUtil.undefinedIfNothing(params.numberRating);
+        this.numberRating = JsUtil.defaultIfNothing(params.numberRating);
 
         /** @type {number} */
-        this.numberView = JsUtil.undefinedIfNothing(params.numberView);
+        this.numberView = JsUtil.defaultIfNothing(params.numberView);
 
         // The type of the media only here to help query get faster.
         /** @type {MediaTypeEntities} */
-        this.mediaTypeEntity = JsUtil.undefinedIfNothing(params.mediaTypeEntity);
+        this.mediaTypeEntity = JsUtil.defaultIfNothing(params.mediaTypeEntity);
     }
 
 }

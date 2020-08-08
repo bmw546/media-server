@@ -1,6 +1,8 @@
 const {postGres} = require('servercore/postgres/postgresPipe');
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
 
+const JsUtil = require('servercore/util/js-util');
+
 const NotImplementedError = require('servercore/errors/not-implemented-error');
 
 /**
@@ -45,7 +47,7 @@ class IBaseDao{
     }
 
     insertQuery(columns, tableName = this.name){
-        return `INSERT INTO ${tableName} ${columns} VALUES`;
+        return `INSERT INTO ${tableName} (${columns}) VALUES`;
     }
 
     //------------------------------ Base Query --------------------------------------
@@ -54,13 +56,12 @@ class IBaseDao{
      * @param {number} id 
      */
     async selectById(id){
-        
-        return this._entityBuilder(
-            await postGres.executeQuery(new PostgresQueryEntity({
-                command: `${this.selectQuery()} id = $1`,
-                parameters: [id]
-            })).rows[0]
-        );
+
+        let result = await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.selectQuery()} id = $1`,
+            parameters: [id]
+        }));
+        return this._buildEntity(result.rows[0]);
     }
     
     
@@ -71,15 +72,22 @@ class IBaseDao{
     async modify(object){
         let obj = this._prepare(object);
 
+        Object.keys(obj).map((key) => {
+            if(JsUtil.isNill(obj[key])) {
+                delete obj[key]
+            };
+        )});
         let id = obj.id;
         delete obj.id;
 
+        let i = 0;
+
         let result = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.updateQuery(Object.keys(obj).map((key) => (`$`+Number(key))))}`+
-            `id = $`+ ( Object.keys(obj).length + 1 ),
+            command: `${this.updateQuery(Object.keys(obj).map((key) => (key + ` = $`+(i = i+1))))}` +
+                ` id = $`+ ( Object.keys(obj).length + 1 ),
             parameters: Object.keys(obj).map((key) => `${obj[key]}`).concat([id])
         }));
-        return this._entityBuilder(result.rows[0]);
+        return this._buildEntity(result.rows[0]);
     }
 
     /**
@@ -91,25 +99,25 @@ class IBaseDao{
 
         delete object.id;
 
-        let i = -1;
+        let i = 0;
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.insertQuery(Object.keys(object).map((key) => (`$`+key)))}`+
+            command: `${this.insertQuery(Object.keys(object))}`+
                     `(`+ Object.keys(object).map((key) => (`$`+(i = i+1))) + `) RETURNING *`,
             parameters: Object.values(object)
         }));
-        return this._entityBuilder(result.rows[0]);
+        return this._buildEntity(result.rows[0]);
     }
 
     // protect those function and keep tem like 'delete'
     async delete(id){
 
-        return this._entityBuilder( 
-            await postGres.executeQuery(new PostgresQueryEntity({
-                command: `${this.deleteQuery} id = $1`,
-                parameters: [id]
-            })).rows[0]
-        );
+        await postGres.executeQuery(new PostgresQueryEntity({
+            command: `${this.deleteQuery()} id = $1`,
+            parameters: [id]
+        }));
+
+        return;
     }
 
 

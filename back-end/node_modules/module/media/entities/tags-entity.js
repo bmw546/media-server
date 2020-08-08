@@ -12,10 +12,10 @@ class TagsEntity extends BaseEntity{
         super();
         
         /** @type {UserDto} */
-        this.creator = JsUtil.undefinedIfNothing(params.creator);
+        this.creator = JsUtil.defaultIfNothing(params.creator);
 
         /** @type {string} */
-        this.name = JsUtil.undefinedIfNothing(params.name);
+        this.name = JsUtil.defaultIfNothing(params.name);
     
     }
     
