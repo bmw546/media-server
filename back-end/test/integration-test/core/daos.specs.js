@@ -15,7 +15,7 @@ function moduleGenerator() {
         title: uuidv4(),
         description: 'Test To Delete !',
     });
-};
+}
 
 // Here we gonna use the module-dao.js to test the base dao object
 describe('core/dao/i-base-dao.js', () => {

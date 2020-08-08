@@ -2,6 +2,8 @@
  * This is a little class to facilitate the use of postgres.
  */
 
+const PostGresError = require('../errors/post-gres-error');
+
 // postgres
 // postgres info --> https://stackoverflow.com/questions/4482239/postgresql-database-service
 const { Client, Pool } = require('pg');
@@ -39,7 +41,8 @@ class PostGres{
             res = await pool.query(query.command, query.parameters);
         }catch(e){
             // TODO add some error handling
-            throw e;
+            console.log(e);
+            throw new PostGresError(query);
         }
         
         return res; 
@@ -70,7 +73,8 @@ class PostGres{
         } catch(e) {
             // Transaction fail rollback
             await transactionClient.query('ROLLBACK'); 
-            throw e;
+            console.log(query);
+            throw new PostGresError(query);
 
         } finally {
             transactionClient.release();

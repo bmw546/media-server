@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
-        "Postgres"
+        "Postgres",
+        "servercore",
+        "uuidv"
     ],
     "mocha.files.glob": "back-end/test/**/*spec?(s).js",
     "mochaExplorer.cwd": "backend/test/**/*spec?(s).js"

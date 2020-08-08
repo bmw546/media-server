@@ -45,7 +45,7 @@ class IBaseDao{
     }
 
     insertQuery(columns, tableName = this.name){
-        return `INSERT INTO ${tableName}${columns} VALUES`;
+        return `INSERT INTO ${tableName} ${columns} VALUES`;
     }
 
     //------------------------------ Base Query --------------------------------------
@@ -91,10 +91,12 @@ class IBaseDao{
 
         delete object.id;
 
+        let i = -1;
+
         let result = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.insertQuery(Object.keys(object).map((key) => (`$`+Number(key))))}` +
-                    `(`+ Object.keys(object).map((key) => (`$`+Number(key))) + `) RETURNING *`,
-            parameters: Object.keys(object).map((key) => object[key])
+            command: `${this.insertQuery(Object.keys(object).map((key) => (`$`+key)))}`+
+                    `(`+ Object.keys(object).map((key) => (`$`+(i = i+1))) + `) RETURNING *`,
+            parameters: Object.values(object)
         }));
         return this._entityBuilder(result.rows[0]);
     }
