@@ -45,6 +45,11 @@ class UserEntity extends BaseIdEntity{
         /** @type {number} */
         this.lastMediaTime = JsUtil.defaultIfNothing(params.lastMediaTime);
 
+
+        // --------------------- Should not be in DB -------------------------- //
+        /** @type {string} */
+        this.password = JsUtil.defaultIfNothing(params.password);
+
     }
     
 }

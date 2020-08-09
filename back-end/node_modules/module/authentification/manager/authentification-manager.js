@@ -51,7 +51,8 @@ class AuthenticationManager {
         throw UnauthorizedError(`user ${username}`, `The username-password doesn't match any user in the database !`);
     }
 
-    /**
+    // TODO MOVE The user logic to the user manager ! (keep password logic)
+    /** 
      * @description A classical sign up with a user. It need at least an username and an password.
      * @param {UserEntity} user 
      */

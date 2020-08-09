@@ -120,21 +120,6 @@ class IBaseDao{
             parameters: [id]
         }));
     }
-
-
-
-    async getAssociationTable(tableName, entity){
-        let result = [];
-
-        for(let tags of media.tags){
-            result.push(await postGres.executeQuery(new PostgresQueryEntity({
-                command: `${this.insertQuery(tableName)}`,
-                parameters: [media.id, tags]
-            })));
-        }
-
-        return result;
-    }
 }
 
 module.exports = IBaseDao;
