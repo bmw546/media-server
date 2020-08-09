@@ -70,13 +70,15 @@ class IBaseDao{
      * @param {*} object 
      */
     async modify(object){
-        let obj = this._prepare(object);
+        let obj = JSON.parse(JSON.stringify(object));
+        obj = this._prepare(obj);
 
         Object.keys(obj).map((key) => {
-            if(JsUtil.isNill(obj[key])) {
+            if(JsUtil.isNil(obj[key])) {
                 delete obj[key]
-            };
-        )});
+            }
+        });
+
         let id = obj.id;
         delete obj.id;
 
@@ -92,9 +94,11 @@ class IBaseDao{
 
     /**
      * @description Base object to create a commit.
-     * @param {*} object 
+     * @param {*} obj
      */
-    async commit(object){
+    async commit(obj){
+        let object = JSON.parse(JSON.stringify(obj));
+        object = this._prepare(object);
         object = this._prepare(object);
 
         delete object.id;
@@ -111,13 +115,10 @@ class IBaseDao{
 
     // protect those function and keep tem like 'delete'
     async delete(id){
-
         await postGres.executeQuery(new PostgresQueryEntity({
             command: `${this.deleteQuery()} id = $1`,
             parameters: [id]
         }));
-
-        return;
     }
 
 

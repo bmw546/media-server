@@ -57,9 +57,10 @@ describe('core/dao/i-base-dao.js', () => {
         await moduleDao.modify(module);
 
         let getModule = await moduleDao.selectById(module.id);
+
         expect(module).to.eql(getModule, `The module should have been modified but it didn't !`);
 
-        await moduleDao.delete(module.id);
+        await moduleDao.delete(commitModule.id);
     });
 
 });

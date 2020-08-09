@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddb96388-23eb-44cc-9456-dc4600635624" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/core/dao/i-base-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/core/dao/i-base-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/dao/module-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/core/dao/module-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/base-id-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/core/entities/base-id-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/module-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/core/entities/module-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/page-setting-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/core/entities/page-setting-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/postgres-query-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/core/entities/postgres-query-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/postgres/postgres-adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/core/postgres/postgres-adapter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authentification/entities/session-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/authentification/entities/session-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authorization/entities/authorization-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/authorization/entities/authorization-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/image/entities/image-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/image/entities/image-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/image/entities/image-format-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/image/entities/image-format-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/entities/media-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/media/entities/media-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/entities/media-type-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/media/entities/media-type-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/entities/resolution-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/media/entities/resolution-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/entities/tags-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/media/entities/tags-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/user/entities/role-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/user/entities/role-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/user/entities/user-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/user/entities/user-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/dao/i-base-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/servercore/dao/i-base-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/base-id-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/base-id-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/module-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/module-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/page-setting-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/page-setting-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/postgres/postgres-adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/servercore/postgres/postgres-adapter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,8 +62,8 @@
       <file leaf-file-name="daos.specs.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="987">
-              <caret line="47" column="53" lean-forward="true" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
+            <state relative-caret-position="254">
+              <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -104,8 +80,8 @@
       <file leaf-file-name="i-base-dao.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/back-end/core/dao/i-base-dao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+            <state relative-caret-position="196">
+              <caret line="68" column="25" lean-forward="true" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -259,7 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.core/dao/i-base-dao.js">
+  <component name="RunManager" selected="Mocha.core/dao/i-base-dao.js.should update a module to the database">
     <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -298,6 +274,20 @@
         <name value="should add/selectById/delete a module to the database" />
       </test-names>
     </configuration>
+    <configuration name="core/dao/i-base-dao.js.should update a module to the database" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js</test-file>
+      <test-names>
+        <name value="core/dao/i-base-dao.js" />
+        <name value="should update a module to the database" />
+      </test-names>
+    </configuration>
     <configuration name="test" type="mocha-javascript-test-runner" factoryName="Mocha">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -313,11 +303,13 @@
       <item itemvalue="Mocha.test" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js.should add/selectById/delete a module to the database" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js" />
+      <item itemvalue="Mocha.core/dao/i-base-dao.js.should update a module to the database" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Mocha.core/dao/i-base-dao.js" />
+        <item itemvalue="Mocha.core/dao/i-base-dao.js.should update a module to the database" />
         <item itemvalue="Mocha.core/dao/i-base-dao.js.should add/selectById/delete a module to the database" />
+        <item itemvalue="Mocha.core/dao/i-base-dao.js" />
       </list>
     </recent_temporary>
   </component>
@@ -331,44 +323,44 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596912043679</updated>
-      <workItem from="1596912050827" duration="8453000" />
+      <workItem from="1596912050827" duration="11767000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 16h 52m 35s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_add_selectById_delete_a_module_to_the_database - 2020.08.08 at 19h 41m 26s.xml">
+      <configuration name="core/dao/i-base-dao.js.should add/selectById/delete a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 05m 29s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 46m 38s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 05m 48s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 46m 43s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 08m 03s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 48m 01s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 08m 50s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 48m 32s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 42m 15s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 51m 08s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 42m 28s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 51m 35s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 42m 45s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 52m 17s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 42m 58s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 52m 50s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="core_dao_i-base-dao_js - 2020.08.08 at 17h 43m 12s.xml">
-      <configuration name="core/dao/i-base-dao.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 53m 02s.xml">
+      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8453000" />
+    <option name="totallyTimeSpent" value="11767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
@@ -380,11 +372,11 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Database" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32985386" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32985386" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39979124" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39979124" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -409,7 +401,27 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js</url>
+          <line>60</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/back-end/core/dao/i-base-dao.js</url>
+          <line>81</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/back-end/core/dao/i-base-dao.js</url>
+          <line>73</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -542,13 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="47" column="53" lean-forward="true" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back-end/core/dao/module-dao.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -556,10 +561,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/back-end/core/dao/i-base-dao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        <state relative-caret-position="196">
+          <caret line="68" column="25" lean-forward="true" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
         </state>
       </provider>
     </entry>
