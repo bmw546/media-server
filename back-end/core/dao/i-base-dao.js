@@ -97,19 +97,29 @@ class IBaseDao{
      * @param {*} obj
      */
     async commit(obj){
+        
+        let preparedObject = this.prepareObjectForQuery(obj);
+    
+        let results = executeQuery(this.generateQueryForCommit(preparedObject), Object.values(object));
+
+        return this._buildEntity(result.rows[0]);
+        
+
+        // insert this into a function (prepare data)
         let object = JSON.parse(JSON.stringify(obj));
         object = this._prepare(object);
-        object = this._prepare(object);
-
         delete object.id;
 
-        let i = 0;
 
+        let i = 0;
         let result = await postGres.executeQuery(new PostgresQueryEntity({
+            // build query for commit
             command: `${this.insertQuery(Object.keys(object))}`+
                     `(`+ Object.keys(object).map((key) => (`$`+(i = i+1))) + `) RETURNING *`,
             parameters: Object.values(object)
         }));
+
+
         return this._buildEntity(result.rows[0]);
     }
 
