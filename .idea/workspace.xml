@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddb96388-23eb-44cc-9456-dc4600635624" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/back-end/test/integration-test/authentication/authentification-manager.specs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/module/authentification/manager/authentification-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/authentification/manager/authentification-manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/module/user/dao/user-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/module/user/dao/user-dao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/test/integration-test/authentication/authentification-manager.specs.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,20 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="authentification-manager.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="authentification-manager.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/back-end/module/authentification/manager/authentification-manager.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
-              <caret line="39" column="22" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="authentification-manager.specs.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/back-end/test/integration-test/authentication/authentification-manager.specs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -150,14 +141,6 @@
               <item name="back-end" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="test" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="integration-test" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="media-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="media-server" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="back-end" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="test" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="integration-test" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="authentication" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="media-server" type="b2602c69:ProjectViewProjectNode" />
@@ -289,7 +272,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596912043679</updated>
       <workItem from="1596912050827" duration="13337000" />
-      <workItem from="1596988481671" duration="4347000" />
+      <workItem from="1596988481671" duration="6194000" />
     </task>
     <servers />
   </component>
@@ -326,7 +309,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17684000" />
+    <option name="totallyTimeSpent" value="19531000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
@@ -588,17 +571,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/module/authentification/manager/authentification-manager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back-end/test/integration-test/authentication/authentification-manager.specs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back-end/module/authentification/manager/authentification-manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

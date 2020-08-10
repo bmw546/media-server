@@ -115,9 +115,11 @@ class UserDao extends IBaseDao{
 
         if(JsUtil.isNill(result) || result === 0){
             return false;
-        } else if (result === 1){
+        } else if (result !== 1){
             return true;
         }
+        
+        throw Error();
     }
     /**
      * @description Prepare an user entity for sending it to the database.

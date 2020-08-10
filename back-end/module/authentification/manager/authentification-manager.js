@@ -51,14 +51,14 @@ class AuthenticationManager {
         throw UnauthorizedError(`user ${username}`, `The username-password doesn't match any user in the database !`);
     }
 
-    // TODO MOVE The user logic to the user manager ! (keep password logic)
+    // 
     /** 
      * @description A classical sign up with a user. It need at least an username and an password.
      * @param {UserEntity} user 
      */
     async classicSignup(user){
 
-        if(!(userDao.doesUsernameNameExist(user.username))){
+        if(userDao.doesUsernameNameExist(user.username)){
             // Username exist cannot create this account !
             throw new AlreadyExistsError('username', `This username already exists!`);
         }        
@@ -85,14 +85,14 @@ class AuthenticationManager {
     }
 
     async createSession(user, token, ip){
-        return new SessionEntity({
+        sessionDao.create(new SessionEntity({
             userId: user.id,
             uuid: uuidv4(),
             rawAccessToken: token,
             ip: ip,
             creationTime: Date.now(),
 
-        });
+        }));
     }
 
     async getSession(uuid, renew = false){
