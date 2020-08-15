@@ -51,6 +51,13 @@ class IBaseDao{
     }
 
     //------------------------------ Base Query --------------------------------------
+
+    parametrizeObject(obj){
+        let i = 0;
+        return Object.keys(obj).map((key) => (key + ` = $`+(i = i+1)));
+    }
+
+
     /**
      * @description Base Select to select a object by its id.
      * @param {number} id 
@@ -82,16 +89,29 @@ class IBaseDao{
         let id = obj.id;
         delete obj.id;
 
-        let i = 0;
-
         let result = await postGres.executeQuery(new PostgresQueryEntity({
-            command: `${this.updateQuery(Object.keys(obj).map((key) => (key + ` = $`+(i = i+1))))}` +
+            command: `${this.updateQuery(this.parametrizeObject(obj))}` +
                 ` id = $`+ ( Object.keys(obj).length + 1 ),
             parameters: Object.keys(obj).map((key) => `${obj[key]}`).concat([id])
         }));
         return this._buildEntity(result.rows[0]);
     }
 
+    prepareObjectForInsertUpdate(obj){
+        let object = JSON.parse(JSON.stringify(obj));
+        object = this._prepare(object);
+        delete object.id;
+        
+    }
+
+    generateQueryForCommit(obj){
+        return new PostgresQueryEntity({
+            // build query for commit
+            command: `${this.insertQuery(Object.keys(object))}`+
+                    `(`+ this.parametrizeObject(obj) + `) RETURNING *`,
+            parameters: Object.values(object)
+        });
+    }
     /**
      * @description Base object to create a commit.
      * @param {*} obj
@@ -100,7 +120,7 @@ class IBaseDao{
         
         let preparedObject = this.prepareObjectForQuery(obj);
     
-        let results = executeQuery(this.generateQueryForCommit(preparedObject), Object.values(object));
+        let results = await postGres.executeQuery(this.generateQueryForCommit(preparedObject), Object.values(object));
 
         return this._buildEntity(result.rows[0]);
         
@@ -109,16 +129,6 @@ class IBaseDao{
         let object = JSON.parse(JSON.stringify(obj));
         object = this._prepare(object);
         delete object.id;
-
-
-        let i = 0;
-        let result = await postGres.executeQuery(new PostgresQueryEntity({
-            // build query for commit
-            command: `${this.insertQuery(Object.keys(object))}`+
-                    `(`+ Object.keys(object).map((key) => (`$`+(i = i+1))) + `) RETURNING *`,
-            parameters: Object.values(object)
-        }));
-
 
         return this._buildEntity(result.rows[0]);
     }
