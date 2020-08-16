@@ -3,97 +3,50 @@
   <component name="ChangeListManager">
     <list default="true" id="ddb96388-23eb-44cc-9456-dc4600635624" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/.mocharc.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/.npmrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/.run/File Server (TS).run.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/.run/Play.run.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/.run/Tests (TS).run.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/app-framework/app-module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/app-framework/i-register-api-routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/app-framework/i-server-app-configs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/app-framework/server-application.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/errors/argument-error.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/errors/base-error.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/errors/tests/base-error/base-error.specs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/express-utils/express-utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/functions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/i-restorable.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/setup-test-modules.specs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/spies.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/stubs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/fail.specs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/spy-collection/adding-spies/assertSpiesAreAccessibleThroughTheIndexer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/spy-collection/adding-spies/assertThrowsIfUsingReservedKeyword.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/spy-collection/restore/assertDeletesPropertiesFromCollection.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/spy-collection/restore/assertRestoresNestedSpies.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/spy-collection/restore/assertRestoresSpies.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/spy-collection/spy-collection-tests-helpers.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/spy-collection/spy-collections.specs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/test-utils/tests/stubs.specs.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/modules/types/maybe.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/playground.default.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/base/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authentification/authentification-daos.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/authentification/authentification-daos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authentification/dao/session-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/authentification/dao/session-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authentification/entities/session-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/authentification/entities/session-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authentification/injector.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/authentification/injector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authentification/manager/authentification-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/authentification/manager/authentification-manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authorization/authorization-daos.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/authorization/authorization-daos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authorization/dao/authorization-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/authorization/dao/authorization-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/authorization/entities/authorization-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/authorization/entities/authorization-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/image/dao/image-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/image/dao/image-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/image/dao/image-format-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/image/dao/image-format-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/image/entities/image-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/image/entities/image-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/image/entities/image-format-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/image/entities/image-format-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/image/image-daos.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/image/image-daos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/dao/media-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/dao/media-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/dao/media-type-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/dao/media-type-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/dao/resolution-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/dao/resolution-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/dao/tags-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/dao/tags-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/entities/media-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/entities/media-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/entities/media-type-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/entities/media-type-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/entities/resolution-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/entities/resolution-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/entities/tags-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/entities/tags-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/media/media-daos.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/media/media-daos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/user/dao/role-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/user/dao/role-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/user/dao/user-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/user/dao/user-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/user/entities/role-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/user/entities/role-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/user/entities/user-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/user/entities/user-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/module/user/user-daos.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/user/user-daos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/authentification/authentification-daos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/authentification/dao/session-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/authentification/entities/session-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/authentification/injector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/authentification/manager/authentification-manager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/authorization/authorization-daos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/authorization/dao/authorization-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/authorization/entities/authorization-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/image/dao/image-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/image/dao/image-format-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/image/entities/image-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/image/entities/image-format-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/image/image-daos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/dao/media-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/dao/media-type-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/dao/resolution-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/dao/tags-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/entities/media-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/entities/media-type-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/entities/resolution-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/entities/tags-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/media/media-daos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/user/dao/role-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/user/dao/user-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/user/entities/role-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/user/entities/user-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/module/user/user-daos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/.run/File Server (TS).run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.run/File Server (TS).run.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/core-daos.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/core-daos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/dao/Untitled-1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/Untitled-1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/dao/i-base-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/dao/module-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/module-dao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/dao/page-setting-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/page-setting-dao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/entities/base-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/base-entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/entities/base-id-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/base-id-entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/entities/module-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/module-entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/entities/page-setting-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/page-setting-entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/entities/postgres-query-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/postgres-query-entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/errors/already-exists-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/already-exists-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/errors/base-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/base-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/errors/invalid-argument-type-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/invalid-argument-type-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/errors/not-found-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/not-found-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/errors/not-implemented-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/not-implemented-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/errors/post-gres-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/post-gres-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/errors/unauthorized-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/unauthorized-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/postgres/post-gres-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/postgres/post-gres-config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/postgres/postgres-adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/postgres/postgres-adapter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/postgres/postgresPipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/postgres/postgresPipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/core/util/js-util.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/util/js-util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/image/entities/image-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/image/entities/image-entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/dao/i-base-dao.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/dao/module-dao.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/dao/page-setting-dao.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/base-entity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/base-id-entity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/module-entity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/page-setting-entity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/postgres-query-entity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/already-exists-error.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/base-error.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/invalid-argument-type-error.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/not-found-error.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/not-implemented-error.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/unauthorized-error.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/postgres/post-gres-config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/postgres/postgres-adapter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/postgres/postgresPipe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/util/js-util.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +88,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/back-end/node_modules/mocha" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/back-end/configs" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/back-end/node_modules/mocha" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -143,11 +96,14 @@
     <property name="ts.external.directory.path" value="A:\server\media-server\old\angular\front-end\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="A:\server\media-server\back-end\configs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="A:\server\media-server\back-end\modules" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.core/dao/i-base-dao.js.should update a module to the database">
+  <component name="RunManager" selected="Mocha.test media server">
     <configuration default="true" type="mocha-javascript-test-runner">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -163,6 +119,7 @@
     <configuration name="core/dao/i-base-dao.js" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
+      <mocha-package>$PROJECT_DIR$/back-end/node_modules/mocha</mocha-package>
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
@@ -177,6 +134,7 @@
     <configuration name="core/dao/i-base-dao.js.should add/selectById/delete a module to the database" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
+      <mocha-package>$PROJECT_DIR$/back-end/node_modules/mocha</mocha-package>
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
@@ -205,9 +163,23 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="test media server" type="mocha-javascript-test-runner">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/back-end/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$/back-end</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory>./test/**/*spec?(s).js</test-directory>
+      <recursive>false</recursive>
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="mocha-javascript-test-runner">
       <node-interpreter>project</node-interpreter>
       <node-options />
+      <mocha-package>$PROJECT_DIR$/back-end/node_modules/mocha</mocha-package>
       <working-directory>$PROJECT_DIR$/back-end</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
@@ -220,11 +192,10 @@
     <list>
       <item itemvalue="Mocha.Tests (TS)" />
       <item itemvalue="Mocha.test" />
+      <item itemvalue="Mocha.test media server" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js.should add/selectById/delete a module to the database" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js.should update a module to the database" />
-      <item itemvalue="Node.js.File Server (TS)" />
-      <item itemvalue="Node.js.Play" />
     </list>
     <recent_temporary>
       <list>
@@ -247,46 +218,44 @@
       <updated>1596912043679</updated>
       <workItem from="1596912050827" duration="13337000" />
       <workItem from="1596988481671" duration="6194000" />
-      <workItem from="1597611068240" duration="248000" />
+      <workItem from="1597611068240" duration="4345000" />
     </task>
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 48m 01s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 48m 32s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 51m 08s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 51m 35s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 52m 17s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 52m 50s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 19h 53m 02s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 20h 07m 26s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 20h 07m 42s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="core_dao_i-base-dao_js_should_update_a_module_to_the_database - 2020.08.08 at 20h 07m 54s.xml">
-      <configuration name="core/dao/i-base-dao.js.should update a module to the database" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="383" y="194" width="1092" height="859" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597612397146">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="383" y="194" width="1092" height="859" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1597612397146" />
+    <state x="709" y="366" key="FileChooserDialogImpl" timestamp="1597612365852">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="709" y="366" key="FileChooserDialogImpl/0.0.1858.1080@0.0.1858.1080" timestamp="1597612365852" />
+    <state width="1798" height="292" key="GridCell.Tab.0.bottom" timestamp="1597615778742">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1798" height="292" key="GridCell.Tab.0.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1597615778742" />
+    <state width="1798" height="292" key="GridCell.Tab.0.center" timestamp="1597615778742">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1798" height="292" key="GridCell.Tab.0.center/0.0.1858.1080@0.0.1858.1080" timestamp="1597615778742" />
+    <state width="1798" height="292" key="GridCell.Tab.0.left" timestamp="1597615778742">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1798" height="292" key="GridCell.Tab.0.left/0.0.1858.1080@0.0.1858.1080" timestamp="1597615778742" />
+    <state width="1798" height="292" key="GridCell.Tab.0.right" timestamp="1597615778742">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1798" height="292" key="GridCell.Tab.0.right/0.0.1858.1080@0.0.1858.1080" timestamp="1597615778742" />
+    <state x="636" y="273" width="585" height="534" key="find.popup" timestamp="1597616016680">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="636" y="273" width="585" height="534" key="find.popup/0.0.1858.1080@0.0.1858.1080" timestamp="1597616016680" />
   </component>
 </project>

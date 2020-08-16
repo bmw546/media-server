@@ -1,12 +1,12 @@
-const JsUtil = require('servercore/util/js-util');
+const JsUtil = require('back-end/modules/core/util/js-util');
 
-const IBaseDao = require('servercore/dao/i-base-dao');
+const IBaseDao = require('back-end/modules/core/dao/i-base-dao');
 
 const ModuleEntity = require('../entities/module-entity');
 
-const {postGres} = require('servercore/postgres/postgresPipe');
+const {postGres} = require('back-end/modules/core/postgres/postgresPipe');
 
-const ImageEntity = require('module/image/entities/image-entity');
+const ImageEntity = require('back-end/modules/image/entities/image-entity');
 
 /** @description The name of this dao table */
 const name = "module";

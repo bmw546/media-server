@@ -1,9 +1,9 @@
-const {postGres} = require('servercore/postgres/postgresPipe');
-const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
+const {postGres} = require('back-end/modules/core/postgres/postgresPipe');
+const PostgresQueryEntity = require('back-end/modules/core/entities/postgres-query-entity');
 
-const JsUtil = require('servercore/util/js-util');
+const JsUtil = require('back-end/modules/core/util/js-util');
 
-const NotImplementedError = require('servercore/errors/not-implemented-error');
+const NotImplementedError = require('back-end/modules/core/errors/not-implemented-error');
 
 /**
  * see hopchild/file-management/daos/file-info-daos

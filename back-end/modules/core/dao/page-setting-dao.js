@@ -1,14 +1,14 @@
-const IBaseDao = require('servercore/dao/i-base-dao');
+const IBaseDao = require('back-end/modules/core/dao/i-base-dao');
 
 const PageSettingEntity = require('../entities/page-setting-entity');
 
-const UserEntity = require('module/user/entities/user-entity');
+const UserEntity = require('back-end/modules/user/entities/user-entity');
 
 const ModuleEntity = require('../entities/module-entity');
 
-const ImageEntity = require('module/image/entities/image-entity');
+const ImageEntity = require('back-end/modules/image/entities/image-entity');
 
-const {postGres} = require('servercore/postgres/postgresPipe');
+const {postGres} = require('back-end/modules/core/postgres/postgresPipe');
 
 /** @description The name of this dao table */
 const name = "page_setting";

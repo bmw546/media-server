@@ -1,4 +1,4 @@
-const JsUtil = require("servercore/util/js-util");
+const JsUtil = require("back-end/modules/core/util/js-util");
 const BaseError = require("./base-error");
 
 /**

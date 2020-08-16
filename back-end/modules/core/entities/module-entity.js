@@ -1,8 +1,8 @@
-const JsUtil = require('servercore/util/js-util');
+const JsUtil = require('back-end/modules/core/util/js-util');
 
 const BaseIdEntity = require('./base-id-entity');
 
-const ImageEntity = require('module/image/entities/image-entity');
+const ImageEntity = require('back-end/modules/image/entities/image-entity');
 
 /**
  * @description entity for making module.

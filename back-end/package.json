@@ -20,11 +20,11 @@
     "crypto-js": "latest",
     "express": "latest",
     "lodash": "latest",
-    "module": "file:module",
+    "module": "file:modules",
     "pg": "latest",
     "redis-sessions": "latest",
-    "servercore": "file:core",
-    "uuid": "latest"
+    "uuid": "latest",
+    "config": "file:configs"
   },
   "devDependencies": {
     "chai": "latest",
