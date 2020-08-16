@@ -5,10 +5,10 @@ const CryptoJS = require ('crypto-js');
 
 const JsUtil = require('servercore/util/js-util');
 
-const UserDao = require('module/user/dao/user-dao');
+const UserDao = require('back-end/modules/user/dao/user-dao');
 const userDao = new UserDao();
 
-const UserEntity = require('module/user/entities/user-entity');
+const UserEntity = require('back-end/modules/user/entities/user-entity');
 
 const SessionEntity = require('../entities/session-entity');
 const {sessionDao} = require('../injector');

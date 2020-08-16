@@ -3,7 +3,7 @@ const JsUtil = require('servercore/util/js-util');
 const redisSessions = require("redis-sessions");
 /** @see https://github.com/smrchy/redis-sessions#readme **/
 
-const SessionEntity = require(`../entities/session-entity`);
+const SessionEntity = require(`back-end/modules/authentification/entities/session-entity`);
 
 const RedisConfigs = {
     requestTimeout: 3000,

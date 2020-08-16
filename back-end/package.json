@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Back-end server.",
   "main": "index.js",
   "scripts": {
@@ -17,16 +17,29 @@
   },
   "homepage": "https://github.com/bmw546/media-server#readme",
   "dependencies": {
-    "chai": "^4.2.0",
     "crypto-js": "latest",
     "express": "latest",
     "lodash": "latest",
-    "mocha": "^8.1.1",
     "module": "file:module",
     "pg": "latest",
     "redis-sessions": "latest",
     "servercore": "file:core",
-    "sinon": "^9.0.2",
     "uuid": "latest"
+  },
+  "devDependencies": {
+    "chai": "latest",
+    "mocha": "latest",
+    "sinon": "latest",
+    "ts-node": "latest",
+    "ts-mocha": "latest",
+    "node-fetch": "latest",
+    "typescript": "latest",
+    "@types/sinon": "latest",
+    "@types/mocha": "latest",
+    "@types/express": "latest",
+    "@types/request": "latest",
+    "@types/mongoose": "latest",
+    "chai-as-promised": "latest",
+    "@types/chai-as-promised": "latest"
   }
 }

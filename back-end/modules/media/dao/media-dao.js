@@ -7,7 +7,7 @@ const MediaEntity = require('../entities/media-entity');
 
 const MediaTypeEntity = require('../entities/media-type-entity');
 
-const AuthorizationEntity = require('module/authorization/entities/authorization-entity');
+const AuthorizationEntity = require('back-end/modules/authorization/entities/authorization-entity');
 const TagsEntity = require('../entities/tags-entity');
 const { user } = require('servercore/postgres/post-gres-config');
 

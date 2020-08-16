@@ -3,12 +3,12 @@ const JsUtil = require('servercore/util/js-util');
 const BaseIdEntity = require('servercore/entities/base-id-entity');
 
 const ResolutionEntity = require('./resolution-entity');
-const AuthorizationEntity = require('module/authorization/entities/authorization-entity');
+const AuthorizationEntity = require('back-end/modules/authorization/entities/authorization-entity');
 
-const UserEntity = require('module/user/entities/user-entity');
+const UserEntity = require('back-end/modules/user/entities/user-entity');
 
-const TagsEntity = require('../entities/tags-entity');
-const MediaTypeEntities = require('../entities/media-type-entity');
+const TagsEntity = require('./tags-entity');
+const MediaTypeEntities = require('./media-type-entity');
 
 
 /**

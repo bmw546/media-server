@@ -2,7 +2,7 @@ const JsUtil = require('servercore/util/js-util');
 
 const BaseIdEntity = require('servercore/entities/base-id-entity');
 
-const RoleEntity = require('module/user/entities/role-entity');
+const RoleEntity = require('back-end/modules/user/entities/role-entity');
 /**
  * @description
  */

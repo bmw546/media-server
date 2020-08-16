@@ -3,8 +3,8 @@ const IBaseDao = require('servercore/dao/i-base-dao');
 const ImageEntity = require('../entities/image-entity');
 const ImageFormatEntity = require('../entities/image-format-entity');
 
-const MediaEntity = require('module/media/entities/media-entity');
-const ResolutionEntity = require('module/media/entities/resolution-entity');
+const MediaEntity = require('back-end/modules/media/entities/media-entity');
+const ResolutionEntity = require('back-end/modules/media/entities/resolution-entity');
 
 const {postGres} = require('servercore/postgres/postgresPipe');
 

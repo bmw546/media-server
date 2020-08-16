@@ -2,7 +2,7 @@
 const MediaDao = require('./dao/media-dao');
 const MediaTypeDao = require('./dao/media-type-dao');
 const TagsDao = require('./dao/tags-dao');
-const ResolutionDao = require(`./dao/resolution-dao`);
+const ResolutionDao = require(`back-end/modules/media/dao/resolution-dao`);
 
 
 module.exports = {
