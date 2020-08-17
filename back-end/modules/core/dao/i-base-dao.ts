@@ -11,7 +11,7 @@ const NotImplementedError = require('back-end/modules/core/errors/not-implemente
  * 
  * @description Handles the communication with the database
  */
-class IBaseDao{
+export class IBaseDao{
     
     //------------------- Base Function that everyone should have ----------------------------- //
 
@@ -57,12 +57,7 @@ class IBaseDao{
         return Object.keys(obj).map((key) => (key + ` = $`+(i = i+1)));
     }
 
-
-    /**
-     * @description Base Select to select a object by its id.
-     * @param {number} id 
-     */
-    async selectById(id){
+    async selectById(id: number){
 
         let result = await postGres.executeQuery(new PostgresQueryEntity({
             command: `${this.selectQuery()} id = $1`,
@@ -70,13 +65,12 @@ class IBaseDao{
         }));
         return this._buildEntity(result.rows[0]);
     }
-    
-    
+
     /**
-     * @description Base object to create a update a element in the db by its id.
-     * @param {*} object 
+     * @description
+     * @param object
      */
-    async modify(object){
+    async modify(object: {}){
         let obj = JSON.parse(JSON.stringify(object));
         obj = this._prepare(obj);
 
@@ -97,26 +91,26 @@ class IBaseDao{
         return this._buildEntity(result.rows[0]);
     }
 
-    prepareObjectForInsertUpdate(obj){
+    prepareObjectForInsertUpdate(obj: {}){
         let object = JSON.parse(JSON.stringify(obj));
         object = this._prepare(object);
         delete object.id;
         
     }
 
-    generateQueryForCommit(obj){
+    generateQueryForCommit(obj: {}){
         return new PostgresQueryEntity({
             // build query for commit
-            command: `${this.insertQuery(Object.keys(object))}`+
+            command: `${this.insertQuery(Object.keys(obj))}`+
                     `(`+ this.parametrizeObject(obj) + `) RETURNING *`,
-            parameters: Object.values(object)
+            parameters: Object.values(obj)
         });
     }
     /**
      * @description Base object to create a commit.
      * @param {*} obj
      */
-    async commit(obj){
+    async commit(obj: {}){
         
         let preparedObject = this.prepareObjectForQuery(obj);
     
@@ -134,7 +128,7 @@ class IBaseDao{
     }
 
     // protect those function and keep tem like 'delete'
-    async delete(id){
+    async delete(id: number){
         await postGres.executeQuery(new PostgresQueryEntity({
             command: `${this.deleteQuery()} id = $1`,
             parameters: [id]

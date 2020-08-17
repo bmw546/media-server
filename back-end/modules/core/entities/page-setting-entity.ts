@@ -1,53 +1,32 @@
-const JsUtil = require('back-end/modules/core/util/js-util');
+import {ModuleEntity} from "./module-entity";
 
-const BaseIdEntity = require('./base-id-entity');
+import { BaseIdEntity } from './base-id-entity';
 
-const ImageEntity = require('back-end/modules/image/entities/image-entity');
+import { ImageEntity } from 'modules/image/entities/image-entity';
 
-const UserEntity = require('back-end/modules/user/entities/user-entity');
-
-const ModuleEntity = require('./module-entity');
+import { UserEntity } from 'modules/user/entities/user-entity';
 
 /** //TODO explain each entity why we use them. (see registrationToken long description)
  * @description The setting for a page. e.g Contain the info for theming the page.
  */
-class PageSettingEntity extends BaseIdEntity{
-    
-    /** @param {PageSettingEntity} params*/
-    constructor(params){
+export interface PageSettingEntity extends BaseIdEntity{
 
-        params = JsUtil.defaultIfNothing(params, {});
+    styleName: string
 
-        super(params);
-        
-        /** @type {string} */
-        this.styleName = JsUtil.undefinedIfNothing(params.styleName);
+    foreground?: string
 
-        /** @type {string} */
-        this.foreground = JsUtil.undefinedIfNothing(params.foreground);
+    background?: string
 
-        /** @type {string} */
-        this.background = JsUtil.undefinedIfNothing(params.background);
+    text?: string
 
-        /** @type {string} */
-        this.text = JsUtil.undefinedIfNothing(params.text);
+    button?: string
 
-        /**@type {string} */
-        this.button = JsUtil.undefinedIfNothing(params.button);
+    creator?: UserEntity
 
-        /** @type {UserEntity} */
-        this.creator = JsUtil.undefinedIfNothing(params.creator);
+    options?: string
 
-        /** @type {string} */
-        this.options = JsUtil.undefinedIfNothing(params.options);
+    backgroundImage?: ImageEntity
 
-        /** @type {ImageEntity} */
-        this.backgroundImage = JsUtil.undefinedIfNothing(params.backgroundImage);
-
-        /** @type {ModuleEntity} */
-        this.module = JsUtil.undefinedIfNothing(params.module);
-    }
+    module?: ModuleEntity
     
 }
-
-module.exports = PageSettingEntity;

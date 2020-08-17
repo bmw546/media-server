@@ -1,26 +1,6 @@
-const JsUtil = require('back-end/modules/core/util/js-util');
+import {BaseEntity} from "./base-entity";
 
-const BaseEntity = require('./base-entity');
-
-/**
- * @description entity for making query.
- */
-class PostgresQueryEntity extends BaseEntity{
-    
-    /** @param {PostgresQueryEntity} params*/
-    constructor(params){
-        super();
-
-        params = JsUtil.defaultIfNothing(params, {});
-        
-        /** @type {string} */
-        this.command = JsUtil.defaultIfNothing(params.command);
-
-        /** @type {*[]} */
-        this.parameters = JsUtil.defaultIfNothing(params.parameters);
-    
-    }
-    
+export interface PostgresQueryEntity extends BaseEntity{
+    command: string
+    parameters?: string
 }
-
-module.exports = PostgresQueryEntity;

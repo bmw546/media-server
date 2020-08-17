@@ -3,8 +3,6 @@
 /**
  * @description Base entity 
  */
-class BaseEntity {
+export interface BaseEntity {
 
 }
-
-module.exports = BaseEntity;

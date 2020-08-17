@@ -19,7 +19,7 @@ function moduleGenerator() {
 }
 
 // Here we gonna use the module-dao.js to test the base dao object
-describe('core/dao/i-base-dao.js', () => {
+describe('core/dao/i-base-dao.ts', () => {
 
     it('should add/selectById/delete a module to the database', async() => {
         let module = moduleGenerator();

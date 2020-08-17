@@ -3,51 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ddb96388-23eb-44cc-9456-dc4600635624" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/.run/File Server (TS).run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.run/File Server (TS).run.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/core-daos.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/core-daos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/dao/Untitled-1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/Untitled-1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/dao/i-base-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/dao/module-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/module-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/dao/page-setting-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/page-setting-dao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/base-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/base-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/base-id-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/base-id-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/module-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/module-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/page-setting-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/page-setting-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/entities/postgres-query-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/postgres-query-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/errors/already-exists-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/already-exists-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/errors/base-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/base-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/errors/invalid-argument-type-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/invalid-argument-type-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/errors/not-found-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/not-found-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/errors/not-implemented-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/not-implemented-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/errors/post-gres-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/post-gres-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/errors/unauthorized-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/errors/unauthorized-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/postgres/post-gres-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/postgres/post-gres-config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/postgres/postgres-adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/postgres/postgres-adapter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/postgres/postgresPipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/postgres/postgresPipe.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/core/util/js-util.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/util/js-util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/image/entities/image-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/image/entities/image-entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/dao/i-base-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/dao/module-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/dao/page-setting-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/base-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/base-id-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/module-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/page-setting-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/entities/postgres-query-entity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/already-exists-error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/base-error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/invalid-argument-type-error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/not-found-error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/not-implemented-error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/errors/unauthorized-error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/postgres/post-gres-config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/postgres/postgres-adapter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/postgres/postgresPipe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/node_modules/servercore/util/js-util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/base-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/base-entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/base-id-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/base-id-entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/module-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/module-entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/page-setting-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/page-setting-entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/postgres-query-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/postgres-query-entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +180,7 @@
       <updated>1596912043679</updated>
       <workItem from="1596912050827" duration="13337000" />
       <workItem from="1596988481671" duration="6194000" />
-      <workItem from="1597611068240" duration="4345000" />
+      <workItem from="1597611068240" duration="8882000" />
     </task>
     <servers />
   </component>
