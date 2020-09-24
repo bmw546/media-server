@@ -27,7 +27,7 @@ postGres.addModifyTable(
     `ALTER TABLE ${name} ADD CONSTRAINT fk_logo FOREIGN KEY (logo) REFERENCES image (id) ON UPDATE CASCADE ON DELETE SET NULL`
 );
 
-class ModuleDao extends IBaseDao{
+export class ModuleDao extends IBaseDao{
     constructor(){
         super();
         this.name = name;
@@ -63,5 +63,3 @@ class ModuleDao extends IBaseDao{
     }
 
 }
-
-module.exports = ModuleDao; 

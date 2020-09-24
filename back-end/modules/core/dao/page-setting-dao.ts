@@ -40,7 +40,7 @@ postGres.addModifyTable(
     `
 );
 
-class PageSettingDao extends IBaseDao{
+export class PageSettingDao extends IBaseDao{
 
     /**
      * @description Change the other entity to their id so we can insert it into the data store.
@@ -72,5 +72,3 @@ class PageSettingDao extends IBaseDao{
         return pageSetting;
     }
 }
-
-module.exports = PageSettingDao; 

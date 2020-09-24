@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ddb96388-23eb-44cc-9456-dc4600635624" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/base-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/base-entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/base-id-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/base-id-entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/module-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/module-entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/page-setting-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/page-setting-entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/entities/postgres-query-entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/entities/postgres-query-entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/test/integration-test/core/daos.specs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/dao/module-dao.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/dao/page-setting-dao.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +32,6 @@
     <handled-path value="$PROJECT_DIR$/old/angular/front-end/node_modules" />
     <handled-path value="$PROJECT_DIR$/old/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-116" />
-    <option name="y" value="298" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
-  </component>
   <component name="ProjectId" id="1gCGGihtl3nOUNQD7nYLFxgX6oT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -55,7 +45,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="A:\server\media-server\old\angular\front-end\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="A:\server\media-server\back-end\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -158,6 +148,8 @@
       <item itemvalue="Mocha.core/dao/i-base-dao.js.should add/selectById/delete a module to the database" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js.should update a module to the database" />
+      <item itemvalue="Node.js.File Server (TS)" />
+      <item itemvalue="Node.js.Play" />
     </list>
     <recent_temporary>
       <list>
@@ -180,7 +172,8 @@
       <updated>1596912043679</updated>
       <workItem from="1596912050827" duration="13337000" />
       <workItem from="1596988481671" duration="6194000" />
-      <workItem from="1597611068240" duration="8882000" />
+      <workItem from="1597611068240" duration="10604000" />
+      <workItem from="1598969943090" duration="255000" />
     </task>
     <servers />
   </component>
@@ -199,22 +192,22 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="709" y="366" key="FileChooserDialogImpl/0.0.1858.1080@0.0.1858.1080" timestamp="1597612365852" />
-    <state width="1798" height="292" key="GridCell.Tab.0.bottom" timestamp="1597615778742">
+    <state width="1798" height="292" key="GridCell.Tab.0.bottom" timestamp="1597633041358">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="1798" height="292" key="GridCell.Tab.0.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1597615778742" />
-    <state width="1798" height="292" key="GridCell.Tab.0.center" timestamp="1597615778742">
+    <state width="1798" height="292" key="GridCell.Tab.0.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1597633041358" />
+    <state width="1798" height="292" key="GridCell.Tab.0.center" timestamp="1597633041358">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="1798" height="292" key="GridCell.Tab.0.center/0.0.1858.1080@0.0.1858.1080" timestamp="1597615778742" />
-    <state width="1798" height="292" key="GridCell.Tab.0.left" timestamp="1597615778742">
+    <state width="1798" height="292" key="GridCell.Tab.0.center/0.0.1858.1080@0.0.1858.1080" timestamp="1597633041358" />
+    <state width="1798" height="292" key="GridCell.Tab.0.left" timestamp="1597633041358">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="1798" height="292" key="GridCell.Tab.0.left/0.0.1858.1080@0.0.1858.1080" timestamp="1597615778742" />
-    <state width="1798" height="292" key="GridCell.Tab.0.right" timestamp="1597615778742">
+    <state width="1798" height="292" key="GridCell.Tab.0.left/0.0.1858.1080@0.0.1858.1080" timestamp="1597633041358" />
+    <state width="1798" height="292" key="GridCell.Tab.0.right" timestamp="1597633041358">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="1798" height="292" key="GridCell.Tab.0.right/0.0.1858.1080@0.0.1858.1080" timestamp="1597615778742" />
+    <state width="1798" height="292" key="GridCell.Tab.0.right/0.0.1858.1080@0.0.1858.1080" timestamp="1597633041358" />
     <state x="636" y="273" width="585" height="534" key="find.popup" timestamp="1597616016680">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
