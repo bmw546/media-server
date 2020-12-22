@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ddb96388-23eb-44cc-9456-dc4600635624" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/dao/i-base-dao.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/dao/module-dao.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/modules/core/dao/page-setting-dao.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +43,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="A:\server\media-server\back-end\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -174,6 +172,7 @@
       <workItem from="1596988481671" duration="6194000" />
       <workItem from="1597611068240" duration="10604000" />
       <workItem from="1598969943090" duration="255000" />
+      <workItem from="1607097770141" duration="1096000" />
     </task>
     <servers />
   </component>
