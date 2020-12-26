@@ -1,10 +1,11 @@
-const sinon = require('sinon');
-const chai = require('chai');
+import('sinon');
+import('chai');
 const expect = chai.expect;
 const should = chai.should();
-const stub = sinon.stub;
+import {stub as stub} from 'sinon';
 
-const { v4: uuidv4 } = require('uuid');
+//const { v4: uuidv4 } = require('uuid');
+import { v4 } from 'uuid';
 //see https://www.npmjs.com/package/uuid
 
 const AuthenticationManager = require('module/authentification/manager/authentification-manager');
@@ -120,7 +121,7 @@ describe('module/authentification/manager/authentification-manager : createSessi
         let session = new SessionEntity({
             userId: user.id,
             uuid: uuidv4(),
-            rawAccessToken: token,
+            rawAccessToken: 'token',
             ip: '192.168.0.101'
         });
 

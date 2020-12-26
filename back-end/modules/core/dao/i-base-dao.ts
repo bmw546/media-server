@@ -142,4 +142,4 @@ export class IBaseDao{
     }
 }
 
-module.exports = IBaseDao;
+module.exports = IBaseDao;let

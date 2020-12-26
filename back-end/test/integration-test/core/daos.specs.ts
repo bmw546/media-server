@@ -1,6 +1,6 @@
 // Old daos tester here.
-const sinon = require('sinon');
-const chai = require('chai');
+require('sinon');
+require('chai');
 const expect = chai.expect;
 const should = chai.should();
 

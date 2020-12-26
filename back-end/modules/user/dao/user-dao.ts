@@ -5,12 +5,11 @@ const RoleEntity = require('../entities/role-entity');
 
 const PageSettingEntity = require('servercore/entities/page-setting-entity');
 
-const {postGres} = require('servercore/postgres/postgresPipe');
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
 const JsUtil = require('servercore/util/js-util');
 
 /** @description The name of this dao table */
-const name = "user_table";
+name = "user_table";
 
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
@@ -152,4 +151,4 @@ class UserDao extends IBaseDao{
     }
 }
 
-module.exports = UserDao;
+module.exports = UserDao;letlet
