@@ -58,16 +58,19 @@ export class IBaseDao{
     //------------------------------ Base Query --------------------------------------
 
     prepareObjectForInsert(obj: BaseIdEntity):BaseIdEntity {
+        // Copy the objet (so we won't modify the original one).
         let object = JSON.parse(JSON.stringify(obj));
         object = this._prepare(object);
+
+        // Delete the id since it an insert.
         delete object.id;
 
         return object;
     }
 
-    parametrizeObject(obj:BaseEntity ):String {
+    parametrizeObject(obj:BaseEntity):string {
         let i = 0;
-        return Object.keys(obj).map((key) => (key + ` = $`+(i = i+1)));
+        return Object.keys(obj).map((key) => (key + ` = $`+(i = i+1))).toString();
     }
 
     async selectById(id: number):Promise<BaseIdEntity> {
@@ -96,7 +99,7 @@ export class IBaseDao{
         let result = await postGres.executeQuery(new PostgresQueryEntity({
             command: `${this.updateQuery(this.parametrizeObject(obj) as string)}` +
                 ` id = $`+ ( Object.keys(obj).length + 1 ),
-            parameters: Object.keys(obj).map((key) => `${obj[key]}`).concat([id])
+            parameters: Object.keys(obj).map((key) => `${obj[key]}`)
         }));
         return this._buildEntity(result.rows[0]);
     }
@@ -112,7 +115,7 @@ export class IBaseDao{
     generateQueryForCommit(obj: BaseIdEntity): BaseIdEntity {
         return new PostgresQueryEntity({
             // build query for commit
-            command: `${this.insertQuery(Object.keys(obj))}`+
+            command: `${this.insertQuery(Object.keys(obj).toString())}`+
                     `(`+ this.parametrizeObject(obj) + `) RETURNING *`,
             parameters: Object.values(obj)
         });
@@ -125,7 +128,7 @@ export class IBaseDao{
         
         let preparedObject = this.prepareObjectForInsert(obj);
     
-        let results = await postGres.executeQuery(this.generateQueryForCommit(preparedObject), Object.values(object));
+        let results = await postGres.executeQuery(this.generateQueryForCommit(preparedObject), Object.values(preparedObject));
 
         return this._buildEntity(results.rows[0]);
     }

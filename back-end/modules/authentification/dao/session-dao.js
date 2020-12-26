@@ -8,6 +8,8 @@ const SessionEntity = require(`back-end/modules/authentification/entities/sessio
 const RedisConfigs = {
     requestTimeout: 3000,
     appName: `MediaServer`,
+    host: `127.0.0.1`,
+    port: 12
 };
 
 function redisSessionConverter(redisSession){
