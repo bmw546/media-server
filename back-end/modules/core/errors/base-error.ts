@@ -1,8 +1,10 @@
 /**
  * @description Base class for any errors specific to this system.
  */
-class BaseError extends Error{
+export class BaseError extends Error{
 
+    reason:string;
+    name:string;
     /**
      * @param {*} reason - The reason of this error.
      * @param {*} innerReason  - The error that cause this error.
@@ -15,5 +17,3 @@ class BaseError extends Error{
 
     }
 }
-
-module.exports = BaseError;

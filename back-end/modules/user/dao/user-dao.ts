@@ -46,11 +46,6 @@ postGres.addModifyTable(
 );
 class UserDao extends IBaseDao{
 
-    constructor(){
-        super();
-        this.name = tableName;
-    }
-
     // ========================== UserPageSetting ================================
 
     /**

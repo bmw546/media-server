@@ -27,7 +27,7 @@ postGres.addCreateTable(
 );
 
 class RoleDao extends IBaseDao{
-    
+
     /**
      * @description Create an role entity from an postgres result.
      * @param {RoleEntity} result 

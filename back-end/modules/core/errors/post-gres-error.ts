@@ -4,13 +4,11 @@ const PostgresQueryEntity = require('../entities/postgres-query-entity');
 /**
  * @description Error for not implemented function.
  */
-class PostGresError extends BaseError{
+export class PostGresError extends BaseError{
 
     /** @param {PostgresQueryEntity} query -The name of the non implemented function. */
     constructor(query){
-        super(`Post Gres error ! Trying to execute this command : ${query.command} with those parameters [`+
-        `${query.parameters}] !`);
+        super(`Post Gres error ! Trying to execute this command : ${query.command} with those parameters [${query.parameters}] !`,
+        "The requested post gres function does not exist");
     }
 }
-
-module.exports = PostGresError;
