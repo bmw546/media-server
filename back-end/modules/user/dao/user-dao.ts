@@ -4,17 +4,17 @@ const UserEntity = require('../entities/user-entity');
 const RoleEntity = require('../entities/role-entity');
 
 const PageSettingEntity = require('servercore/entities/page-setting-entity');
-
 const PostgresQueryEntity = require('servercore/entities/postgres-query-entity');
+
 const JsUtil = require('servercore/util/js-util');
 
 /** @description The name of this dao table */
-const name = "user_table";
+const tableName = "user_table";
 
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS ${name} (
+    `CREATE TABLE IF NOT EXISTS ${tableName} (
         id serial primary key,
         username VARCHAR(50),
         avatarImageId INT,
@@ -34,17 +34,22 @@ postGres.addModifyTable(
     `CREATE TABLE IF NOT EXISTS user_page_setting (
         user_id int,
         page_setting int,
-        FOREIGN KEY (user_id) REFERENCES ${name} (id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (user_id) REFERENCES ${tableName} (id) ON UPDATE CASCADE ON DELETE CASCADE,
         FOREIGN KEY (page_setting) REFERENCES page_setting (id) ON UPDATE CASCADE ON DELETE SET NULL
     )`
 );
 
 postGres.addModifyTable(
-    `ALTER TABLE ${name}
+    `ALTER TABLE ${tableName}
         ADD FOREIGN KEY (role) REFERENCES role(id) ON UPDATE CASCADE ON DELETE SET NULL
     `
 );
 class UserDao extends IBaseDao{
+
+    constructor(){
+        super();
+        this.name = tableName;
+    }
 
     // ========================== UserPageSetting ================================
 
@@ -82,7 +87,8 @@ class UserDao extends IBaseDao{
      * @param {UserEntity} user - The user with its page setting
      */
     async addUsePageSetting(user){
-        let result = [];
+        var result: Array<any> = new Array<any>();
+
         for(let setting of user.selectedPageSettings){
             result.push(await postGres.executeQuery(new PostgresQueryEntity({
                 command: `${this.insertQuery('userPageSetting')}`,

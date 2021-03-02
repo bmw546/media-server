@@ -1,16 +1,16 @@
-const IBaseDao = require('servercore/dao/i-base-dao');
-
+// Check if the variable is there if no then declare it.
 const RoleEntity = require('../entities/role-entity');
-
+const IBaseDao = require('servercore/dao/i-base-dao');
 const {postGres} = require('servercore/postgres/postgresPipe');
 
+
 /** @description The name of this dao table */
-const name = "role";
+const tableName = "role";
 
 // --------------- Let add the basic table --------------------
 // Mayby ask for a better generated ID
 postGres.addCreateTable(
-    `CREATE TABLE IF NOT EXISTS ${name} (
+    `CREATE TABLE IF NOT EXISTS ${tableName} (
         id serial primary key,
         title VARCHAR(50),
         description VARCHAR(150)
@@ -19,7 +19,7 @@ postGres.addCreateTable(
 
 // Adding some data
 postGres.addCreateTable(
-    `INSERT INTO ${name} (title, description)
+    `INSERT INTO ${tableName} (title, description)
     VALUES ('root', 'The root system'), 
     ('admin', 'The system admin'),
     ('user', 'A registered user'),

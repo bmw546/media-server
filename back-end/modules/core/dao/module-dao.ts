@@ -8,7 +8,7 @@ const {postGres} = require('back-end/modules/core/postgres/postgresPipe');
 
 const ImageEntity = require('back-end/modules/image/entities/image-entity');
 
-// WHY outside of the class ? So we can 
+// WHY outside of the class ? So we can add the sql to generate it table. 
 /** @description The name of this dao table */
 const name = "module";
 

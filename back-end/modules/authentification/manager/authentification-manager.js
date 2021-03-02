@@ -22,8 +22,6 @@ const NotFoundError = require('servercore/errors/not-found-error');
 const key = 'b55e1e9a7c794e58d53347ff3ce9251d';
 
 class AuthenticationManager {
-
-
     loginByAuth(){
         //TODO WIP
     }
