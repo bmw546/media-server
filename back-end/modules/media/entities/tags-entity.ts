@@ -1,4 +1,4 @@
-import UserEntity = require("modules/user/entities/user-entity");
+import {UserEntity} from "modules/user/entities/user-entity";
 import { BaseEntity } from "modules/core/entities/base-entity";
 
 /**

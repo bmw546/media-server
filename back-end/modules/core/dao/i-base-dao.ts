@@ -16,7 +16,15 @@ const NotImplementedError = require('back-end/modules/core/errors/not-implemente
  */
 export class IBaseDao{
 
-    name: string = '';
+    /** @description The name of this dao table */
+    private _name: string = '';
+
+    public get name(): string {
+        return this._name;
+    }
+    public set name(value: string) {
+        this._name = value;
+    }
     
     //------------------- Base Function that everyone should have ----------------------------- //
 
@@ -142,4 +150,4 @@ export class IBaseDao{
     }
 }
 
-module.exports = IBaseDao;let
+module.exports = IBaseDao;

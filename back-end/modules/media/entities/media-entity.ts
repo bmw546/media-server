@@ -1,8 +1,8 @@
 import { AuthorizationEntity } from "modules/authorization/entities/authorization-entity";
 import { BaseIdEntity } from "modules/core/entities/base-id-entity";
-import UserEntity = require("modules/user/entities/user-entity");
-import MediaTypeEntity = require("./media-type-entity");
-import TagsEntity = require("./tags-entity");
+import {UserEntity} from "modules/user/entities/user-entity";
+import {MediaTypeEntity} from "./media-type-entity";
+import {TagsEntity} from "./tags-entity";
 
 /**
  * @description This is the 'main' dto for all media (image/video/music)

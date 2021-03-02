@@ -9,7 +9,7 @@ const PostgresQueryEntity = require('servercore/entities/postgres-query-entity')
 const JsUtil = require('servercore/util/js-util');
 
 /** @description The name of this dao table */
-name = "user_table";
+const name = "user_table";
 
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
@@ -151,4 +151,4 @@ class UserDao extends IBaseDao{
     }
 }
 
-module.exports = UserDao;letlet
+module.exports = UserDao;

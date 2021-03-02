@@ -5,7 +5,7 @@ const CORS = require('cors');
 const bodyParser = require('body-parser');
 
 import {IServerAppConfigs} from "./i-server-app-configs";
-import {AppModule} from 'soulmate/app-framework/app-module';
+import {AppModule} from './app-module';
 import {ExpressJsUtil} from "../express-utils/express-utils";
 import {canRegisterExpressRoutes, IRegisterExpressRoutes} from "./i-register-api-routes";
 

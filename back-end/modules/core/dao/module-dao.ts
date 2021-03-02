@@ -1,6 +1,6 @@
 const JsUtil = require('back-end/modules/core/util/js-util');
 
-const IBaseDao = require('back-end/modules/core/dao/i-base-dao');
+import {IBaseDao} from "./i-base-dao";
 
 const ModuleEntity = require('../entities/module-entity');
 
@@ -8,6 +8,7 @@ const {postGres} = require('back-end/modules/core/postgres/postgresPipe');
 
 const ImageEntity = require('back-end/modules/image/entities/image-entity');
 
+// WHY outside of the class ? So we can 
 /** @description The name of this dao table */
 const name = "module";
 
@@ -28,11 +29,7 @@ postGres.addModifyTable(
 );
 
 export class ModuleDao extends IBaseDao{
-    constructor(){
-        super();
-        this.name = name;
-    }
-    
+
     /**
      * @private
      * @description Prepare the entity for the db query

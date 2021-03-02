@@ -13,7 +13,6 @@ const {postGres} = require('back-end/modules/core/postgres/postgresPipe');
 /** @description The name of this dao table */
 const name = "page_setting";
 
-
 // --------------- Let add the basic table --------------------
 // Maybe ask for a better generated ID
 postGres.addCreateTable(
@@ -42,13 +41,16 @@ postGres.addModifyTable(
 
 export class PageSettingDao extends IBaseDao{
 
+    PageSettingDao(){
+        
+    }
     /**
      * @description Change the other entity to their id so we can insert it into the data store.
      * @param {PageSettingEntity} pageSetting 
      */
     _prepare(pageSetting){
         
-        pageSetting.creator = creator.id;
+        pageSetting.creator = pageSetting.creator.id;
         
         pageSetting.backgroundImage = pageSetting.backgroundImage.id;
 
