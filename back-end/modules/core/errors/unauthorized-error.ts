@@ -1,4 +1,4 @@
-const BaseError = require('./base-error');
+import {BaseError} from './base-error';
 
 /** @description Raised when trying to access an unauthorized resource. */
 export class UnauthorizedError extends BaseError {

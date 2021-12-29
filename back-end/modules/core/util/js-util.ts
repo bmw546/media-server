@@ -1,4 +1,4 @@
-var lodash = require('lodash');
+import lodash from 'lodash';
 //lodash wiki : https://lodash.com/docs/4.17.15#isNil
 
 /**
@@ -23,11 +23,6 @@ class JsUtil extends lodash{
 
         return value;
     }
-
-
-
-    
-
 }
 
-module.exports = JsUtil;
+export = JsUtil;

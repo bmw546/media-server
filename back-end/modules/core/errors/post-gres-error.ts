@@ -1,6 +1,6 @@
-const JsUtil = require("back-end/modules/core/util/js-util");
-const BaseError = require("./base-error");
-const PostgresQueryEntity = require('../entities/postgres-query-entity');
+import JsUtil = require("../util/js-util")
+import {BaseError} from './base-error';
+import PostgresQueryEntity = require("../entities/postgres-query-entity");
 /**
  * @description Error for not implemented function.
  */

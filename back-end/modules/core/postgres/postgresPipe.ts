@@ -1,6 +1,6 @@
-const PostGres = require("./postgres-adapter");
+import PostGres = require("./postgres-adapter")
 
 /** @property {postGres} PostGres */
-module.exports = {
+export = {
     postGres: new PostGres(),
 }
