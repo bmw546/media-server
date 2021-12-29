@@ -1,7 +1,5 @@
 
-export interface BaseIdClass{
-    id: number | undefined;
-
+export interface BaseClass{
     getCreateQuery(): string;
     getDeleteQuery(): string;
 }
