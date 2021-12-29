@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ddb96388-23eb-44cc-9456-dc4600635624" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/modules/core/postgres/postgres-adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/modules/core/postgres/postgres-adapter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,14 +141,14 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Mocha.Tests (TS)" />
-      <item itemvalue="Mocha.test" />
       <item itemvalue="Mocha.test media server" />
-      <item itemvalue="Mocha.core/dao/i-base-dao.js.should add/selectById/delete a module to the database" />
+      <item itemvalue="Mocha.test" />
+      <item itemvalue="Mocha.Tests (TS)" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js" />
+      <item itemvalue="Mocha.core/dao/i-base-dao.js.should add/selectById/delete a module to the database" />
       <item itemvalue="Mocha.core/dao/i-base-dao.js.should update a module to the database" />
-      <item itemvalue="Node.js.File Server (TS)" />
       <item itemvalue="Node.js.Play" />
+      <item itemvalue="Node.js.File Server (TS)" />
     </list>
     <recent_temporary>
       <list>
@@ -173,6 +174,9 @@
       <workItem from="1597611068240" duration="10604000" />
       <workItem from="1598969943090" duration="255000" />
       <workItem from="1607097770141" duration="1096000" />
+      <workItem from="1616907886615" duration="4000" />
+      <workItem from="1619145184161" duration="8000" />
+      <workItem from="1629128654645" duration="593000" />
     </task>
     <servers />
   </component>
