@@ -1,8 +1,7 @@
 
 export interface groups{
-    id: number | undefined;
+    groupId: number | undefined;
     nom: string | undefined;
     description: string | undefined;
     adminUserId: number | undefined;
-    griyoeUd: number | undefined;
 }
