@@ -7,7 +7,7 @@ import {PostGresError} from '../errors/post-gres-error';
 
 // postgres
 // postgres info to start it--> https://stackoverflow.com/questions/4482239/postgresql-database-service
-import { Client } from 'ts-postgres';
+//import { Client } from 'ts-postgres';
 
 const dbConfigs = import('./post-gres-config');
 
@@ -30,7 +30,7 @@ pool.end(() => {
     console.log('pool has ended')
 });
 
-pool.on('error', (err: Error, client: Client) => {
+pool.on('error', (err: Error, client: any) => {
     console.log('an error as occured to postgres client: ' + Error);
 });
 
