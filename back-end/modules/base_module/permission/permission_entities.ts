@@ -1,10 +1,22 @@
+import { BaseEntity } from "modules/core/entities/base-entity";
 
-export interface permission{
+export class permission implements BaseEntity{
+    fromResult(result: any) {
+        this.permissionId = result.permissionId;
+        this.permissionFunc = result.permissionFunc;
+
+        this.permissionAccessId = result.permissionAccessId;
+        this.permissionAccessType = result.permissionAccessType;
+
+        this.read = result.read;
+        this.write = result.write;
+        this.delete = this.delete;
+    }
     permissionId: number | undefined;
-    permission_func: number | undefined;
+    permissionFunc: number | undefined;
 
-    permission_access_id: number | undefined; // To what this give access to
-    permission_access_type: string | undefined; // To what it give access to (media/whatever)
+    permissionAccessId: number | undefined; // To what this give access to
+    permissionAccessType: string | undefined; // To what it give access to (media/whatever)
     read: Boolean | undefined;
     write: Boolean | undefined;
     delete: Boolean | undefined;

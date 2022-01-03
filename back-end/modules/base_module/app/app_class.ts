@@ -12,6 +12,7 @@ export class appClass implements BaseClass{
         query.parameters = [`${id}`];
         return new app().fromResult(postGres.executeQuery(query));
     }
+
     async set(object: app) {
         let query:PostgresQueryEntity;
         query = {} as PostgresQueryEntity;
@@ -20,6 +21,7 @@ export class appClass implements BaseClass{
         query.parameters = [`${object.id}`, `${object.mediaId}`, `${object.nom}`, `${object.description}`, `${object.defaultThemeId}`];
         return postGres.executeQuery(query);
     }
+    
     async delete(object: app) {
         let query:PostgresQueryEntity;
         query = {} as PostgresQueryEntity;
@@ -27,6 +29,7 @@ export class appClass implements BaseClass{
         query.parameters = [`${object.id}`];
         return postGres.executeQuery(query);
     }
+    
     async modify(object: app) {
         let query:PostgresQueryEntity;
         query = {} as PostgresQueryEntity;
@@ -34,6 +37,8 @@ export class appClass implements BaseClass{
         query.parameters = [`${object.id}`, `${object.mediaId}`, `${object.nom}`, `${object.description}`, `${object.defaultThemeId}`];
         return postGres.executeQuery(query);
     }
+
+
     getCreateQuery(): string {
         return `CREATE TABLE ${this.tableName}(
             id INT NOT NULL,
