@@ -12,6 +12,15 @@ export class permissionGroupClass implements BaseClass{
         query.parameters = [`${id}`];
         return new permissionGroup().fromResult(postGres.executeQuery(query));
     }
+
+    getPermissionId(id: number) {
+        let query:PostgresQueryEntity;
+        query = {} as PostgresQueryEntity;
+        query.command = 'SELECT * FROM ' + this.tableName + ' WHERE permissionId = $1';
+        query.parameters = [`${id}`];
+        return new permissionGroup().fromResult(postGres.executeQuery(query));
+    }
+
     set(object: permissionGroup) {
         let query:PostgresQueryEntity;
         query = {} as PostgresQueryEntity;
